@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { callApi } from "../../ApiUtils/LoginUtils";
 import {
   useDispatchCurrentUser,
@@ -11,6 +12,7 @@ import rectangle17 from "../../assets/Rectangle17.png";
 import googleImage from "../../assets/googleImage.png";
 import facebookImage from "../../assets/facebookImage.png";
 const Login = () => {
+  const history = useHistory();
   const emailRef = useRef();
   const passwordRef = useRef();
   const [errorMessage, setErrorMessage] = useState(null);
@@ -19,10 +21,14 @@ const Login = () => {
 
   const submitLoginFormHandler = async (e) => {
     e.preventDefault();
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     console.log("email", emailRef.current.value);
     console.log("password", passwordRef.current.value);
+
     setErrorMessage(null);
     try {
+      if (!re.test(emailRef.current.value)) throw "Email not valid";
       const response = await callApi("/auth/local", "POST", {
         identifier: emailRef.current.value,
         password: passwordRef.current.value,
@@ -32,13 +38,34 @@ const Login = () => {
       }
       console.log(response);
       dispatch({ type: "LOGIN", user: response.user });
+      history.replace("/confirmation");
     } catch (error) {
+      console.log(error);
       setErrorMessage(error);
     }
   };
 
+  // const logoutHandler = async () => {
+  //   await callApi("/logout", "POST");
+  //   dispatch({ type: "LOGOUT" });
+  // };
+
+  const loginWithGoogleHandler = () => {
+    window.location = "http://localhost:1337/connect/google";
+  };
+  const goToStep1Handler = () => {
+    history.push("/step1");
+  };
+
   return (
     <>
+      <p
+        onClick={goToStep1Handler}
+        className="absolute top-4 right-4 text-xs underline"
+        style={{ cursor: "pointer" }}
+      >
+        Don't have an appereaz account?
+      </p>
       <img src={apperazLogo} className="absolute top-0 left-0"></img>
       <div className="w-screen h-screen flex items-center">
         <div className="w-1/2 flex flex-col items-center justify-center">
@@ -70,7 +97,10 @@ const Login = () => {
             {errorMessage && (
               <p className="text-xs text-red-600 mb-4">{errorMessage}</p>
             )}
-            {currentUser.isAuthenticated && <p>Logged in Sucessfully</p>}
+            {/* {currentUser.isAuthenticated && <p>Logged in Sucessfully</p>}
+            {currentUser.isAuthenticated && (
+              <button onClick={logoutHandler}>Logout</button>
+            )} */}
             <label htmlFor="password" className="text-xs mb-2">
               Password
             </label>
@@ -90,7 +120,10 @@ const Login = () => {
               Login
             </button>
             <p className="mb-4 text-sm">OR</p>
-            <button className="flex items-center justify-center w-60 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-6">
+            <button
+              onClick={loginWithGoogleHandler}
+              className="flex items-center justify-center w-60 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-6"
+            >
               <img className="mr-2 w-6 h-6" src={googleImage}></img>
               <p>Continue with Google</p>
             </button>
