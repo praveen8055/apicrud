@@ -14,9 +14,14 @@ const DummyConfirmation = () => {
     history.replace("/login");
   };
   return (
-    <div>
+    <div className="w-screen h-screen flex flex-col items-center justify-center">
       <h1>You have Sucessfully logged in</h1>
-      <button onClick={logoutHandler}>Logout</button>
+      <button
+        className="bg-blue-700 w-1/4 h-8 rounded-3xl text-white mb-5"
+        onClick={logoutHandler}
+      >
+        Logout
+      </button>
     </div>
   );
 };
