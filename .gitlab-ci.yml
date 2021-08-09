@@ -1,4 +1,3 @@
-# We have 2 stage Test and Deploy
 stages:
   - test
   - deploy
