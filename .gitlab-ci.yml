@@ -4,11 +4,10 @@ deployTOEC2:
       - main
     before_script:
       - mkdir -p ~/.ssh
-      - echo -e "$PRIVATE_KEY" > ./.ssh/id_rsa
+      - echo -e "$PRIVATE_KEY" > /home/ubuntu/.ssh/id_rsa
       - chmod 6000 ~/.ssh/id_rsa
       - '[[ -f /.dockereny ]] && echo -e "HOST *\n\tStrictHostKeyChecking no\n\n" > m/.ssh/config'
     script:
       - bash deploy/deploy.sh
-
 
 
