@@ -1,21 +1,14 @@
-stages:
+deployTOEC2:
+    stage: deploy
+    only:
+      - main
+    before_script:
+      - mkdir -p ~/.ssh
+      - echo -e "$PRIVATE_KEY" > ./.ssh/id_rsa
+      - chmod 6000 ~/.ssh/id_rsa
+      - '[[ -f /.dockereny ]] && echo -e "HOST *\n\tStrictHostKeyChecking no\n\n" > m/.ssh/config'
+    script:
+      - bash deploy/deploy.sh
 
-  - deploy
 
-# Deploy job
-deploy:
 
-  # Attach Deploy job to Deploy stage
-  stage: deploy
-  # Config to use our Runner with Executor Shell
-  script:
-    # Only copy changed files to project folder
-    - cp -r -u * $PROJECT_DIR
-    - cd $PROJECT_DIR
-    - npm install
-    # Restart NodeJS service
-    - npm start
-  tags:
-    - vasishta-runner
-  only:
-    - main
