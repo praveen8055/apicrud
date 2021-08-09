@@ -15,7 +15,7 @@ test:
   stage: test
   # Config to use GitLab Shared Runner with Executor Docker
   tags:
-    - docker
+    - vasishta-runner
   script:
     - npm install
     
