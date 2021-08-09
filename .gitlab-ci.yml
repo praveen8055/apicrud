@@ -35,7 +35,7 @@ deploy:
     - cicd-runner
   script:
     # Only copy changed files to project folder
-    - cp -R * $PROJECT_DIR
+    - sudo cp -R * $PROJECT_DIR
     - cd $PROJECT_DIR
     - npm install
     # Restart NodeJS service
