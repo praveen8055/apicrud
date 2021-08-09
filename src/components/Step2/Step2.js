@@ -7,8 +7,8 @@ import { useHistory } from "react-router-dom";
 
 const Step2 = () => {
   const history = useHistory();
-  const [otp, setOtp] = useState(new Array(4).fill(""));
-  const [time, setTime] = useState(110);
+  const [otp, setOtp] = useState(new Array(6).fill(""));
+  const [time, setTime] = useState(10);
   const handleOtpInputChange = (element, index) => {
     if (isNaN(element.value)) return false;
     setOtp([...otp.map((d, idx) => (idx == index ? element.value : d))]);
@@ -19,7 +19,8 @@ const Step2 = () => {
   const otpTimerChange = () => {
     setTimeout(() => {
       var reducedTime = time - 1;
-      setTime(reducedTime);
+      if (reducedTime <= 0) setTime(0);
+      else setTime(reducedTime);
     }, 1000);
   };
 
@@ -69,10 +70,16 @@ const Step2 = () => {
                   );
                 })}
               </div>
-              <p className="text-xs font-bold mb-4">
-                Resend OTP in: <span onChange={otpTimerChange()}>{time} </span>
-                <span>secs</span>
-              </p>
+              {time > 0 && (
+                <p className="text-xs font-bold mb-4">
+                  Resend OTP in:{" "}
+                  <span onChange={otpTimerChange()}>{time} </span>
+                  <span>secs</span>
+                </p>
+              )}
+              {time <= 0 && (
+                <p className="text-xs font-bold mb-4">Resend OTP</p>
+              )}
               <button
                 className="bg-blue-700 w-1/2 h-8 rounded-3xl text-white text-sm mb-5"
                 onClick={goToStep3Handler}

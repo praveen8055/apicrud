@@ -1,6 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { callApi } from "../../ApiUtils/LoginUtils";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import IconButton from "@material-ui/core/IconButton";
+import Input from "@material-ui/core/Input";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import PhoneInput from "react-phone-input-2";
 import {
   useDispatchCurrentUser,
   useCurrentUser,
@@ -18,20 +24,43 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatchCurrentUser();
   const currentUser = useCurrentUser();
+  const [values, setValues] = useState({
+    password: "",
+    showPassword: false,
+  });
+  const [emailValue, setEmailValue] = useState("");
+  const [phoneNo, setPhoneNo] = useState();
+  const [isEmailInput, setIsEmailInput] = useState(true);
+
+  const emailChangedHandler = (e) => {
+    setEmailValue(e.target.value);
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
 
   const submitLoginFormHandler = async (e) => {
     e.preventDefault();
     const re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    console.log("email", emailRef.current.value);
-    console.log("password", passwordRef.current.value);
+    console.log("email", emailValue);
+    console.log("password", values.password);
 
     setErrorMessage(null);
     try {
-      if (!re.test(emailRef.current.value)) throw "Email not valid";
+      if (!re.test(emailValue)) throw "Email not valid";
       const response = await callApi("/auth/local", "POST", {
-        identifier: emailRef.current.value,
-        password: passwordRef.current.value,
+        identifier: emailValue,
+        password: values.password,
       });
       if (!response.user) {
         throw "We could not find an account linked with this account";
@@ -88,31 +117,69 @@ const Login = () => {
             <label htmlFor="email" className="text-xs mb-2">
               Email ID or Mobile Number
             </label>
-            <input
+            {/* <input
               ref={emailRef}
               className="w-80 h-8 rounded-md pl-2 text-sm mb-2"
               name="email"
               id="email"
-            ></input>
+            >
+            </input> */}
+            <Input
+              className="w-80 h-8 rounded-md pl-2 text-sm mb-2 bg-white no-underline"
+              ref={emailRef}
+              value={emailValue}
+              onChange={emailChangedHandler}
+              type="email"
+              name="email"
+              id="email"
+              style={{ fontSize: "0.875rem" }}
+              disableUnderline={true}
+            />
+            {/* <PhoneInput
+              className="react-tel"
+              placeholder="Enter phone number"
+              country={"in"}
+              value={phoneNo}
+              onChange={setPhoneNo}
+            /> */}
             {errorMessage && (
               <p className="text-xs text-red-600 mb-4">{errorMessage}</p>
             )}
-            {/* {currentUser.isAuthenticated && <p>Logged in Sucessfully</p>}
-            {currentUser.isAuthenticated && (
-              <button onClick={logoutHandler}>Logout</button>
-            )} */}
             <label htmlFor="password" className="text-xs mb-2">
               Password
             </label>
-            <input
+            {/* <input
               ref={passwordRef}
               className="w-80 h-8 rounded-md pl-2 mb-6"
               type="password"
               name="password"
               id="password"
-            ></input>
+            ></input> */}
+            <Input
+              className="w-80 h-8 rounded-md pl-2 text-sm mb-2 bg-white no-underline"
+              type={values.showPassword ? "text" : "password"}
+              disableUnderline={true}
+              onChange={handlePasswordChange("password")}
+              style={{ fontSize: "0.875rem" }}
+              ref={passwordRef}
+              value={values.password}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex justify-between w-2/5">
+            {/* <p className="text-xs text-red-600 mb-4">Incorrect password</p> */}
+            <p className="text-xs mb-4 cursor-pointer">Forgot password</p>
+          </div>
+          <div className="flex flex-col items-center">
             <button
               className="bg-blue-700 w-60 h-8 rounded-3xl text-white mb-5"
               onClick={submitLoginFormHandler}

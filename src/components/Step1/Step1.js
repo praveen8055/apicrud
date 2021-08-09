@@ -8,6 +8,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import HintModal from "../Modals/HintModal";
 import IssueModal from "../Modals/IssueModal";
+import { callApi } from "../../ApiUtils/LoginUtils";
 
 const Step1 = () => {
   const history = useHistory();
@@ -20,8 +21,19 @@ const Step1 = () => {
     setIssueModalIsOpen(true);
   };
 
-  const goToStep2Handler = () => {
-    history.push("/step2");
+  const goToStep2Handler = async () => {
+    var newValue = "+" + value;
+    try {
+      const response = await callApi("/verifications", "POST", {
+        phoneNumber: newValue,
+      });
+      console.log(response.ok);
+      console.log(response);
+      localStorage.setItem("phoneNumber", newValue);
+      history.push("/step2");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
