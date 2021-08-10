@@ -12,7 +12,7 @@ deploy:
     - appearz-runner 
   script:
     # Only copy changed files to project folder
-    - rm -rf /home/ubuntu/appearz-web/  
+    - sudo rm -rf /home/ubuntu/appearz-web/  
     - git clone https://gitlab+deploy-token-536842:qVyGB1QNYxyTcLh6rKtQ@gitlab.com/outshade/appearz/appearz-web.git
     - cd /home/ubuntu/appearz-web/
     - npm install
