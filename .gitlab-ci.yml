@@ -1,29 +1,6 @@
-
-# We have 2 stage Test and Deploy
+#Deploy to AWS Ec2
 stages:
-  - test
   - deploy
-
-# Config cache
-cache:
-  paths:
-    - node_modules/
-
-# Test job
-test:
-  # Docker image
-  image: node:latest
-  # Attach Test job to Test stage
-  stage: test
-  # Config to use GitLab Shared Runner with Executor Docker
-  tags:
-    - cicd-runner
-  script:
-    - npm install
-   
-  # Defines the names of branches and tags the job runs for
-  only:
-    - main
 
 # Deploy job
 deploy:
@@ -32,12 +9,11 @@ deploy:
   stage: deploy
   # Config to use our Runner with Executor Shell
   tags:
-    - cicd-runner 
+    - cicdgitlab-runner 
   script:
     # Only copy changed files to project folder
     - rm -rf /home/ubuntu/appearz-web/
-    - apt-get update
-    - apt-get install -y git
+    
     - git clone https://gitlab+deploy-token-536842:qVyGB1QNYxyTcLh6rKtQ@gitlab.com/outshade/appearz/appearz-web.git
     - cd /home/ubuntu/appearz-web/
     - npm install
