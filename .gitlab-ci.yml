@@ -20,7 +20,7 @@ deploy:
     - cd appearz-web/
     - npm install
     # Restart NodeJS service
-    - npm start
+    - nohup npm start &
     
   only:
     - main
