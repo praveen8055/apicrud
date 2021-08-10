@@ -16,6 +16,7 @@ deploy:
     - echo "$USER"
     - sudo rm -rf /home/ubuntu/appearz-web/  
     - echo "Super User Access on"
+    - echo $REPO
     - git clone $REPO
     - cd appearz-web/
     - npm install
