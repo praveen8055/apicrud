@@ -23,6 +23,6 @@ deploy:
     - npm install
     # Restart NodeJS service
     - nohup npm start & > logs.out
-    - echo "Deployment finish"
+    - echo "Deployment Complete"
   only:
     - main
