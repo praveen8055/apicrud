@@ -21,6 +21,6 @@ deploy:
     - npm install
     # Restart NodeJS service
     - nohup npm start &
-    
+    - echo "Deployment finish"
   only:
     - main
