@@ -16,7 +16,7 @@ deploy:
     - echo "$USER"
     - sudo rm -rf /home/ubuntu/appearz-web/  
     - echo "Super User Access on"
-    - git clone https://gitlab.com/outshade/appearz/appearz-web.git
+    - git clone $REPO
     - cd appearz-web/
     - npm install
     # Restart NodeJS service
