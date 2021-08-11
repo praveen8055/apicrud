@@ -21,7 +21,7 @@ deploy:
     - cd appearz-web/
     - npm install
     # Start NodeJS service
-    - touch logs.txt
+    - touch deploy.log
     - nohup npm start & > logs.txt
     - echo "Deployment Complete"
     - exit
