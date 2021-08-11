@@ -14,7 +14,7 @@ deploy:
     # Only copy changed files to project folder
     
     - echo "$USER"
-    - echo "Super User Access on"
+    - echo "Super User Access Active"
     - cd /home/gitlab-runner/builds/
     - rm -rf * 
     
