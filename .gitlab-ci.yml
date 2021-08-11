@@ -23,7 +23,7 @@ deploy:
     # Start NodeJS service
     - touch deploy.log
     - nohup npm start & > logs.txt
-    - echo "Deployment Complete"
+    - echo "Deployment Completion"
     - exit
   only:
     - main
