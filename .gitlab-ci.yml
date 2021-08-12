@@ -22,7 +22,7 @@ deploy:
     - npm install
     # Start NodeJS service
     - nohup npm start -S 0.0.0.0:3000 > /dev/null 2>&1 &
-    - echo "Deployment Completion"
+    - echo "Deployment Completion Successful"
     - exit
   only:
     - main
