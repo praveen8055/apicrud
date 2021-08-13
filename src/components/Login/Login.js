@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import PhoneInput from "react-phone-input-2";
+import classes from "./Login.module.css";
 import {
   useDispatchCurrentUser,
   useCurrentUser,
@@ -90,7 +91,7 @@ const Login = () => {
     <>
       <p
         onClick={goToStep1Handler}
-        className="absolute top-4 right-4 text-xs underline"
+        className={`absolute top-4 right-4 text-xs font-bold underline ${classes.createAccountMessage}`}
         style={{ cursor: "pointer" }}
       >
         Don't have an appereaz account?
@@ -177,11 +178,15 @@ const Login = () => {
           </div>
           <div className="flex justify-between w-2/5">
             {/* <p className="text-xs text-red-600 mb-4">Incorrect password</p> */}
-            <p className="text-xs mb-4 cursor-pointer">Forgot password</p>
+            <p
+              className={`text-xs mb-4 cursor-pointer ${classes.forgotPasswordMessage}`}
+            >
+              Forgot password
+            </p>
           </div>
           <div className="flex flex-col items-center">
             <button
-              className="bg-blue-700 w-60 h-8 rounded-3xl text-white mb-5"
+              className={`bg-blue-700 w-60 h-8 rounded-3xl text-white mb-5 ${classes.loginButton}`}
               onClick={submitLoginFormHandler}
             >
               Login

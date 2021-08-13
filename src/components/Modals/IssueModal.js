@@ -1,5 +1,6 @@
 import ReactDom from "react-dom";
 import closeImage from "../../assets/closeImage.png";
+import classes from "./IssueModal.module.css";
 const IssueModal = (props) => {
   if (!props.isOpen) return null;
   return ReactDom.createPortal(
@@ -30,7 +31,9 @@ const IssueModal = (props) => {
               style={{ resize: "none" }}
               placeholder="Start Typing..."
             ></textarea>
-            <button className="bg-blue-700 w-full h-8 rounded-3xl text-white mb-8">
+            <button
+              className={`bg-blue-700 w-full h-8 rounded-3xl text-white mb-8 ${classes.sendButton}`}
+            >
               Send
             </button>
           </div>

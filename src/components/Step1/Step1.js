@@ -9,12 +9,15 @@ import "react-phone-input-2/lib/style.css";
 import HintModal from "../Modals/HintModal";
 import IssueModal from "../Modals/IssueModal";
 import { callApi } from "../../ApiUtils/LoginUtils";
+import classes from "./Step1.module.css";
+import { CircularProgress } from "@material-ui/core";
 
 const Step1 = () => {
   const history = useHistory();
   const [value, setValue] = useState();
   const [hintModalIsOpen, setHintModalIsOpen] = useState(false);
   const [issueModalIsOpen, setIssueModalIsOpen] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
   const issueModalOpenerHandler = () => {
     setHintModalIsOpen(false);
@@ -23,14 +26,14 @@ const Step1 = () => {
 
   const goToStep2Handler = async () => {
     var newValue = "+" + value;
+    setIsFetching(true);
     try {
       const response = await callApi("/verifications", "POST", {
         phoneNumber: newValue,
       });
-      console.log(response.ok);
-      console.log(response);
       localStorage.setItem("phoneNumber", newValue);
-      history.push("/step2");
+      setIsFetching(false);
+      history.replace("/step2");
     } catch (err) {
       console.log(err);
     }
@@ -71,21 +74,30 @@ const Step1 = () => {
                 onChange={setValue}
               />
               <button
-                className="bg-blue-700 w-2/5 h-8 rounded-3xl text-white mb-5"
+                className={`self-center bg-blue-700 w-2/5 h-8 rounded-3xl text-white mb-5 ${classes.getOtpButton}`}
                 onClick={goToStep2Handler}
+                disabled={isFetching}
               >
-                Get Otp
+                {isFetching ? (
+                  <CircularProgress
+                    color="white"
+                    size="20px"
+                    className="self-center"
+                  />
+                ) : (
+                  "Get Otp"
+                )}
               </button>
               <span className="text-sm">
                 Need help with your number?{" "}
-                <Link
-                  className="font-bold"
+                <span
+                  className={`font-bold cursor-pointer ${classes.getHintSpan}`}
                   onClick={() => {
                     setHintModalIsOpen(true);
                   }}
                 >
                   Get hint.
-                </Link>
+                </span>
               </span>
             </div>
           </div>

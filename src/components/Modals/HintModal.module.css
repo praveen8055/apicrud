@@ -1,0 +1,10 @@
+.issueClick:hover {
+  color: blue;
+  transition-timing-function: ease-in;
+  transition-duration: 250ms;
+}
+.okButton:hover {
+  background-color: rgb(107, 107, 231);
+  transition-timing-function: ease-in;
+  transition-duration: 300ms;
+}

@@ -1,9 +1,76 @@
-import { React, useState } from "react";
+import { React, useRef, useState } from "react";
 import appearzLogo from "../../assets/apperazLogo.jpg";
 import ellipse4 from "../../assets/Ellipse4.png";
 import rectangle17 from "../../assets/Rectangle17.png";
 import mobileImage from "../../assets/authenticationImage.png";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import IconButton from "@material-ui/core/IconButton";
+import Input from "@material-ui/core/Input";
+import classes from "./Step3.module.css";
+import { useHistory } from "react-router-dom";
 const Step3 = () => {
+  const history = useHistory();
+  const [passwordValues, setPasswordValues] = useState({
+    password: "",
+    showPassword: false,
+  });
+
+  const [confirmPasswordValues, setConfirmPasswordValues] = useState({
+    confirmPassword: "",
+    showConfirmPassword: false,
+  });
+  const confirmPasswordRef = useRef();
+  const passwordRef = useRef();
+  const emailRef = useRef();
+
+  const handleClickShowPassword = () => {
+    setPasswordValues({
+      ...passwordValues,
+      showPassword: !passwordValues.showPassword,
+    });
+  };
+
+  const handlePasswordChange = (prop) => (event) => {
+    setPasswordValues({
+      ...passwordValues,
+      [prop]: event.target.value,
+    });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handleClickShowConfirmPassword = () => {
+    setConfirmPasswordValues({
+      ...confirmPasswordValues,
+      showConfirmPassword: !confirmPasswordValues.showConfirmPassword,
+    });
+  };
+
+  const handleMouseDownConfirmPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handleConfirmPasswordChange = (prop) => (event) => {
+    setConfirmPasswordValues({
+      ...confirmPasswordValues,
+      [prop]: event.target.value,
+    });
+  };
+
+  const handleFormInput = (e) => {
+    e.preventDefault();
+    if (passwordValues.password !== confirmPasswordValues.confirmPassword) {
+      return;
+    }
+    localStorage.setItem("email", emailRef.current.value);
+    localStorage.setItem("password", passwordValues.password);
+    history.replace("/signup");
+  };
+
   return (
     <div className="flex flex-col">
       <div className="mb-8 ml-4">
@@ -24,29 +91,58 @@ const Step3 = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="mb-2">Create Password</h1>
-            <p className="text-sm mb-6">
+            <h1 className="mb-2 font-bold">Create Password</h1>
+            <p className="text-xs mb-6">
               Enter a new password for the appereaz account
             </p>
-            <form className="flex flex-col items-start">
+            <form
+              className="flex flex-col items-start"
+              onSubmit={handleFormInput}
+            >
               <label className="text-xs mb-2" htmlFor="email">
                 Email ID:
               </label>
               <input
                 type="email"
-                className="w-80 h-8 rounded-md pl-2 text-sm mb-4"
+                ref={emailRef}
+                className="w-80 h-8 rounded-md pl-2 text-xs mb-4 outline-none"
                 name="email"
                 id="email"
+                required
               ></input>
               <label className="text-xs mb-2" htmlFor="new-password">
                 New Password:
               </label>
-              <input
+              {/* <input
                 type="password"
                 className="w-80 h-8 rounded-md pl-2 mb-2"
                 name="new-password"
                 id="new-password"
-              ></input>
+              ></input> */}
+              <Input
+                className="w-80 h-8 rounded-md pl-2 text-sm mb-2 bg-white no-underline"
+                type={passwordValues.showPassword ? "text" : "password"}
+                disableUnderline={true}
+                onChange={handlePasswordChange("password")}
+                style={{ fontSize: "0.75rem", lineHeight: "1rem" }}
+                ref={passwordRef}
+                value={passwordValues.password}
+                required
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {passwordValues.showPassword ? (
+                        <Visibility />
+                      ) : (
+                        <VisibilityOff />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
               <div className="flex flex-col items-start text-xs">
                 <p>should contain at least 8 characters</p>
                 <p className="mb-4">should contain a number</p>
@@ -54,16 +150,40 @@ const Step3 = () => {
               <label className="text-xs mb-2" htmlFor="confirm-password">
                 Confirm Password:
               </label>
-              <input
-                type="password"
-                className="w-80 h-8 rounded-md mb-12"
-                name="confirm-password"
-                id="confirm-password"
-              ></input>
+              <Input
+                className="w-80 h-8 rounded-md pl-2 text-sm mb-8 bg-white no-underline"
+                type={
+                  confirmPasswordValues.showConfirmPassword
+                    ? "text"
+                    : "password"
+                }
+                disableUnderline={true}
+                onChange={handleConfirmPasswordChange("confirmPassword")}
+                style={{ fontSize: "0.75rem", lineHeight: "1rem" }}
+                ref={confirmPasswordRef}
+                value={confirmPasswordValues.confirmPassword}
+                required
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleClickShowConfirmPassword}
+                      onMouseDown={handleMouseDownConfirmPassword}
+                    >
+                      {confirmPasswordValues.showConfirmPassword ? (
+                        <Visibility />
+                      ) : (
+                        <VisibilityOff />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+              <button
+                className={`self-center bg-blue-700 w-3/4 h-8 rounded-3xl text-white text-sm mb-5 ${classes.createPasswordButton}`}
+              >
+                Create Password
+              </button>
             </form>
-            <button className="bg-blue-700 w-3/4 h-8 rounded-3xl text-white text-sm mb-5">
-              Create Password
-            </button>
           </div>
         </div>
       </div>

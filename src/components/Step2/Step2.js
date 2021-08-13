@@ -4,11 +4,18 @@ import mobileImage from "../../assets/otpImage.png";
 import ellipse4 from "../../assets/Ellipse4.png";
 import rectangle17 from "../../assets/Rectangle17.png";
 import { useHistory } from "react-router-dom";
+import { CircularProgress } from "@material-ui/core";
+import axios from "axios";
+import classes from "./Step2.module.css";
 
 const Step2 = () => {
   const history = useHistory();
+  const number = localStorage.getItem("phoneNumber");
+  console.log(number);
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const [time, setTime] = useState(10);
+  const [error, setError] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
   const handleOtpInputChange = (element, index) => {
     if (isNaN(element.value)) return false;
     setOtp([...otp.map((d, idx) => (idx == index ? element.value : d))]);
@@ -24,8 +31,35 @@ const Step2 = () => {
     }, 1000);
   };
 
-  const goToStep3Handler = () => {
-    history.push("/step3");
+  const goToStep3Handler = async (e) => {
+    e.preventDefault();
+    setIsFetching(true);
+    var totalOtp = "";
+    for (var i = 0; i < otp.length; i++) {
+      totalOtp = totalOtp + otp[i];
+    }
+    console.log(totalOtp);
+    try {
+      const response = await axios.post("http://localhost:1337/approvals", {
+        phoneNumber: number,
+        code: totalOtp,
+      });
+      console.log(response.data);
+      const message = response.data;
+      if (message === "User Not Approved") {
+        setIsFetching(false);
+        setError(true);
+      } else {
+        setIsFetching(false);
+        history.replace("/step3");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const changeNumberHandler = () => {
+    history.replace("/step1");
   };
 
   return (
@@ -48,17 +82,26 @@ const Step2 = () => {
                 <img src={ellipse4}></img>
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center">
+            <form
+              className="flex flex-col justify-center items-center"
+              onSubmit={goToStep3Handler}
+            >
               <h1 className="text-xl font-bold mb-4">Enter OTP</h1>
               <p className="mb-2 text-sm">
-                Enter the one time password sent to ******9583
+                Enter the one time password sent to ******
+                {number[9] + number[10] + number[11] + number[12]}
               </p>
-              <p className="text-sm font-bold mb-4">Change Number</p>
+              <p
+                className={`text-sm font-bold mb-4 cursor-pointer ${classes.changeNumberSpan}`}
+                onClick={changeNumberHandler}
+              >
+                Change Number
+              </p>
               <div>
                 {otp.map((data, index) => {
                   return (
                     <input
-                      className="w-10 h-10 mr-4 mb-12 pl-5 rounded-xl"
+                      className="w-10 h-10 mr-4 mb-4 pl-5 rounded-xl"
                       type="text"
                       name="otp"
                       maxLength="1"
@@ -69,6 +112,12 @@ const Step2 = () => {
                     />
                   );
                 })}
+                {error && (
+                  <div className="mb-10 font-bold text-sm">
+                    <span className="text-red-600">Incorrect OTP : </span>
+                    <span>Try Again! Only 3 attempts left</span>
+                  </div>
+                )}
               </div>
               {time > 0 && (
                 <p className="text-xs font-bold mb-4">
@@ -78,15 +127,24 @@ const Step2 = () => {
                 </p>
               )}
               {time <= 0 && (
-                <p className="text-xs font-bold mb-4">Resend OTP</p>
+                <p
+                  className={`text-xs font-bold mb-4 cursor-pointer ${classes.resendOtp}`}
+                >
+                  Resend OTP
+                </p>
               )}
               <button
-                className="bg-blue-700 w-1/2 h-8 rounded-3xl text-white text-sm mb-5"
-                onClick={goToStep3Handler}
+                type="submit"
+                className={`self-center bg-blue-700 w-1/2 h-8 rounded-3xl text-white text-sm mb-5 ${classes.confirmOtpButton}`}
+                disabled={isFetching}
               >
-                Confiirm OTP
+                {isFetching ? (
+                  <CircularProgress color="white" size="20px" />
+                ) : (
+                  "Get OTP"
+                )}
               </button>
-            </div>
+            </form>
           </div>
         </div>
         <div className="fixed bottom-0 right-0">

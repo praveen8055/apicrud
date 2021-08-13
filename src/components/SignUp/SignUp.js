@@ -5,30 +5,50 @@ import ellipse4 from "../../assets/Ellipse4.png";
 import rectangle17 from "../../assets/Rectangle17.png";
 import { useHistory } from "react-router-dom";
 import { callApi } from "../../ApiUtils/LoginUtils";
+import classes from "./Signup.module.css";
+import { CircularProgress } from "@material-ui/core";
+import {
+  useDispatchCurrentUser,
+  useCurrentUser,
+} from "../../Contexts/CurrentUser";
 import axios from "axios";
 const SignUp = () => {
+  const history = useHistory();
   const usernameRef = useRef();
   const emailRef = useRef();
+  const dispatch = useDispatchCurrentUser();
   const passwordRef = useRef();
+  const [resident, setResident] = useState("rented");
+  const password = localStorage.getItem("password");
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState(null);
+  const email = localStorage.getItem("email");
   const registerHandler = async (e) => {
     e.preventDefault();
-    console.log(usernameRef.current.value);
-    axios
-      .post("http://localhost:1337/auth/local/register", {
+    console.log(email);
+    setIsFetching(true);
+    try {
+      await axios.post("http://localhost:1337/auth/local/register", {
         username: usernameRef.current.value,
-        email: emailRef.current.value,
-        password: passwordRef.current.value,
-      })
-      .then((response) => {
-        // Handle success.
-        console.log("Well done!");
-        console.log("User profile", response.data.user);
-        console.log("User token", response.data.jwt);
-      })
-      .catch((error) => {
-        // Handle error.
-        console.log("An error occurred:", error.response);
+        email: email,
+        password: password,
+        apartmentNumber: emailRef.current.value,
+        residentType: resident === "rented" ? 0 : 1,
       });
+      const response = await callApi("/auth/local", "POST", {
+        identifier: email,
+        password: password,
+      });
+      dispatch({ type: "LOGIN", user: response.user });
+      setIsFetching(false);
+      history.replace("/confirmation");
+    } catch (err) {
+      setError(err);
+      setIsFetching(false);
+    }
+  };
+  const handleSelector = (e) => {
+    setResident(e.target.value);
   };
   return (
     <>
@@ -36,7 +56,7 @@ const SignUp = () => {
         <div className="mb-8 ml-4">
           <img src={appearzLogo}></img>
         </div>
-        <div className="flex justify-center">
+        <form className="flex justify-center" onSubmit={registerHandler}>
           <div className="flex flex-col items-center bg-blue-50 pr-24 pb-10 pl-24 pt-8 rounded-2xl">
             <div className="mb-10 flex flex-col items-center">
               <div className="text-sm mb-3">
@@ -52,7 +72,7 @@ const SignUp = () => {
             </div>
             <div className="flex flex-col justify-center items-center">
               <h1 className="text-xl font-bold mb-4">Complete your Profile</h1>
-              <p className="mb-8 text-sm">
+              <p className="mb-8 text-xs">
                 Enter a new password for your apperaz account
               </p>
               <div className="flex flex-col justify-center">
@@ -61,28 +81,25 @@ const SignUp = () => {
                 </label>
                 <input
                   ref={usernameRef}
-                  className="w-80 h-8 rounded-md pl-2 text-sm mb-2"
+                  className="w-80 h-8 rounded-md pl-2 text-xs mb-2 outline-none"
                   name="username"
                   id="username"
                 ></input>
-                <label htmlFor="email" className="text-xs mb-2">
-                  Email
+                {error && (
+                  <p className="text-xs text-red-600 mb-4">
+                    Email is aleady registered
+                  </p>
+                )}
+                <label htmlFor="apartment-number" className="text-xs mb-2">
+                  Apartment Number
                 </label>
                 <input
                   ref={emailRef}
-                  className="w-80 h-8 rounded-md pl-2 text-sm mb-2"
-                  name="email"
-                  id="email"
-                ></input>
-                <label htmlFor="password" className="text-xs mb-2">
-                  Password
-                </label>
-                <input
-                  ref={passwordRef}
-                  className="w-80 h-8 rounded-md pl-2 mb-6"
-                  type="password"
-                  name="password"
-                  id="password"
+                  className="w-80 h-8 rounded-md pl-2 text-xs mb-2 outline-none"
+                  name="apartment-number"
+                  id="apartment-number"
+                  type="text"
+                  required
                 ></input>
               </div>
               <div className="flex flex-col justify-center">
@@ -90,7 +107,8 @@ const SignUp = () => {
                   Resident Type
                 </label>
                 <select
-                  className="mb-8 w-60 text-sm p-1"
+                  onChange={handleSelector}
+                  className="mb-8 w-60 text-sm p-1 outline-none"
                   name="selectCategory"
                   id="selectCategory"
                 >
@@ -99,17 +117,24 @@ const SignUp = () => {
                 </select>
               </div>
               <button
-                onClick={registerHandler}
-                className="bg-blue-700 w-3/5 h-8 rounded-3xl text-white font-semibold text-xs mb-5"
+                type="submit"
+                className={`self-center bg-blue-700 w-3/5 h-8 rounded-3xl text-white font-semibold text-xs mb-5 ${classes.confirmDetailsButton}`}
               >
-                CONFIRM DETAILS
+                {isFetching ? (
+                  <CircularProgress
+                    color="white"
+                    size="20px"
+                  ></CircularProgress>
+                ) : (
+                  "CONFIRM DETAILS"
+                )}
               </button>
               <p className="text-xs">
                 Incorrect Details? <span className="font-bold">Click here</span>
               </p>
             </div>
           </div>
-        </div>
+        </form>
         <div className="fixed bottom-0 right-0">
           <img src={signupImage}></img>
         </div>
