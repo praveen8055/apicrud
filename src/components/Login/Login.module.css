@@ -13,3 +13,8 @@
   transition-timing-function: ease-in;
   transition-duration: 250ms;
 }
+.imageMove {
+  cursor: pointer;
+  transition-timing-function: ease-in;
+  transition-duration: 3000ms;
+}

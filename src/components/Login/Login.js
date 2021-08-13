@@ -25,6 +25,10 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatchCurrentUser();
   const currentUser = useCurrentUser();
+  const [image1, setImage1] = useState(rectangle17);
+  const [image2, setImage2] = useState(ellipse4);
+  const [image3, setImage3] = useState(ellipse4);
+  const [image4, setImage4] = useState(ellipse4);
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
@@ -75,6 +79,30 @@ const Login = () => {
     }
   };
 
+  const image1Handler = () => {
+    setImage1(rectangle17);
+    setImage2(ellipse4);
+    setImage3(ellipse4);
+    setImage4(ellipse4);
+  };
+  const image2Handler = () => {
+    setImage1(ellipse4);
+    setImage2(rectangle17);
+    setImage3(ellipse4);
+    setImage4(ellipse4);
+  };
+  const image3Handler = () => {
+    setImage1(ellipse4);
+    setImage2(ellipse4);
+    setImage3(rectangle17);
+    setImage4(ellipse4);
+  };
+  const image4Handler = () => {
+    setImage1(ellipse4);
+    setImage2(ellipse4);
+    setImage3(ellipse4);
+    setImage4(rectangle17);
+  };
   // const logoutHandler = async () => {
   //   await callApi("/logout", "POST");
   //   dispatch({ type: "LOGOUT" });
@@ -103,10 +131,26 @@ const Login = () => {
           <p>One-stop-shop for all your</p>
           <p className="mb-6">society-related administrative work</p>
           <div className="flex justify-between mb-6">
-            <img className="mr-1" src={rectangle17}></img>
-            <img className="mr-1" src={ellipse4}></img>
-            <img className="mr-1" src={ellipse4}></img>
-            <img src={ellipse4}></img>
+            <img
+              className={`mr-1 ${classes.imageMove}`}
+              src={image1}
+              onClick={image1Handler}
+            ></img>
+            <img
+              className={`mr-1 ${classes.imageMove}`}
+              src={image2}
+              onClick={image2Handler}
+            ></img>
+            <img
+              className={`mr-1 ${classes.imageMove}`}
+              src={image3}
+              onClick={image3Handler}
+            ></img>
+            <img
+              className={classes.imageMove}
+              src={image4}
+              onClick={image4Handler}
+            ></img>
           </div>
           <button className="bg-blue-700 w-1/4 h-8 rounded-3xl text-white mb-5">
             Watch Video
