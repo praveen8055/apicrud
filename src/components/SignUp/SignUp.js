@@ -28,7 +28,7 @@ const SignUp = () => {
     console.log(email);
     setIsFetching(true);
     try {
-      await axios.post("http://localhost:1337/auth/local/register", {
+      await axios.post("http://appearz.outshade.com:1337/auth/local/register", {
         username: usernameRef.current.value,
         email: email,
         password: password,

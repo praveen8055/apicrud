@@ -40,10 +40,13 @@ const Step2 = () => {
     }
     console.log(totalOtp);
     try {
-      const response = await axios.post("http://localhost:1337/approvals", {
-        phoneNumber: number,
-        code: totalOtp,
-      });
+      const response = await axios.post(
+        "http://appearz.outshade.com:1337/approvals",
+        {
+          phoneNumber: number,
+          code: totalOtp,
+        }
+      );
       console.log(response.data);
       const message = response.data;
       if (message === "User Not Approved") {
