@@ -1,6 +1,7 @@
 import { React, useRef, useState } from "react";
 import appearzLogo from "../../assets/apperazLogo.jpg";
 import ellipse4 from "../../assets/Ellipse4.png";
+import logoApperaz from "../../assets/logoApperaz.png";
 import rectangle17 from "../../assets/Rectangle17.png";
 import mobileImage from "../../assets/authenticationImage.png";
 import Visibility from "@material-ui/icons/Visibility";
@@ -9,6 +10,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import classes from "./Step3.module.css";
+import incorrect from "../../assets/incorrect.png";
+import correct from "../../assets/correct.png";
 import { useHistory } from "react-router-dom";
 const Step3 = () => {
   const history = useHistory();
@@ -16,6 +19,9 @@ const Step3 = () => {
     password: "",
     showPassword: false,
   });
+  const [check1, setCheck1] = useState(false);
+  const [check2, setCheck2] = useState(false);
+  const [error, setError] = useState(null);
 
   const [confirmPasswordValues, setConfirmPasswordValues] = useState({
     confirmPassword: "",
@@ -33,10 +39,22 @@ const Step3 = () => {
   };
 
   const handlePasswordChange = (prop) => (event) => {
+    setError(null);
     setPasswordValues({
       ...passwordValues,
       [prop]: event.target.value,
     });
+    if (event.target.value.length >= 8) {
+      setCheck1(true);
+    } else {
+      setCheck1(false);
+    }
+    const regex = /\d/;
+    if (regex.test(event.target.value)) {
+      setCheck2(true);
+    } else {
+      setCheck2(false);
+    }
   };
 
   const handleMouseDownPassword = (event) => {
@@ -64,6 +82,7 @@ const Step3 = () => {
   const handleFormInput = (e) => {
     e.preventDefault();
     if (passwordValues.password !== confirmPasswordValues.confirmPassword) {
+      setError("Passwords do not match!");
       return;
     }
     localStorage.setItem("email", emailRef.current.value);
@@ -73,15 +92,18 @@ const Step3 = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="mb-8 ml-4">
-        <img src={appearzLogo}></img>
+      <div className="mb-10 ml-4 flex">
+        <img src={logoApperaz}></img>
+        <p className={`self-end ${classes.logoName}`}>APPREAZ</p>
       </div>
       <div className="flex justify-center">
-        <div className="flex flex-col items-center bg-blue-50 pr-24 pb-12 pl-24 pt-8 rounded-2xl">
+        <div
+          className={`flex flex-col items-center  pr-24 pb-4 pl-24 pt-8 rounded-2xl ${classes.formColor}`}
+        >
           <div className="mb-10 flex flex-col items-center">
             <div className="text-sm mb-3">
-              <span className="text-blue-700">Step 3 </span>
-              <span className="opacity-50">of 4</span>
+              <span className="text-blue-700 text-xs font-medium">STEP 3 </span>
+              <span className="opacity-50 text-xs">of 4</span>
             </div>
             <div className="flex justify-between">
               <img className="mr-1" src={ellipse4}></img>
@@ -91,26 +113,36 @@ const Step3 = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="mb-2 font-bold">Create Password</h1>
-            <p className="text-xs mb-6">
+            <h1 className={`mb-4 text-xl font-bold ${classes.headingColor}`}>
+              Create Password
+            </h1>
+            <p className="text-xs mb-8" style={{ color: "#515151" }}>
               Enter a new password for the appereaz account
             </p>
             <form
               className="flex flex-col items-start"
               onSubmit={handleFormInput}
             >
-              <label className="text-xs mb-2" htmlFor="email">
+              <label
+                className="text-xs mb-2"
+                htmlFor="email"
+                style={{ color: "#515151" }}
+              >
                 Email ID:
               </label>
               <input
                 type="email"
                 ref={emailRef}
-                className="w-80 h-8 rounded-md pl-2 text-xs mb-4 outline-none"
+                className="w-80 h-8 rounded-md pl-2 text-xs mb-10 outline-none"
                 name="email"
                 id="email"
                 required
               ></input>
-              <label className="text-xs mb-2" htmlFor="new-password">
+              <label
+                className="text-xs mb-2"
+                htmlFor="new-password"
+                style={{ color: "#515151" }}
+              >
                 New Password:
               </label>
               {/* <input
@@ -120,7 +152,7 @@ const Step3 = () => {
                 id="new-password"
               ></input> */}
               <Input
-                className="w-80 h-8 rounded-md pl-2 text-sm mb-2 bg-white no-underline"
+                className="w-80 h-8 rounded-md pl-2 text-sm mb-4 bg-white no-underline"
                 type={passwordValues.showPassword ? "text" : "password"}
                 disableUnderline={true}
                 onChange={handlePasswordChange("password")}
@@ -143,15 +175,38 @@ const Step3 = () => {
                   </InputAdornment>
                 }
               />
+              {error && (
+                <p className="text-red-500 text-xs mb-4">
+                  Passwords do not match
+                </p>
+              )}
               <div className="flex flex-col items-start text-xs">
-                <p>should contain at least 8 characters</p>
-                <p className="mb-4">should contain a number</p>
+                <div className="flex items-center mb-4">
+                  {!check1 && (
+                    <img src={incorrect} className="mr-1 w-4 h-4"></img>
+                  )}
+                  {check1 && <img src={correct} className="mr-1 w-4 h-4"></img>}
+                  <p style={{ color: "#515151" }}>
+                    should contain at least 8 characters
+                  </p>
+                </div>
+                <div className="flex items-center justify-center mb-6">
+                  {!check2 && (
+                    <img src={incorrect} className="mr-1 w-4 h-4"></img>
+                  )}
+                  {check2 && <img src={correct} className="mr-1 w-4 h-4"></img>}
+                  <p style={{ color: "#515151" }}>should contain a number</p>
+                </div>
               </div>
-              <label className="text-xs mb-2" htmlFor="confirm-password">
-                Confirm Password:
+              <label
+                className="text-xs mb-2"
+                htmlFor="confirm-password"
+                style={{ color: "#515151" }}
+              >
+                Confirm New Password:
               </label>
               <Input
-                className="w-80 h-8 rounded-md pl-2 text-sm mb-8 bg-white no-underline"
+                className="w-80 h-8 rounded-md pl-2 text-sm mb-10 bg-white no-underline"
                 type={
                   confirmPasswordValues.showConfirmPassword
                     ? "text"
@@ -179,15 +234,16 @@ const Step3 = () => {
                 }
               />
               <button
-                className={`self-center bg-blue-700 w-3/4 h-8 rounded-3xl text-white text-sm mb-5 ${classes.createPasswordButton}`}
+                disabled={check1 && check2 ? false : true}
+                className={`self-center bg-blue-700 w-3/4 h-8 rounded-3xl text-white text-xs font-medium mb-5 ${classes.createPasswordButton}`}
               >
-                Create Password
+                CREATE PASSWORD
               </button>
             </form>
           </div>
         </div>
       </div>
-      <div className="fixed bottom-0 right-0">
+      <div className="fixed bottom-0 right-0 w-80">
         <img src={mobileImage}></img>
       </div>
     </div>
