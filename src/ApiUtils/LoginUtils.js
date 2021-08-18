@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:1337";
+const API_URL = "http://appearz.outshade.com:1337";
 export const callApi = async (path, method, body) => {
   const response = await fetch(`${API_URL}${path}`, {
     method,

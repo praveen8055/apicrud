@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import appearzLogo from "../../assets/apperazLogo.jpg";
+import logoAppearz from "../../assets/logoApperaz.png";
 import mobileImage from "../../assets/mobileImage.png";
 import ellipse4 from "../../assets/Ellipse4.png";
 import rectangle17 from "../../assets/Rectangle17.png";
@@ -18,6 +19,7 @@ const Step1 = () => {
   const [hintModalIsOpen, setHintModalIsOpen] = useState(false);
   const [issueModalIsOpen, setIssueModalIsOpen] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState(null);
 
   const issueModalOpenerHandler = () => {
     setHintModalIsOpen(false);
@@ -27,6 +29,11 @@ const Step1 = () => {
   const goToStep2Handler = async () => {
     var newValue = "+" + value;
     setIsFetching(true);
+    if (newValue.length !== 13) {
+      setError("The entered number is not valid");
+      setIsFetching(false);
+      return;
+    }
     try {
       const response = await callApi("/verifications", "POST", {
         phoneNumber: newValue,
@@ -41,16 +48,21 @@ const Step1 = () => {
 
   return (
     <>
-      <div className="flex flex-col">
-        <div className="mb-8 ml-4">
-          <img src={appearzLogo}></img>
+      <div className="flex flex-col justify-center">
+        <div className="mb-24 ml-4 flex">
+          <img src={logoAppearz}></img>
+          <p className={`self-end ${classes.logoName}`}>APPREAZ</p>
         </div>
         <div className="flex justify-center">
-          <div className="flex flex-col items-center bg-blue-50 pr-24 pb-24 pl-24 pt-8 rounded-2xl">
-            <div className="mb-10 flex flex-col items-center">
+          <div
+            className={`flex flex-col items-center pr-32 pb-10 pl-32 pt-8 rounded-2xl ${classes.formColor}`}
+          >
+            <div className="mb-16 flex flex-col items-center">
               <div className="text-sm mb-3">
-                <span className="text-blue-700">Step 1 </span>
-                <span className="opacity-50">of 4</span>
+                <span className={`${classes.textColor} text-xs font-medium`}>
+                  STEP 1{" "}
+                </span>
+                <span className="opacity-50 text-xs">of 4</span>
               </div>
               <div className="flex justify-between">
                 <img className="mr-1" src={rectangle17}></img>
@@ -60,12 +72,18 @@ const Step1 = () => {
               </div>
             </div>
             <div className="flex flex-col items-center">
-              <h1 className="text-xl font-bold">
-                Please Verify if the entered
+              <h1 className={`text-xl font-bold ${classes.headingColor}`}>
+                Please verify if the entered
               </h1>
-              <h1 className="text-xl font-bold mb-4">number is correct</h1>
-              <p className="text-sm">This number needs to match the number</p>
-              <p className="mb-4 text-sm">registered in your society</p>
+              <h1 className={`text-xl font-bold mb-4 ${classes.headingColor}`}>
+                number is correct
+              </h1>
+              <p className="text-xs" style={{ color: "#515151" }}>
+                This number needs to match the number
+              </p>
+              <p className={`mb-4 text-xs`} style={{ color: "#515151" }}>
+                registered in your society
+              </p>
               <PhoneInput
                 className="react-tel"
                 placeholder="Enter phone number"
@@ -73,8 +91,9 @@ const Step1 = () => {
                 value={value}
                 onChange={setValue}
               />
+              {error && <p className="text-xs text-red-600">{error}</p>}
               <button
-                className={`self-center bg-blue-700 w-2/5 h-8 rounded-3xl text-white mb-5 ${classes.getOtpButton}`}
+                className={`self-center bg-blue-700 w-2/5 h-8 rounded-3xl text-white mt-6 mb-5 text-xs font-medium ${classes.getOtpButton}`}
                 onClick={goToStep2Handler}
                 disabled={isFetching}
               >
@@ -85,10 +104,10 @@ const Step1 = () => {
                     className="self-center"
                   />
                 ) : (
-                  "Get Otp"
+                  "GET OTP"
                 )}
               </button>
-              <span className="text-sm">
+              <span className="text-xs">
                 Need help with your number?{" "}
                 <span
                   className={`font-bold cursor-pointer ${classes.getHintSpan}`}
@@ -102,7 +121,7 @@ const Step1 = () => {
             </div>
           </div>
         </div>
-        <div className="fixed bottom-0 right-0">
+        <div className="absolute bottom-0 right-0 w-80">
           <img src={mobileImage}></img>
         </div>
       </div>

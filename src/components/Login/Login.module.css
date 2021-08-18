@@ -3,13 +3,23 @@
   transition-timing-function: ease-in;
   transition-duration: 300ms;
 }
+.logoName {
+  font-family: "Spectral", serif;
+  color: #5d5fef;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+.loginButton {
+  background-color: #5d5fef;
+  font-size: smaller;
+}
 .createAccountMessage:hover {
-  color: blue;
+  color: #5d5fef;
   transition-timing-function: ease-in;
   transition-duration: 250ms;
 }
 .forgotPasswordMessage:hover {
-  color: blue;
+  color: #5d5fef;
   transition-timing-function: ease-in;
   transition-duration: 250ms;
 }
@@ -17,4 +27,10 @@
   cursor: pointer;
   transition-timing-function: ease-in;
   transition-duration: 3000ms;
+}
+.backgroundLoginColor {
+  background-color: #f8f8ff;
+}
+.cloudButton {
+  background-color: #5d5fef;
 }

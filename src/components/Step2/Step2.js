@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import appearzLogo from "../../assets/apperazLogo.jpg";
+import logoApperaz from "../../assets/logoApperaz.png";
 import mobileImage from "../../assets/otpImage.png";
 import ellipse4 from "../../assets/Ellipse4.png";
 import rectangle17 from "../../assets/Rectangle17.png";
@@ -40,10 +41,13 @@ const Step2 = () => {
     }
     console.log(totalOtp);
     try {
-      const response = await axios.post("http://localhost:1337/approvals", {
-        phoneNumber: number,
-        code: totalOtp,
-      });
+      const response = await axios.post(
+        "http://appearz.outshade.com:1337/approvals",
+        {
+          phoneNumber: number,
+          code: totalOtp,
+        }
+      );
       console.log(response.data);
       const message = response.data;
       if (message === "User Not Approved") {
@@ -65,15 +69,20 @@ const Step2 = () => {
   return (
     <>
       <div className="flex flex-col">
-        <div className="mb-8 ml-4">
-          <img src={appearzLogo}></img>
+        <div className="mb-20 ml-4 flex">
+          <img src={logoApperaz}></img>
+          <p className={`self-end ${classes.logoName}`}>APPREAZ</p>
         </div>
         <div className="flex justify-center">
-          <div className="flex flex-col items-center bg-blue-50 pr-24 pb-24 pl-24 pt-8 rounded-2xl">
+          <div
+            className={`flex flex-col items-center pr-32 pb-8 pl-32 pt-8 rounded-2xl ${classes.formColor}`}
+          >
             <div className="mb-10 flex flex-col items-center">
               <div className="text-sm mb-3">
-                <span className="text-blue-700">Step 2 </span>
-                <span className="opacity-50">of 4</span>
+                <span className="text-blue-700 text-xs font-medium">
+                  STEP 2
+                </span>
+                <span className="opacity-50 text-xs"> of 4</span>
               </div>
               <div className="flex justify-between">
                 <img className="mr-1" src={ellipse4}></img>
@@ -83,16 +92,21 @@ const Step2 = () => {
               </div>
             </div>
             <form
-              className="flex flex-col justify-center items-center"
+              className="flex flex-col justify-center items-center mt-6"
               onSubmit={goToStep3Handler}
             >
-              <h1 className="text-xl font-bold mb-4">Enter OTP</h1>
-              <p className="mb-2 text-sm">
+              <h1
+                className="text-xl font-extrabold mb-4"
+                style={{ color: "#1D1E5E" }}
+              >
+                Enter OTP
+              </h1>
+              <p className="mb-4 text-xs" style={{ color: "#515151" }}>
                 Enter the one time password sent to ******
                 {number[9] + number[10] + number[11] + number[12]}
               </p>
               <p
-                className={`text-sm font-bold mb-4 cursor-pointer ${classes.changeNumberSpan}`}
+                className={`text-xs font-bold mb-5 cursor-pointer ${classes.changeNumberSpan}`}
                 onClick={changeNumberHandler}
               >
                 Change Number
@@ -101,7 +115,8 @@ const Step2 = () => {
                 {otp.map((data, index) => {
                   return (
                     <input
-                      className="w-10 h-10 mr-4 mb-4 pl-5 rounded-xl"
+                      className={`w-10 h-10 mr-4 mb-16 pl-5 rounded-xl outline-none`}
+                      style={error ? { border: "1px solid red" } : {}}
                       type="text"
                       name="otp"
                       maxLength="1"
@@ -135,19 +150,19 @@ const Step2 = () => {
               )}
               <button
                 type="submit"
-                className={`self-center bg-blue-700 w-1/2 h-8 rounded-3xl text-white text-sm mb-5 ${classes.confirmOtpButton}`}
+                className={`self-center bg-blue-700 w-1/2 h-8 rounded-3xl text-white text-xs font-medium mb-5 ${classes.confirmOtpButton}`}
                 disabled={isFetching}
               >
                 {isFetching ? (
                   <CircularProgress color="white" size="20px" />
                 ) : (
-                  "Get OTP"
+                  "CONFIRM OTP"
                 )}
               </button>
             </form>
           </div>
         </div>
-        <div className="fixed bottom-0 right-0">
+        <div className="fixed bottom-0 right-0 w-80">
           <img src={mobileImage}></img>
         </div>
       </div>
