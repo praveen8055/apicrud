@@ -1,0 +1,24 @@
+.createPasswordButton:hover {
+  background-color: rgb(107, 107, 231);
+  transition-timing-function: ease-in;
+  transition-duration: 300ms;
+}
+.createPasswordButton {
+  background-color: #5d5fef;
+}
+.createPasswordButton:disabled {
+  background-color: #dadada;
+  cursor: not-allowed;
+}
+.logoName {
+  font-family: "Spectral", serif;
+  color: #5d5fef;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+.formColor {
+  background-color: #f8f8ff;
+}
+.headingColor {
+  color: #1d1e5e;
+}
