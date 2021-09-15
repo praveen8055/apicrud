@@ -1,19 +1,18 @@
 import React from 'react'
-import { callApi } from "./Api/LoginUtils";
-import {
-    useDispatchCurrentUser,
-    useCurrentUser,
-  } from "./Contexts/CurrentUser";
+import  {callApi}  from "../Utilities/LoginUtils";
+import { UserContext}from "./Contexts/CurrentUser";
   import { useRouter } from 'next/router';
+import axios from 'axios';
 
 function dummyconfirmation() {
+  const {state, dispatch} = UserContext()
   const router = useRouter();
-  const dispatch = useDispatchCurrentUser();
-  const currentUser = useCurrentUser();
+  // const dispatch = useDispatchCurrentUser();
   const logoutHandler = async () => {
     await callApi("/logout", "POST");
-    // dispatch({ type: "LOGOUT" });
-    router.replace("/login");
+      dispatch({isAuthenticated: false})
+        router.push("/login")
+  
   };
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">

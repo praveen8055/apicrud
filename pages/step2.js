@@ -76,8 +76,10 @@ function step2() {
     <>
       <div className="flex flex-col">
         <div className="mb-20 ml-4 flex">
-          <Image src={logoApperaz}/>
-          <p className={`self-end ${styles.logoName}`}>APPREAZ</p>
+        <div className={` ${styles.logoName}`}>
+      <Image src={logoApperaz} className={styles.logoImage} />
+        <p className={styles.logoName1}>APPREAZ</p>
+      </div>
         </div>
         <div className="flex justify-center">
           <div

@@ -1,12 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Spectral&display=swap');
+
 .changeNumberSpan:hover {
     color: #5d5fef;
     transition-timing-function: ease-in;
     transition-duration: 250ms;
   }
+  .fbicon{
+    min-height: 88%;
+    min-width: 65%;
+    
+  }
   .confirmOtpButton:hover {
     background-color: rgb(107, 107, 231);
     transition-timing-function: ease-in;
     transition-duration: 300ms;
+  }
+  .background{
+      background-color: white;
   }
   .confirmOtpButton {
     background-color: #5d5fef;
@@ -16,15 +27,13 @@
     transition-timing-function: ease-in;
     transition-duration: 250ms;
   }
-  .logoName {
-    font-family: "Spectral", serif;
-    color: #5d5fef;
-    font-weight: bolder;
-    font-size: 1.2rem;
+  .cloudbackground{
+      background-color: white;
   }
   .formColor {
     background-color: #f8f8ff;
   }
+ 
   .createPasswordButton:hover {
     background-color: rgb(107, 107, 231);
     transition-timing-function: ease-in;
@@ -37,11 +46,32 @@
     background-color: #dadada;
     cursor: not-allowed;
   }
+  .logoName1{
+    position: absolute;
+    width: 121px;
+    height: 33px;
+    left: 50px;
+    top: 25px;
+    
+    font-family: Spectral;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 137.2%;
+    /* identical to box height, or 33px */
+    
+    
+    /* Iris/100 */
+    
+    color: #5D5FEF;
+  }
   .logoName {
-    font-family: "Spectral", serif;
-    color: #5d5fef;
-    font-weight: bolder;
-    font-size: 1.2rem;
+    position: absolute;
+font-family: Spectral;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+color: #5D5FEF;
   }
   .formColor {
     background-color: #f8f8ff;
@@ -54,12 +84,7 @@
     transition-timing-function: ease-in;
     transition-duration: 300ms;
   }
-  .logoName {
-    font-family: "Spectral", serif;
-    color: #5d5fef;
-    font-weight: bolder;
-    font-size: 1.2rem;
-  }
+  
   .loginButton {
     background-color: #5d5fef;
     font-size: smaller;
@@ -81,17 +106,27 @@
   }
   .backgroundLoginColor {
     background-color: #f8f8ff;
+    height:100%;
+    z-index: 1;
   }
   .cloudButton {
     background-color: #5d5fef;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
 
-
+  .logoFamily {
+    font-family: "Spectral", serif;
+  }
+  .logoColor {
+    color: #5d5fef;
+  }
+  
+  
   .body{
       background: #F8F8FF;
   }
-  
+  .bigNav{
+      position: fixed;
+  }
   
   .navbar{
       position: fixed;
@@ -101,7 +136,6 @@
   left: 0px;
   top: 0px;
   border-radius: 0px;
-  position: absolute;
   left: 0%;
   right: 0%;
   top: 0%;
@@ -138,7 +172,7 @@
   .anchor{
       font-family: Lexend;
       font-style: normal;
-      font-weight: normal;
+      font-weight: 500;
       font-size: 16px;
       line-height: 20px;
       /* identical to box height */
@@ -148,7 +182,7 @@
       
       /* BG purple */
       
-      color: #F8F8FF;
+      color: #f6f6f8;
     margin-top: 20px;
     background-color: #1D1E5E;
     height: 64px;

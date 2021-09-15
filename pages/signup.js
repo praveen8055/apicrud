@@ -3,13 +3,13 @@ import signupImage from "../public/assets/signupImage.png";
 import ellipse4 from "../public/assets/Ellipse4.png";
 import logoApperaz from "../public/assets/logoApperaz.png";
 import rectangle17 from "../public/assets/Rectangle17.png";
-import { callApi } from "./Api/LoginUtils";
+import { callApi } from "../Utilities/LoginUtils";
 import styles from '../styles/Home.module.css'
 import { CircularProgress } from "@material-ui/core";
-import {
-  useDispatchCurrentUser,
-  useCurrentUser,
-} from "./Contexts/CurrentUser";
+// import {
+//   useDispatchCurrentUser,
+//   useCurrentUser,
+// } from "./Contexts/CurrentUser";
 import axios from "axios";
 import {useRouter} from 'next/router'
 import Image from 'next/image'
@@ -21,7 +21,6 @@ function Signup() {
   const router = useRouter();
   const usernameRef = useRef();
   const emailRef = useRef();
-  const dispatch = useDispatchCurrentUser();
   const passwordRef = useRef();
   const residentRef = useRef();
   const [resident, setResident] = useState("notSelected");
@@ -79,8 +78,10 @@ function Signup() {
     <>
       <div className="flex flex-col">
         <div className="mb-10 ml-4 flex">
-          <Image src={logoApperaz}/>
-          <p className={`self-end ${styles.logoName}`}>APPREAZ</p>
+        <div className={` ${styles.logoName}`}>
+      <Image src={logoApperaz} className={styles.logoImage} />
+        <p className={styles.logoName1}>APPREAZ</p>
+      </div>
         </div>
         <form className="flex justify-center" onSubmit={registerHandler}>
           <div

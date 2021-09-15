@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import  callApi  from "./Api/LoginUtils";
+import  callApi  from "../Utilities/LoginUtils";
 import {Visibility} from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
@@ -7,11 +7,16 @@ import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import PhoneInput from "react-phone-input-2";
 import styles from '../styles/Home.module.css'
+import GoogleLogin from 'react-google-login'
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Cookies from 'js-cookie'
+import fbimage from  '../public/assets/fbimage.png'
 
-import {
-  useDispatchCurrentUser,
-  useCurrentUser,
-} from "./Contexts/CurrentUser";
+// import {
+//   useDispatchCurrentUser,
+//   useCurrentUser,
+// } from "./Contexts/CurrentUser";
 import cloudImage from "../public/assets/cloudImage.png";
 import logoAppreaz from "../public/assets/logoApperaz.png";
 import ellipse4 from "../public/assets/Ellipse4.png";
@@ -20,25 +25,38 @@ import googleImage from "../public/assets/googleImage.png";
 import facebookImage from "../public/assets/facebookImage.png";
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import axios from "axios";
 
 function login() {
   const router = useRouter();
   const emailRef = useRef();
   const passwordRef = useRef();
   const [errorMessage, setErrorMessage] = useState(null);
-  const dispatch = useDispatchCurrentUser();
-  const currentUser = useCurrentUser();
+  // const dispatch = useDispatchCurrentUser();
+  // const currentUser = useCurrentUser();
   const [image1, setImage1] = useState(rectangle17);
   const [image2, setImage2] = useState(ellipse4);
   const [image3, setImage3] = useState(ellipse4);
   const [image4, setImage4] = useState(ellipse4);
-  const [values, setValues] = useState([{
+  const [values, setValues] = useState({
     password: "",
     showPassword: false,
-  }]);
+  });
   const [emailValue, setEmailValue] = useState("");
   const [phoneNo, setPhoneNo] = useState();
   const [isEmailInput, setIsEmailInput] = useState(true);
+  
+  const responseGoogle = (response) => {
+    console.log(response)
+    console.log(response.profileObj)
+}
+
+const responseFacebook = (response) => {
+  console.log(response);
+}
+const componentClicked=(data)=>{
+  console.log(data)
+}
 
   const emailChangedHandler = (e) => {
     setEmailValue(e.target.value);
@@ -58,29 +76,39 @@ function login() {
 
   const submitLoginFormHandler = async (e) => {
     e.preventDefault();
-    const re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    console.log("email", emailValue);
-    console.log("password", values.password);
-    
+  //   const re =
+  //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   console.log("email", emailValue);
+  //   console.log("password", values.password);
 
-    setErrorMessage(null);
-    try {
-      if (!re.test(emailValue)) throw "Email not valid";
-      const response = await callApi("/auth/local", "POST", {
-        identifier: emailValue,
-        password: values.password,
-      });
-      if (!response.user) {
-        throw "We could not find an account linked with this account";
-      }
-      console.log(response);
-      // dispatch({ type: "LOGIN", user: response.user });
-      router.replace("/dummyconfirmation");
-    } catch (error) {
-      console.log(error);
-      setErrorMessage("incorrect email");
-    }
+  //   setErrorMessage(null);
+  //   try {
+  //     if (!re.test(emailValue)) throw "Email not valid";
+  //     const response = await callApi("/auth/local", "POST", {
+  //       identifier: emailValue,
+  //       password: values.password,
+  //     });
+  //     if (!response.user) {
+  //       throw "We could not find an account linked with this account";
+  //     }
+  //     console.log(response);
+  //     dispatch({ type: "LOGIN", user: response.user });
+  //     router.replace("/dummyconfirmation");
+  //   } catch (error) {
+  //     console.log(error);
+  //     setErrorMessage(JSON.stringify(error));
+  //   }
+  await
+  axios.post("http://localhost:1337/auth/local", {identifier:"saxenashubham248@gmail.com", password:"Shubham@5151"})
+.then(res=>{
+  console.log(res)
+  Cookies.set("jwt", res.data.jwt)
+  console.log(res.data.jwt)
+  router.push("/dummyconfirmation")
+}).catch(err=>{
+  console.log(err)
+})
+  
   };
 
   const image1Handler = () => {
@@ -121,22 +149,16 @@ function login() {
 
   return (
     <>
-      <p
-        onClick={goToStep1Handler}
-        className={`absolute top-4 right-4 text-xs underline ${styles.createAccountMessage}`}
-        style={{ cursor: "pointer" }}
-      >
-        Don't have an appereaz account?
-      </p>
-      <div>
-        <Image src={logoAppreaz} className="absolute top-0 left-0"/>
-        <p className={`absolute top-6 left-12 ${styles.logoName}`}>APPREAZ</p>
+    
+      <div className={` ${styles.logoName}`}>
+      <Image src={logoAppreaz} className={styles.logoImage} />
+        <p className={styles.logoName1}>APPREAZ</p>
       </div>
-      <div className="w-screen h-screen flex items-center">
-        <div className="w-1/2 flex flex-col items-center justify-center">
+      <div className={`w-screen h-screen flex items-center ${styles.cloudbackground}`}>
+        <div className={`w-1/2 flex flex-col items-center justify-center `}>
           <Image className="mb-6" src={cloudImage}/>
           <p>One-stop-shop for all your</p>
-          <p className="mb-6">society-related administrative work</p>
+          <p className="mb-6 ">society-related administrative work</p>
           <div className="flex justify-between mb-6">
             <Image
               className={`mr-1 ${styles.imageMove}`}
@@ -148,7 +170,7 @@ function login() {
               src={image2}
               onClick={image2Handler}
             />
-              <Image
+            <Image
               className={`mr-1 ${styles.imageMove}`}
               src={image3}
               onClick={image3Handler}
@@ -160,7 +182,7 @@ function login() {
             />
           </div>
           <button
-            className={`w-1/4 h-8 rounded-3xl text-white mb-5 text-sm font-medium ${styles.cloudButton}`}
+           className={`w-1/4 h-8 rounded-3xl text-white mb-5 text-sm font-medium ${styles.cloudButton}`}
           >
             WATCH VIDEO
           </button>
@@ -168,6 +190,13 @@ function login() {
         <div
           className={`w-1/2 h-screen flex flex-col items-center justify-center ${styles.backgroundLoginColor}`}
         >
+           <p
+        onClick={goToStep1Handler}
+        className={`absolute top-4 right-4 text-xs underline ${styles.createAccountMessage}`}
+        style={{ cursor: "pointer" }}
+      >
+        Don't have an appereaz account?
+      </p>
           <div className="flex flex-col justify-center">
             <h1 className="text-xl font-extrabold mb-6">Log In</h1>
             <label htmlFor="email" className="text-xs mb-2">
@@ -245,21 +274,38 @@ function login() {
               LOGIN
             </button>
             <p className="mb-6 text-sm">OR</p>
-            <button
-              onClick={loginWithGoogleHandler}
-              className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-8"
-            >
-              <Image className="mr-2 w-4 h-4" src={googleImage}/>
-              <p className="text-xs font-medium">CONTINUE WITH GOOGLE</p>
-            </button>
-            <button className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700">
-              <Image className="mr-2 w-5 h-5" src={facebookImage}/>
-              <p className="text-xs font-medium">CONTINUE WITH FACEBOOK</p>
-            </button>
+            <GoogleLogin 
+                    clientId="607217644055-uoigtq2aubta88elvhu3n2mkae8tboea.apps.googleusercontent.com"
+                    render={renderProps => (
+                        <button onClick={renderProps.onClick} disabled={renderProps.disabled}
+                        className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-8"
+                      >
+                        <Image className="mr-2 w-4 h-4" src={googleImage}/>
+                        <p className="text-xs font-medium pl-2">CONTINUE WITH GOOGLE</p>
+                      </button>
+                      )}
+                    buttonText="Continue with google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                // cookiePolicy={"single-host-origin"}
+                />
+           <FacebookLogin
+                    appId="434384707135599"
+                    autoLoad={true}
+                    fields="name,email,picture"
+                    onClick={componentClicked}
+                    callback={responseFacebook}
+                    render={renderProps => (
+                      <button onClick={renderProps.onClick} className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700">
+                      <Image src={fbimage} className={styles.fbicon}/>
+                      <p className="text-xs font-medium pl-2 ">CONTINUE WITH FACEBOOK</p>
+                    </button>
+                      )} />
           </div>
         </div>
       </div>
     </>
+
   );
 };
 

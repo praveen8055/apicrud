@@ -16,29 +16,36 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Notice from './Notice'
 import axios from 'axios'
+import {useRouter} from 'next/router'
+import cookie from 'react'
+import {NextPageContext} from 'next'
 
 
 function dashboard() {
-    const [profile, setprofile] = useState([])
+    const [user, setuser] = useState({
+        username:"",
+        email:'',
+        _id:""
+    })
+    const register=()=>{
 
-    // useEffect(() => {
-    //     axios.post("http://localhost:1337/member-profiles", {}, {authorization})
-    //     .then(res=>{
-    //         console.log(res)
-    //         setprofile(res.data)
-    //     })
-    //     .catch(err=>{
-    //         console.log(err)
-    //     })
-        
-    // }, [])
+        axios.post("http://localhost:1337/auth/local")
+        .then(res=>{
+            console.log(res)
+            setuser()
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+
     return (
         <div>
              <Navbar/>
              <Notice/>
         <div className={styles.intro}>
-            <p id={styles.welcome}>Welcome Back, </p>
-            <p id={styles.username}>Jack</p>
+            <p id={styles.welcome}>Welcome Back,  </p>
+            <p id={styles.username}>{user.username}</p>
+           
         </div>
         <p className={styles.update}>Here are your updates for the day</p>
         <div>

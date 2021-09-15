@@ -8,7 +8,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import HintModal from "./hintmodal";
 import IssueModal from "./issuemodal";
-import { callApi } from "./Api/LoginUtils";
+import  {callApi}  from "../Utilities/LoginUtils";
 import styles from '../styles/Home.module.css';
 import { CircularProgress } from "@material-ui/core";
 import { useRouter } from "next/router";
@@ -49,13 +49,15 @@ function step1() {
   };
 
   return (
-    <>
-      <div className="flex flex-col justify-center">
-        <div className="mb-24 ml-4 flex">
-          <Image src={logoAppearz}/>
-          <p className={`self-end ${styles.logoName}`}>APPREAZ</p>
+    <div className={styles.background}>
+      <div className={`flex flex-col justify-center ${styles.background}`}>
+        <div className={`mb-24 ml-4 flex${styles.background}`}>
+        <div className={` ${styles.logoName}`}>
+      <Image src={logoAppearz} className={styles.logoImage} />
+        <p className={styles.logoName1}>APPREAZ</p>
+      </div>
         </div>
-        <div className="flex justify-center">
+        <div className={`flex justify-center ${styles.background}`}>
           <div
             className={`flex flex-col items-center pr-32 pb-10 pl-32 pt-8 rounded-2xl ${styles.formColor}`}
           >
@@ -123,9 +125,11 @@ function step1() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 right-0 w-80">
+        <div className={styles.background}>
+        <div className={`absolute bottom-0 right-0 w-80 ${styles.background}`}>
           <Image src={mobileImage}/>
         </div>
+      </div>
       </div>
       <HintModal
         isOpen={hintModalIsOpen}
@@ -140,7 +144,7 @@ function step1() {
           setIssueModalIsOpen(false);
         }}
       ></IssueModal>
-    </>
+    </div>
   );
 };
 
