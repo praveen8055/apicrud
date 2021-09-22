@@ -1811,8 +1811,8 @@ top:10px;
       width: 90px;
       height: 18px;
       left: 24px;
-      top: 24px;
-      
+      top: 10px;
+      margin-bottom: 10px;
       /* secondary - Bold- body text - 14 */
      padding-left: 10px;
       font-family: Lexend;
@@ -1830,7 +1830,6 @@ top:10px;
       flex: none;
       order: 0;
       flex-grow: 0;
-      margin: 24px 0px;
   }
   .element{
       display: flex;
@@ -1970,4 +1969,863 @@ top:10px;
   margin: 10px;
   }
   
-  
+  .popup{
+     height: 200px;
+     width: 200px;
+     border: 2px solid red;
+  }
+  .modal{
+    position: absolute;
+    width: 450px;
+    height: 392px;
+    left: 495px;
+    top: 183px;
+    border: none;
+   border-radius: 20px;
+  }
+  .payment{
+    position: absolute;
+    width: 122px;
+    height: 30px;
+    left: 168px;
+    top: 144px;
+    font-weight: 600;
+    /* H1 header */
+    
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+    
+    letter-spacing: 0.003px;
+    
+    /* Main dark blue */
+    
+    color: #1D1E5E;
+  }
+  .billElements{
+    position: absolute;
+    height: 18px;
+    left: 165px;
+    top: calc(32% - 18px/2 - 11px);
+    display: flex;
+    cursor:pointer;
+  }
+  .billElements1{
+    position: absolute;
+    height: 18px;
+    left: 465px;
+    top: calc(32% - 18px/2 - 11px);
+    display: flex;
+    cursor:pointer;
+  }
+  .billElements2{
+    position: absolute;
+    height: 18px;
+    left: 765px;
+    top: calc(32% - 18px/2 - 11px);
+    display: flex;
+    cursor:pointer;
+  }
+  .billElements3{
+    position: absolute;
+    height: 18px;
+    left: 165px;
+    top: calc(45% - 18px/2 - 11px);
+    display: flex;
+    cursor:pointer;
+  }
+  .billElements4{
+    position: absolute;
+    height: 18px;
+    left: 465px;
+    top: calc(45% - 18px/2 - 11px);
+    display: flex;
+    cursor:pointer;
+  }
+  .ebill{
+   position: absolute;
+width: 712px;
+height: 346px;
+left: 167px;
+top: 198px;
+
+/* Pure White */
+
+background: #FFFFFF;
+border-radius: 8px;
+  }
+  .ebill1{
+      border-bottom: 1px solid #E0E0E0;
+      padding-bottom: 30px;
+      padding-left: 10px;
+      width: 700px;
+  }
+  .state{
+    position: absolute;
+    width: 150px;
+    height: 18px;
+    left: 15px;
+    top: 76px;
+    
+    /* secondary body text - 14 */
+    
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    
+    letter-spacing: 0.002px;
+    
+    /* Body text grey */
+    
+    color: #515151;
+    
+  }
+  .stateInput{
+    position: absolute;
+    width: 300px;
+    height: 48px;
+    left: 15px;
+    outline: none;
+    top: 106px;
+    
+    /* Pure White */
+    
+    background: #FFFFFF;
+    /* Iris/60 */
+    
+    border: 1px solid #A5A6F6;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+  .state1{
+    position: absolute;
+    width: 200px;
+    height: 18px;
+    left: 355px;
+    top: 76px;
+    
+    /* secondary body text - 14 */
+    
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    
+    letter-spacing: 0.002px;
+    
+    /* Body text grey */
+    
+    color: #515151;
+  }
+  .stateInput1{
+    position: absolute;
+    width: 300px;
+    height: 48px;
+    left: 355px;
+    outline: none;
+    top: 106px;
+    
+    /* Pure White */
+    
+    background: #FFFFFF;
+    /* Iris/60 */
+    
+    border: 1px solid #A5A6F6;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+  .samplebill{
+    position: absolute;
+    width: 169px;
+    height: 18px;
+    left: 18px;
+    top: 170px;
+    cursor: pointer;
+    /* secondary - Semibold- body text - 14 */
+    
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    
+    letter-spacing: 0.002px;
+    
+    /* Iris/100 */
+    
+    color: #5D5FEF;
+    
+}
+.next{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 288px;
+height: 44px;
+left: 400px;
+top: 250px;
+cursor: pointer;
+/* Iris/100 */
+
+background: #5D5FEF;
+border-radius: 28px;
+}
+.ebill10{
+    position: absolute;
+width: 712px;
+height: 666px;
+left: 167px;
+top: 198px;
+
+/* Pure White */
+
+background: #FFFFFF;
+border-radius: 8px;
+}
+.smallBill1{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 24px;
+
+position: absolute;
+width: 664px;
+height: 278px;
+left: 191px;
+top: 422px;
+
+/* BG purple */
+
+background: #F8F8FF;
+border-radius: 8px;
+}
+.finalAmount1{
+    position: absolute;
+width: 664px;
+height: 76px;
+left: 191px;
+top: 764px;
+
+/* BG purple */
+
+background: #F8F8FF;
+border-radius: 8px;
+}
+.smallnote{
+    position: absolute;
+width: 664px;
+height: 116px;
+left: 20px;
+top: 20px;
+
+/* BG purple */
+
+background: #F8F8FF;
+border-radius: 8px;
+}
+.congrats{
+    position: absolute;
+width: 406px;
+height: 18px;
+left: 20px;
+top: 50px;
+
+/* secondary body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+letter-spacing: 0.002px;
+
+/* Body text grey */
+
+color: #515151;
+
+}
+.lastbill{
+    position: absolute;
+width: 89px;
+height: 18px;
+left: 20px;
+top: 75px;
+cursor: pointer;
+/* secondary - Semibold- body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+letter-spacing: 0.002px;
+
+/* Iris/100 */
+
+color: #5D5FEF;
+}
+.radio{
+    position: static;
+width: 680px;
+padding-right: 10px;
+margin-right: 10px;
+height: 20px;
+left: 32px;
+top: 4px;
+margin: 20px;
+padding-top: 10px;
+/* Selected state in tabs */
+border-bottom: 1px solid #E0E0E0;
+font-family: Lexend;
+padding-bottom: 30px ;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+/* identical to box height, or 114% */
+
+letter-spacing: 0.002px;
+
+/* Main black */
+
+color: #1A1A1A;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.ebill20{
+    position: absolute;
+width: 712px;
+height: 492px;
+left: 167px;
+top: 198px;
+
+/* Pure White */
+
+background: #FFFFFF;
+border-radius: 8px;
+}
+.smallnote1{
+    position: absolute;
+width: 664px;
+height: 116px;
+left: 20px;
+top: 194px;
+
+/* BG purple */
+
+background: #F8F8FF;
+border-radius: 8px;
+}
+.next1{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 288px;
+height: 44px;
+left: 380px;
+top: 406px;
+
+background: #DADADA;
+border-radius: 28px;
+}
+.state2{
+    position: absolute;
+    width: 150px;
+    height: 18px;
+    left: 15px;
+    top: 206px;
+    
+    /* secondary body text - 14 */
+    
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    
+    letter-spacing: 0.002px;
+    
+    /* Body text grey */
+    
+    color: #515151;
+}
+.stateInput2{
+    position: absolute;
+    width: 300px;
+    height: 48px;
+    left: 15px;
+    outline: none;
+    top: 140px;
+    
+    
+    background: #FFFFFF;
+    
+    
+    border: 1px solid #A5A6F6;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.ebill30{
+    position: absolute;
+width: 712px;
+height: 414px;
+left: 167px;
+top: 198px;
+
+/* Pure White */
+
+background: #FFFFFF;
+border-radius: 8px;
+}
+.state10{
+    position: absolute;
+    width: 200px;
+    height: 18px;
+    left: 355px;
+    top: 26px;
+    
+    /* secondary body text - 14 */
+    
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    
+    letter-spacing: 0.002px;
+    
+    /* Body text grey */
+    
+    color: #515151;
+}
+.state20{
+    position: absolute;
+    width: 200px;
+    height: 18px;
+    left: 20px;
+    top: 26px;
+    
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    
+    letter-spacing: 0.002px;
+    
+    
+    color: #515151;
+}
+.stateInput10{
+    position: absolute;
+    width: 300px;
+    height: 48px;
+    left: 15px;
+    outline: none;
+    top: 50px;
+    
+    /* Pure White */
+    
+    background: #FFFFFF;
+    /* Iris/60 */
+    
+    border: 1px solid #A5A6F6;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.stateInput20{
+    position: absolute;
+    width: 300px;
+    height: 48px;
+    left: 355px;
+    outline: none;
+    top: 50px;
+    
+    /* Pure White */
+    
+    background: #FFFFFF;
+    /* Iris/60 */
+    
+    border: 1px solid #A5A6F6;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.state40{
+    position: absolute;
+    width: 200px;
+    height: 18px;
+    left: 20px;
+    top: 116px;
+    
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    
+    letter-spacing: 0.002px;
+    
+    
+    color: #515151;
+}
+.samplebill1{
+    position: absolute;
+    width: 169px;
+    height: 18px;
+    left: 18px;
+    top: 200px;
+    cursor: pointer;
+    /* secondary - Semibold- body text - 14 */
+    
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    
+    letter-spacing: 0.002px;
+    
+    /* Iris/100 */
+    
+    color: #5D5FEF;
+}
+.next2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    
+    position: absolute;
+    width: 288px;
+    height: 44px;
+    left: 400px;
+    top: 320px;
+    cursor: pointer;
+    /* Iris/100 */
+    
+    background: #5D5FEF;
+    border-radius: 28px;
+}
+.finalamount2{
+    position: absolute;
+    width: 664px;
+    height: 76px;
+    left: 15px;
+    top: 300px;
+    background: #F8F8FF;
+    border-radius: 8px;
+}
+.bigrent{
+    position: absolute;
+width: 712px;
+height: 750px;
+left: 167px;
+top: 198px;
+
+/* Pure White */
+
+background: #FFFFFF;
+border-radius: 8px;
+}
+.landlord{
+    position: absolute;
+width: 200px;
+height: 18px;
+left: 15px;
+top: 15px;
+
+/* secondary body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+letter-spacing: 0.002px;
+
+/* Body text grey */
+
+color: #515151;
+
+}
+.landlordtext{
+    position: absolute;
+width: 664px;
+height: 48px;
+left: 15px;
+top: 40px;
+outline:none;
+/* Non edit fill color */
+
+background: #EAEAEA;
+border-radius: 8px;
+}
+.propaddress{
+    position: absolute;
+width: 121px;
+height: 18px;
+left: 15px;
+top: 115px;
+
+/* secondary body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+letter-spacing: 0.002px;
+
+/* Body text grey */
+
+color: #515151;
+
+}
+.propaddresstext{
+    position: absolute;
+width: 666px;
+height: 108px;
+left: 15px;
+top: 140px;
+outline:none;
+/* Non edit fill color */
+
+background: #EAEAEA;
+border-radius: 8px;
+}
+.bank{
+    position: absolute;
+width: 191px;
+height: 18px;
+left: 15px;
+top: 270px;
+
+/* secondary body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+letter-spacing: 0.002px;
+
+/* Body text grey */
+
+color: #515151;
+}
+.banktext{
+    position: absolute;
+width: 320px;
+height: 48px;
+left: 15px;
+top: 297px;
+outline:none;
+/* Pure White */
+
+background: #FFFFFF;
+/* Iris/60 */
+
+border: 1px solid #A5A6F6;
+box-sizing: border-box;
+border-radius: 8px;
+}
+.confirmbank{
+    position: absolute;
+width: 243px;
+height: 18px;
+left: 360px;
+top: 270px;
+
+/* secondary body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+letter-spacing: 0.002px;
+
+/* Body text grey */
+
+color: #515151;
+}
+.confirmbanktext{
+    position: absolute;
+width: 320px;
+height: 48px;
+left: 360px;
+top: 297px;
+outline:none;
+/* Enter Field color */
+
+background: #F8F8F8;
+border-radius: 8px;
+}
+.ifsc{
+    position: absolute;
+width: 79px;
+height: 18px;
+left: 15px;
+top: 370px;
+
+/* secondary body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+letter-spacing: 0.002px;
+
+/* Body text grey */
+
+color: #515151;
+
+}
+.ifsctext{
+    
+position: absolute;
+width: 320px;
+height: 48px;
+left: 15px;
+top: 395px;
+outline:none;
+/* Enter Field color */
+
+background: #F8F8F8;
+border-radius: 8px;
+}
+.rentamount{
+    position: absolute;
+width: 93px;
+height: 18px;
+left: 360px;
+top: 370px;
+
+/* secondary body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+letter-spacing: 0.002px;
+
+/* Body text grey */
+
+color: #515151;
+}
+.rentamounttext{
+    position: absolute;
+width: 320px;
+height: 48px;
+left: 360px;
+top: 395px;
+outline:none;
+/* Enter Field color */
+
+background: #F8F8F8;
+border-radius: 8px;
+}
+.commentsop{
+    position: absolute;
+width: 147px;
+height: 18px;
+left: 15px;
+top: 467px;
+
+/* secondary body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+letter-spacing: 0.002px;
+
+/* Body text grey */
+
+color: #515151;
+}
+.commentsoptext{
+    position: absolute;
+width: 320px;
+height: 108px;
+left: 15px;
+top: 492px;
+
+/* Enter Field color */
+outline:none;
+background: #F8F8F8;
+border-radius: 8px;
+}
+.rentnext{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 288px;
+height: 44px;
+left: 370px;
+top: 644px;
+
+background: #5D5FEF;
+border-radius: 28px;
+}
+.finalAmount200{
+    position: absolute;
+    width: 664px;
+    height: 76px;
+    left: 21px;
+    top: 644px;
+    background: #F8F8FF;
+    border-radius: 8px;
+}

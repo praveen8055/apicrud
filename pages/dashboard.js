@@ -16,17 +16,22 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Notice from './Notice'
 import axios from 'axios'
-import {useRouter} from 'next/router'
+import router, {useRouter} from 'next/router'
 import cookie from 'react'
 import {NextPageContext} from 'next'
+import Popup from './popup'
+import Modal from 'react-modal'
+import amazonlogo from '../public/assets/amazonlogo.png'
 
 
 function dashboard() {
+    let router =useRouter()
     const [user, setuser] = useState({
         username:"",
         email:'',
         _id:""
     })
+    const [modalopen, setmodalopen] = useState(false)
     const register=()=>{
 
         axios.post("http://localhost:1337/auth/local")
@@ -37,7 +42,10 @@ function dashboard() {
             console.log(err)
         })
     }
-
+    const handleClick=()=>{
+        window.location.reload()
+    }
+  
     return (
         <div>
              <Navbar/>
@@ -50,22 +58,48 @@ function dashboard() {
         <p className={styles.update}>Here are your updates for the day</p>
         <div>
             <p className={styles.viewAll}>View all</p>
-            {/* <Image src={parcel} src={parcel}/> */}
+            
         </div>
-
+            
         <div className={styles.allcards}>
-        <div className={styles.cards}>
+            
+        <div onClick={()=>setmodalopen(true)} className={styles.cards}>
+        <Modal isOpen={modalopen}
+         onRequestClose={()=>setmodalopen(false)}
+         className={styles.modal}
+         style={
+             {
+                 content:{
+                     backgroundColor:"white",
+                     outline:"none"
+                 },
+                
+             }
+         }>
+                <Image src={amazonlogo}/>
+                <h1>Akhil amazon</h1>
+                <p className={styles.delivery}>Delivery</p>
+                <div className={styles.clock}>
+                    <Image src={clock} alt="" />
+                    </div>
+                    <p className={styles.time4}>8:00 am</p>
+                <div>
+                <button onClick={handleClick}>close</button>
+                </div>
+            </Modal>
             <p className={styles.person}>Nikhil Amazon</p>
             <p className={styles.role1}>Delivery Agent</p>
-            <button className={styles.approve}>
+           
+            <button  className={styles.approve}>
                 <p className={styles.btntext}>Approve</p>
             </button>
             <button className={styles.reject}>
                <p className={styles.btntext1}> Reject</p>
             </button>
         </div>
+       
 
-        <div className={styles.cards1}>
+        <div  className={styles.cards1}>
             <p className={styles.person}>Electricity Bill</p>
             <div className={styles.due}>
             <p className={styles.role1}>Amount Due</p>

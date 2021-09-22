@@ -14,9 +14,14 @@ import greencheck from '../public/Assets/check.png'
 import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 
 function Navbar() {
+    let router=useRouter()
+    const handleClick=()=>{
+        router.push("/payments")
+    }
     return (
         <div>
             
@@ -34,9 +39,9 @@ function Navbar() {
            </div>
             
 
-           <div className={styles.anchor}>
+           <div onClick={handleClick} className={styles.anchor}>
                <FaWallet className={styles.amenities}/>
-                <div>payments</div>
+                <div >payments</div>
            </div>
             
            <div className={styles.anchor}>

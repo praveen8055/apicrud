@@ -9,7 +9,7 @@ function maintenance() {
     
         <div>
             <div>
-                {/* <Navbar/> */}
+                <Navbar/> 
             </div>
             <div style={{display:'flex'}}>
                <p className={styles.maintenance}>Maintenance</p>
