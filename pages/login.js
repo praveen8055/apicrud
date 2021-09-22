@@ -99,7 +99,7 @@ const componentClicked=(data)=>{
   //     setErrorMessage(JSON.stringify(error));
   //   }
   await
-  axios.post("http://localhost:1337/auth/local", {identifier:"saxenashubham248@gmail.com", password:"Shubham@5151"})
+  axios.post("http://appearz.outshade.com:1337/auth/local", {identifier:"saxenashubham248@gmail.com", password:"Shubham@5151"})
 .then(res=>{
   console.log(res)
   Cookies.set("jwt", res.data.jwt)
