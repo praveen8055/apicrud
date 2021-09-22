@@ -2,13 +2,17 @@ import React from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import {useRouter} from 'next/router'
+import backbtn from '../public/assets/backbutton.png'
+import Image from 'next/image'
+
 
 function rentbill() {
     return (
         <div>
             <Navbar/>
-            <div className={styles.payment}>
-                Rent
+            <div style={{display:"flex"}} className={styles.payment}>
+            <Image className="w-12 h-12 bg-white  cursor-pointer" src={backbtn}/>
+               <p className="pl-5"> Rent </p>
             </div>
         <div className={styles.bigrent}>
         

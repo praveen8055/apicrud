@@ -39,9 +39,9 @@ function Navbar() {
            </div>
             
 
-           <div onClick={handleClick} className={styles.anchor}>
+           <div className={styles.anchor}>
                <FaWallet className={styles.amenities}/>
-                <div >payments</div>
+                <div  onClick={handleClick}>Payments</div>
            </div>
             
            <div className={styles.anchor}>

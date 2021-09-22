@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import paybills from '../public/Assets/PayBills.png'
+import paybills from '../public/Assets/paybills.png'
 import Security from '../public/Assets/Security.png'
 import Maintain from '../public/Assets/Maintain.png'
 import Entry from '../public/Assets/Entry.png'

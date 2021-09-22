@@ -1985,7 +1985,7 @@ top:10px;
   }
   .payment{
     position: absolute;
-    width: 122px;
+    width: 400px;
     height: 30px;
     left: 168px;
     top: 144px;
@@ -2828,4 +2828,94 @@ border-radius: 28px;
     top: 644px;
     background: #F8F8FF;
     border-radius: 8px;
+}
+.backbtn{
+    position: absolute;
+left: 300px;
+
+top: 15%;
+bottom: 15%;
+
+
+}
+.history{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 2px 2px 8px;
+
+position: absolute;
+width: 312px;
+height: 260px;
+left: 5px;
+top: 100px;
+
+/* Pure White */
+
+background: #FFFFFF;
+/* Unselected icons */
+
+border: 1px solid #E0E0E0;
+box-sizing: border-box;
+border-radius: 8px;
+}
+.historycard{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 12px;
+
+position: absolute;
+width: 292px;
+height: 48px;
+left: 8px;
+top: 204px;
+
+/* Enter Field color */
+
+background: #F8F8F8;
+border-radius: 8px;
+
+}
+.cylinder1{
+    position: absolute;
+left: 10px;
+margin: 10px;
+height: 20px;
+background-color: white;
+}
+.hp{
+    
+position: absolute;
+width: 192px;
+height: 18px;
+left: 40px;
+top: 0px;
+/* secondary - Bold- body text - 14 */
+
+font-family: Lexend;
+font-style: normal;
+font-weight: "600";
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+letter-spacing: 0.003px;
+
+/* Main black */
+
+color: #1A1A1A;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+}
+.gasimage{
+    background-color: white;
 }

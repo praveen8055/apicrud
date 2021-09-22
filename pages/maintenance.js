@@ -11,9 +11,11 @@ function maintenance() {
             <div>
                 <Navbar/> 
             </div>
-            <div style={{display:'flex'}}>
-               <p className={styles.maintenance}>Maintenance</p>
-           </div>
+            <div style={{display:"flex"}} className={styles.payment}>
+            <Image className="w-12 h-12 bg-white  cursor-pointer" src={backbtn}/>
+               <p className="pl-5"> Maintenance </p>
+            </div>
+
            <div className={styles.bigBill}>
                 <div className={styles.smallBill}>
                     <div className={styles.element}>

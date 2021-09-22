@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import {useRouter} from 'next/router'
+import backbtn from '../public/assets/backbutton.png'
+import Image from 'next/image'
 
 function electricity() {
     let router = useRouter()
@@ -11,8 +13,10 @@ function electricity() {
     return (
         <div>
              <Navbar/>
-            <div className={styles.payment}>
-                Electricity
+            
+            <div style={{display:"flex"}} className={styles.payment}>
+            <Image className="w-12 h-12 bg-white  cursor-pointer" src={backbtn}/>
+               <p className="pl-5"> Electricity </p>
             </div>
 
             <div className={styles.ebill}>
