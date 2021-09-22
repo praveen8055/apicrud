@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/Image'
 import styles from '../styles/Home.module.css'
-import Navbar from './Navbar'
+import Navbar from './navbar'
 
 function maintenance() {
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './Navbar'
+import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import {useRouter} from 'next/router'
 
