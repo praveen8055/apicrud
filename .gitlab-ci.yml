@@ -1,4 +1,4 @@
-#Deploy to AWS Ec2
+#Deploy to Appearz UAT
 stages:
   - deploy
 
