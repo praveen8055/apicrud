@@ -11,27 +11,27 @@ import { CircularProgress } from "@material-ui/core";
 //   useCurrentUser,
 // } from "./Contexts/CurrentUser";
 import axios from "axios";
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 
 function Signup() {
   var email;
- var location;
- var password;
+  var location;
+  var password;
   const router = useRouter();
   const usernameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const residentRef = useRef();
   const [resident, setResident] = useState("notSelected");
-  
+
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null);
-  if(typeof window!= "undefined"){
+  if (typeof window != "undefined") {
 
-    email= localStorage.getItem("email");
-   location= localStorage.getItem("location");
-   password = localStorage.getItem("password");
+    email = localStorage.getItem("email");
+    location = localStorage.getItem("location");
+    password = localStorage.getItem("password");
   }
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ function Signup() {
     } else {
       try {
         await axios.post(
-          "http://appearz.outshade.com:1337/auth/local/register",
+          `${process.env.SERVER_URL}/auth/local/register`,
           {
             username: usernameRef.current.value,
             email: email,
@@ -78,10 +78,10 @@ function Signup() {
     <>
       <div className="flex flex-col">
         <div className="mb-10 ml-4 flex">
-        <div className={` ${styles.logoName}`}>
-      <Image src={logoApperaz} className={styles.logoImage} />
-        <p className={styles.logoName1}>APPREAZ</p>
-      </div>
+          <div className={` ${styles.logoName}`}>
+            <Image src={logoApperaz} className={styles.logoImage} />
+            <p className={styles.logoName1}>APPREAZ</p>
+          </div>
         </div>
         <form className="flex justify-center" onSubmit={registerHandler}>
           <div
@@ -95,10 +95,10 @@ function Signup() {
                 <span className="text-xs text-blue-700 font-medium">of 4</span>
               </div>
               <div className="flex justify-between">
-                <Image className="mr-1" src={ellipse4}/>
-                <Image className="mr-1" src={ellipse4}/>
-                <Image className="mr-1" src={ellipse4}/>
-                <Image src={rectangle17}/>
+                <Image className="mr-1" src={ellipse4} />
+                <Image className="mr-1" src={ellipse4} />
+                <Image className="mr-1" src={ellipse4} />
+                <Image src={rectangle17} />
               </div>
             </div>
             <div className="flex flex-col justify-center items-center">
@@ -210,7 +210,7 @@ function Signup() {
           </div>
         </form>
         <div className="fixed bottom-0 right-0 w-80">
-          <Image src={signupImage}/>
+          <Image src={signupImage} />
         </div>
       </div>
     </>

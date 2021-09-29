@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useRef } from "react";
 
 
-function about() {
+function About() {
   const router=useRouter()
   const locationRef = useRef();
   const goToStep1=(e)=>{
@@ -60,4 +60,4 @@ function about() {
 };
 
 
-export default about
+export default aAbout

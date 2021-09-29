@@ -6,7 +6,7 @@ import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
 
 
-function gas() {
+function Gas() {
     let router=useRouter()
     const handleClick=()=>{
         router.push("/gasbill")
@@ -59,4 +59,4 @@ function gas() {
     )
 }
 
-export default gas
+export default Gas

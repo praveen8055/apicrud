@@ -15,7 +15,7 @@ import correct from "../public/assets/correct.png";
 import Image from 'next/image';
 import {useRouter} from 'next/router'
 
-function step3() {
+function Step3() {
   const router = useRouter();
   const [passwordValues, setPasswordValues] = useState({
     password: "",
@@ -255,4 +255,4 @@ function step3() {
 };
 
 
-export default step3
+export default Step3

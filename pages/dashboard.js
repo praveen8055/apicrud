@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import paybills from '../public/assets/paybills.png'
+import paybills from '../public/assets/PayBills.png'
 import Security from '../public/assets/Security.png'
 import Maintain from '../public/assets/Maintain.png'
 import Entry from '../public/assets/Entry.png'
@@ -22,7 +22,7 @@ import Modal from 'react-modal'
 import amazonlogo from '../public/assets/amazonlogo.png'
 
 
-function dashboard() {
+function Dashboard() {
     let router =useRouter()
     const [user, setuser] = useState({
         username:"",
@@ -32,7 +32,7 @@ function dashboard() {
     const [modalopen, setmodalopen] = useState(false)
     const register=()=>{
 
-        axios.post("http://localhost:1337/auth/local")
+        axios.post(`${process.env.SERVER_URL}/auth/local`)
         .then(res=>{
             console.log(res)
             setuser()
@@ -234,4 +234,4 @@ function dashboard() {
     )
 }
 
-export default dashboard
+export default Dashboard

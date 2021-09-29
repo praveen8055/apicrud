@@ -11,11 +11,11 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 
-function step2() {
+function Step2() {
   var number;
   const router = useRouter();
-  if(typeof window!="undefined"){
-   number= localStorage.getItem("phoneNumber");
+  if (typeof window != "undefined") {
+    number = localStorage.getItem("phoneNumber");
   }
 
   console.log(number);
@@ -48,7 +48,7 @@ function step2() {
     console.log(totalOtp);
     try {
       const response = await axios.post(
-        "http://localhost:1337/approvals",
+        `${process.env.SERVER_URL}/approvals`,
         {
           phoneNumber: number,
           code: totalOtp,
@@ -76,10 +76,10 @@ function step2() {
     <>
       <div className="flex flex-col">
         <div className="mb-20 ml-4 flex">
-        <div className={` ${styles.logoName}`}>
-      <Image src={logoApperaz} className={styles.logoImage} />
-        <p className={styles.logoName1}>APPREAZ</p>
-      </div>
+          <div className={` ${styles.logoName}`}>
+            <Image src={logoApperaz} className={styles.logoImage} />
+            <p className={styles.logoName1}>APPREAZ</p>
+          </div>
         </div>
         <div className="flex justify-center">
           <div
@@ -93,10 +93,10 @@ function step2() {
                 <span className="opacity-50 text-xs"> of 4</span>
               </div>
               <div className="flex justify-between">
-                <Image className="mr-1" src={ellipse4}/>
-                <Image className="mr-1" src={rectangle17}/>
-                <Image className="mr-1" src={ellipse4}/>
-                <Image src={ellipse4}/>
+                <Image className="mr-1" src={ellipse4} />
+                <Image className="mr-1" src={rectangle17} />
+                <Image className="mr-1" src={ellipse4} />
+                <Image src={ellipse4} />
               </div>
             </div>
             <form
@@ -171,7 +171,7 @@ function step2() {
           </div>
         </div>
         <div className="fixed bottom-0 right-0 w-80">
-          <Image src={mobileImage}/>
+          <Image src={mobileImage} />
         </div>
       </div>
     </>
@@ -179,4 +179,4 @@ function step2() {
 };
 
 
-export default step2
+export default Step2

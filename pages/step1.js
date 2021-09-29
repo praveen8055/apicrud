@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import Link from 'next/link'
 import Image from 'next/image'
 
-function step1() {
+function Step1() {
   const router = useRouter();
   const [value, setValue] = useState();
   const [hintModalIsOpen, setHintModalIsOpen] = useState(false);
@@ -149,4 +149,4 @@ function step1() {
 };
 
 
-export default step1
+export default Step1

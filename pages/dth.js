@@ -6,7 +6,7 @@ import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
 
 
-function dth() {
+function Dth() {
     let router = useRouter()
     const handleClick=()=>{
         router.push("/dthbill")
@@ -45,4 +45,4 @@ function dth() {
     )
 }
 
-export default dth
+export default Dth

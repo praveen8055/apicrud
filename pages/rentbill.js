@@ -6,7 +6,7 @@ import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
 
 
-function rentbill() {
+function Rentbill() {
     return (
         <div>
             <Navbar/>
@@ -16,7 +16,7 @@ function rentbill() {
             </div>
         <div className={styles.bigrent}>
         
-                <p className={styles.landlord}>Landloard's Name:</p>
+                <p className={styles.landlord}>Landloard&apos;s Name:</p>
                 <input className={styles.landlordtext}  type="text" />
             
         
@@ -25,11 +25,11 @@ function rentbill() {
             
            
         
-                <p  className={styles.bank}>Landlord's bank account no:</p>
+                <p className={styles.bank}>Landlord&apos;s bank account no:</p>
                 <input className={styles.banktext} type="text" />
             
         
-                <p  className={styles.confirmbank}>Confirm Landlord's bank account no:</p>
+                <p className={styles.confirmbank}>Confirm Landlord&apos;s bank account no:</p>
                 <input className={styles.confirmbanktext} type="text" />
             
         
@@ -54,4 +54,4 @@ function rentbill() {
     )
 }
 
-export default rentbill
+export default Rentbill

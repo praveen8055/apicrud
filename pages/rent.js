@@ -7,7 +7,7 @@ import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
 
 
-function rent() {
+function Rent() {
     let router = useRouter()
     const handleClick=()=>{
         router.push("/rentbill")
@@ -21,7 +21,7 @@ function rent() {
             </div>
         <div className={styles.bigrent}>
         
-                <p className={styles.landlord}>Landloard's Name:</p>
+                <p className={styles.landlord}>Landloard&apos;s Name:</p>
                 <input className={styles.landlordtext}  type="text" />
             
         
@@ -30,11 +30,11 @@ function rent() {
             
            
         
-                <p  className={styles.bank}>Landlord's bank account no:</p>
+                <p className={styles.bank}>Landlord&apos;s bank account no:</p>
                 <input className={styles.banktext} type="text" />
             
         
-                <p  className={styles.confirmbank}>Confirm Landlord's bank account no:</p>
+                <p className={styles.confirmbank}>Confirm Landlord&apos;s bank account no:</p>
                 <input className={styles.confirmbanktext} type="text" />
             
         
@@ -54,4 +54,4 @@ function rent() {
     )
 }
 
-export default rent
+export default Rent

@@ -2,7 +2,7 @@ import React , {useState} from 'react'
 import Modal from 'react-modal'
 import styles from '../styles/Home.module.css'
 
-function popup() {
+function Popup() {
     const [modalopen, setmodalopen] = useState(false)
     return (
         <div>
@@ -16,4 +16,4 @@ function popup() {
     )
 }
 
-export default popup
+export default Popup

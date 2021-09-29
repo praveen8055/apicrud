@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDom from "react-dom";
-import { React, useState } from "react";
+import { useState } from "react";
 import { Link } from "next/link"
 
 function HintModal(props) {
-    if (!props.isOpen) return null;
-    return ReactDom.createPortal(
-            <>
+  if (!props.isOpen) return null;
+  return ReactDom.createPortal(
+    <>
       <div
         className="fixed top-0 right-0 left-0 bottom-0 z-50"
         style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
@@ -35,8 +35,8 @@ function HintModal(props) {
       </div>
     </>,
     document.getElementById("portal")
-        
-    )
+
+  )
 }
 
 export default HintModal

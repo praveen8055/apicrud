@@ -10,7 +10,7 @@ import recharge from '../public/assets/recharge.png'
 import reciept1 from "../public/assets/reciept1.png"
 import {useRouter} from 'next/router'
 
-function payments() {
+function Payments() {
     let router= useRouter()
 
     const handleClick=()=>{
@@ -83,4 +83,4 @@ function payments() {
     )
 }
 
-export default payments
+export default Payments

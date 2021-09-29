@@ -5,7 +5,7 @@ import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
 
 
-function nogas() {
+function Nogas() {
     return (
         <div>
             <Navbar/>
@@ -50,7 +50,7 @@ function nogas() {
 
             <div className={styles.smallnote1}>
                     <p className="absolute w-100 p-5 h-4 not-italic font-semibold text-sm leading-4 text-gray-900">No upcoming Gas bills</p>
-                    <p className={styles.congrats}>Congratulations! You have already paid your last month's bill</p>
+            <p className={styles.congrats}>Congratulations! You have already paid your last month&apos;s bill</p>
                     <p className={styles.lastbill}>View Last Bill</p>
                 </div>
             </div>
@@ -59,4 +59,4 @@ function nogas() {
     )
 }
 
-export default nogas
+export default Nogas

@@ -5,7 +5,7 @@ import {useRouter} from 'next/router'
 import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
 
-function electricity() {
+function Electricity() {
     let router = useRouter()
     const handleClick=()=>{
         router.push("/electricitybill")
@@ -40,4 +40,4 @@ function electricity() {
     )
 }
 
-export default electricity
+export default Electricity
