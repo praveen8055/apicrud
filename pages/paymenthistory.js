@@ -1,12 +1,6 @@
 import React from 'react'
-// import filter from '../public'
-// import calender from '../public/Assets/Group 86.png'
-// import notice from '../public/Assets/Notice Board.png'
 import styles from '../styles/Home.module.css'
-import Image from 'next/image'
-// import cylinder from '../public/assets/cylinder.png'
 
-// import paymenthistory1 from '../public'
 
 function paymenthistory() {
     return (

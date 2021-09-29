@@ -1,5 +1,4 @@
 import React from 'react'
-import { callApi } from "../Utilities/LoginUtils";
 import { UserContext } from "../Contexts/CurrentUser";
 import { useRouter } from 'next/router';
 import axios from 'axios';

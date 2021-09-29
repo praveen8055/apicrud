@@ -1,19 +1,21 @@
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router';
-import React from 'react'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import splashImage from "../public/assets/splashImage.jpg";
 
 export default function Home() {
   const router = useRouter();
   const onSplashScreenLoad = () => {
     setTimeout(() => {
       router.replace("/login");
-    }, 3000);}
+    }, 3000);
+  }
+  useEffect(() => {
+    onSplashScreenLoad();
+  }, [])
   return (
-    
-    <div className={styles.App} onLoad={onSplashScreenLoad}>
-      <img src={splashImage} className="w-full h-screen object-cover" />
+
+    <div className={styles.App}>
+      <img src='/assets/splashImage.jpg' className="w-full h-screen object-cover" />
     </div>
   )
 }

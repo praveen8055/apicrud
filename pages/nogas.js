@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
-import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
 
 
@@ -9,8 +8,8 @@ function Nogas() {
     return (
         <div>
             <Navbar/>
-            <div style={{display:"flex"}} className={styles.payment}>
-          <img className="w-12 h-12 bg-white  cursor-pointer" src={backbtn} />
+        <div style={{ display: "flex", alignItems: 'center' }} className={styles.payment}>
+          <img className="w-8 h-8 bg-white  cursor-pointer" src='/assets/backbutton.png' alt="" />
                <p className="pl-5"> Gas</p>
             </div>
             <div className={styles.ebill20}>

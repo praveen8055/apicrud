@@ -1,9 +1,7 @@
 import React from 'react'
-import getStartedImage from "../public/assets/getStartedImage.png";
 import { useRouter } from 'next/router'
 import 'tailwindcss/tailwind.css'
 import styles from '../styles/Home.module.css';
-import Image from 'next/image'
 import { useRef } from "react";
 
 
@@ -53,7 +51,7 @@ function About() {
     </form>
   </div>
   <div className="flex justify-center">
-        <img className="w-2/3 h-2/5" src={getStartedImage} />
+        <img className="w-2/3 h-2/5" src='/assets/getStartedImage.png' />
   </div>
 </div>
 );

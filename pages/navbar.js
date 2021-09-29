@@ -1,19 +1,17 @@
 import React from 'react'
-import Logo from '../public/assets/Logo.png'
+
 import { FaTableTennis } from 'react-icons/fa'
 import { IoHomeSharp } from 'react-icons/io5'
 import { IoChatbubbles } from 'react-icons/io5'
 import { FaEnvelope } from 'react-icons/fa'
 import { IoIosPeople } from 'react-icons/io'
 import { FaWallet } from 'react-icons/fa'
-import Search from '../public/assets/Search.png'
-import Call from '../public/assets/Call.png'
+
 import { IoPersonSharp } from 'react-icons/io5'
 import { BsFillBellFill } from 'react-icons/bs'
-import greencheck from '../public/assets/check.png'
+
 import styles from '../styles/Home.module.css'
-import Head from 'next/head'
-import Image from 'next/image'
+
 import { useRouter } from 'next/router'
 
 
@@ -73,7 +71,7 @@ function Navbar() {
             <div className={styles.searchbar}>
                 <div className={styles.search}>
                     <div className={styles.searching}>
-                        <img src={Search} alt="" />
+                        <img src='/assets/Search.png' alt="" />
                     </div>
                     <input type="text" className={styles.search1} placeholder="Search for bill payments, amenities, contacts">
                     </input>
@@ -90,7 +88,7 @@ function Navbar() {
                 </div>
                 <div>
                     <button className={styles.emergency}>
-                        <img id={styles.call} src={Call} alt="" />
+                        <img id={styles.call} src='/assets/Call.png' alt="" />
                         <p className={styles.emer}>Emergency</p>
                     </button>
                 </div>
@@ -113,7 +111,7 @@ function Navbar() {
                     <IoHomeSharp className={styles.house2} />
                     <p className={styles.part3}> Q 601, whdewifhdiehf vihar phase 2</p>
                     <div className={styles.check}>
-                        <img src={greencheck} alt="" />
+                        <img src='/assets/check.png' alt="" />
                     </div>
                 </div>
                 <div className={styles.view31}>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/router'
 import axios from "axios";
-// import { callApi } from "../ApiUtils/LoginUtils";
+
 
 function GoogleAuthCallBack() {
   const [auth, setAuth] = useState();

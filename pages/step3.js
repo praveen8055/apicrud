@@ -1,18 +1,10 @@
 import { React, useRef, useState } from "react";
-import appearzLogo from "../public/assets/apperazLogo.jpg";
-import ellipse4 from "../public/assets/Ellipse4.png";
-import logoApperaz from "../public/assets/logoApperaz.png";
-import rectangle17 from "../public/assets/Rectangle17.png";
-import mobileImage from "../public/assets/authenticationImage.png";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import styles from '../styles/Home.module.css'
-import incorrect from "../public/assets/incorrect.png";
-import correct from "../public/assets/correct.png";
-import Image from 'next/image';
 import {useRouter} from 'next/router'
 
 function Step3() {
@@ -96,7 +88,7 @@ function Step3() {
     <div className="flex flex-col">
       <div className="mb-10 ml-4 flex">
       <div className={` ${styles.logoName}`}>
-          <img src={logoApperaz} className={styles.logoImage} />
+          <img src='/assets/logoApperaz.png' className={styles.logoImage} />
         <p className={styles.logoName1}>APPREAZ</p>
       </div>
       </div>
@@ -110,10 +102,10 @@ function Step3() {
               <span className="opacity-50 text-xs">of 4</span>
             </div>
             <div className="flex justify-between">
-              <img className="mr-1" src={ellipse4} />
-              <img className="mr-1" src={ellipse4} />
-              <img className="mr-1" src={rectangle17} />
-              <img src={ellipse4} />
+              <img className="mr-1" src='/assets/Ellipse4.png' />
+              <img className="mr-1" src='/assets/Ellipse4.png' />
+              <img className="mr-1" src='/assets/Rectangle17.png' />
+              <img src='/assets/Ellipse4.png' />
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
@@ -187,18 +179,18 @@ function Step3() {
               <div className="flex flex-col items-start text-xs">
                 <div className="flex items-center mb-4">
                   {!check1 && (
-                    <img src={incorrect} className="mr-1 w-4 h-4" />
+                    <img src='/assets/incorrect.png' className="mr-1 w-4 h-4" />
                   )}
-                  {check1 && <img src={correct} className="mr-1 w-4 h-4" />}
+                  {check1 && <img src='/assets/correct.png' className="mr-1 w-4 h-4" />}
                   <p style={{ color: "#515151" }}>
                     should contain at least 8 characters
                   </p>
                 </div>
                 <div className="flex items-center justify-center mb-6">
                   {!check2 && (
-                    <img src={incorrect} className="mr-1 w-4 h-4" />
+                    <img src='/assets/incorrect.png' className="mr-1 w-4 h-4" />
                   )}
-                  {check2 && <img src={correct} className="mr-1 w-4 h-4" />}
+                  {check2 && <img src='/assets/correct.png' className="mr-1 w-4 h-4" />}
                   <p style={{ color: "#515151" }}>should contain a number</p>
                 </div>
               </div>
@@ -248,7 +240,7 @@ function Step3() {
         </div>
       </div>
       <div className="fixed bottom-0 right-0 w-80">
-        <img src={mobileImage} />
+        <img src='/assets/authenticationImage.png' />
       </div>
     </div>
   );

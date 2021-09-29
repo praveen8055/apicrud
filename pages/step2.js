@@ -1,13 +1,7 @@
 import { useRouter } from 'next/router';
 import { React, useRef, useState } from "react";
-import appearzLogo from "../public/assets/apperazLogo.jpg";
-import logoApperaz from "../public/assets/apperazLogo.jpg";
-import mobileImage from "../public/assets/otpImage.png";
-import ellipse4 from "../public/assets/Ellipse4.png";
-import rectangle17 from "../public/assets/Rectangle17.png";
 import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 
@@ -77,7 +71,7 @@ function Step2() {
       <div className="flex flex-col">
         <div className="mb-20 ml-4 flex">
           <div className={` ${styles.logoName}`}>
-            <img src={logoApperaz} className={styles.logoImage} />
+            <img src='/assets/apperazLogo.jpg' className={styles.logoImage} />
             <p className={styles.logoName1}>APPREAZ</p>
           </div>
         </div>
@@ -93,10 +87,10 @@ function Step2() {
                 <span className="opacity-50 text-xs"> of 4</span>
               </div>
               <div className="flex justify-between">
-                <img className="mr-1" src={ellipse4} />
-                <img className="mr-1" src={rectangle17} />
-                <img className="mr-1" src={ellipse4} />
-                <img src={ellipse4} />
+                <img className="mr-1" src='/assets/Ellipse4.png' />
+                <img className="mr-1" src='/assets/Rectangle17.png' />
+                <img className="mr-1" src='/assets/Ellipse4.png' />
+                <img src='/assets/Ellipse4.png' />
               </div>
             </div>
             <form
@@ -171,7 +165,7 @@ function Step2() {
           </div>
         </div>
         <div className="fixed bottom-0 right-0 w-80">
-          <img src={mobileImage} />
+          <img src='/assets/otpImage.png' />
         </div>
       </div>
     </>

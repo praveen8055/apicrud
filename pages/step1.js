@@ -1,9 +1,4 @@
 import { React, useState } from "react";
-import appearzLogo from "../public/assets/apperazLogo.jpg";
-import logoAppearz from "../public/assets/logoApperaz.png";
-import mobileImage from "../public/assets/mobileImage.png";
-import ellipse4 from "../public/assets/Ellipse4.png";
-import rectangle17 from "../public/assets/Rectangle17.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import HintModal from "./hintmodal";
@@ -12,9 +7,6 @@ import  {callApi}  from "../Utilities/LoginUtils";
 import styles from '../styles/Home.module.css';
 import { CircularProgress } from "@material-ui/core";
 import { useRouter } from "next/router";
-import Link from 'next/link'
-import Image from 'next/image'
-
 function Step1() {
   const router = useRouter();
   const [value, setValue] = useState();
@@ -53,7 +45,7 @@ function Step1() {
       <div className={`flex flex-col justify-center ${styles.background}`}>
         <div className={`mb-24 ml-4 flex${styles.background}`}>
         <div className={` ${styles.logoName}`}>
-            <img src={logoAppearz} className={styles.logoImage} />
+            <img src='/assets/logoApperaz.png' className={styles.logoImage} />
         <p className={styles.logoName1}>APPREAZ</p>
       </div>
         </div>
@@ -69,10 +61,10 @@ function Step1() {
                 <span className="opacity-50 text-xs">of 4</span>
               </div>
               <div className="flex justify-between">
-                <img className="mr-1" src={rectangle17} />
-                <img className="mr-1" src={ellipse4} />
-                <img className="mr-1" src={ellipse4} />
-                <img src={ellipse4} />
+                <img className="mr-1" src='/assets/Rectangle17.png' />
+                <img className="mr-1" src='/assets/Ellipse4.png' />
+                <img className="mr-1" src='/assets/Ellipse4.png' />
+                <img src='/assets/Ellipse4.png' />
               </div>
             </div>
             <div className="flex flex-col items-center">
@@ -127,7 +119,7 @@ function Step1() {
         </div>
         <div className={styles.background}>
         <div className={`absolute bottom-0 right-0 w-80 ${styles.background}`}>
-            <img src={mobileImage} />
+            <img src='/assets/mobileImage.png' />
         </div>
       </div>
       </div>

@@ -7,8 +7,8 @@
   transition-duration: 250ms;
 }
 .fbicon {
-  min-height: 88%;
-  min-width: 65%;
+  height: 20px;
+  width: 20px;
 }
 .confirmOtpButton:hover {
   background-color: rgb(107, 107, 231);

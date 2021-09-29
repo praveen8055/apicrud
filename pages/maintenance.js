@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-// import backbtn from '../public'
 import Navbar from './navbar'
 import axios from 'axios'
 

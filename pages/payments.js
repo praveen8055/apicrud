@@ -1,13 +1,6 @@
 import React from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
-import backbtn from '../public/assets/backbutton.png'
-import Image from 'next/image'
-import cylinder from '../public/assets/cylinder.png'
-import bulb from '../public/assets/bulb.png'
-import dth from '../public/assets/dth.png'
-import recharge from '../public/assets/recharge.png'
-import reciept1 from "../public/assets/reciept1.png"
 import {useRouter} from 'next/router'
 
 function Payments() {
@@ -35,14 +28,14 @@ function Payments() {
     return (
         <div>
             <Navbar/>
-            <div style={{display:"flex"}} className={styles.payment}>
-                <img className="w-12 h-12 bg-white  cursor-pointer" src={backbtn} />
+            <div style={{ display: "flex", alignItems: 'center' }} className={styles.payment}>
+                <img className="w-8 h-8 bg-white  cursor-pointer" src='/assets/backbutton.png' />
                <p className="pl-5"> Payments </p>
             </div>
            
             <div  onClick={handleClick}  className={styles.billElements}>
                 <div  className={styles.paybills}>
-                    <img className={styles.gasimage} src={cylinder} alt="" />
+                    <img className={styles.gasimage} src={"/assets/cylinder.png"} alt="" />
                 </div>
                 <p className={`${styles.paytext}`}>Gas</p>
             </div>
@@ -50,7 +43,7 @@ function Payments() {
 
             <div onClick={handleClick1}  className={styles.billElements1}>          
             <div className={styles.paybills}>
-                    <img className={styles.gasimage} src={bulb} alt="" />
+                    <img className={styles.gasimage} src='/assets/bulb.png' alt="" />
                 </div>
                 <p className={styles.paytext}>Electricity</p>
                 </div>
@@ -58,7 +51,7 @@ function Payments() {
 
                 <div onClick={handleClick2}  className={styles.billElements2}>
                 <div className={styles.paybills}>
-                    <img className={styles.gasimage} src={reciept1} alt="" />
+                    <img className={styles.gasimage} src='/assets/reciept1.png' alt="" />
                 </div>
                 <p className={styles.paytext}>Maintenance</p>
                 </div>
@@ -66,7 +59,7 @@ function Payments() {
 
                 <div onClick={handleClick3}  className={styles.billElements3}>
                 <div className={styles.paybills}>
-                    <img className={styles.gasimage} src={dth} alt="" />
+                    <img className={styles.gasimage} src='/assets/dth.png' alt="" />
                 </div>
                 <p className={styles.paytext}>DTH</p>
                 </div>
@@ -74,7 +67,7 @@ function Payments() {
 
                 <div  onClick={handleClick4} className={styles.billElements4}>
                 <div className={styles.paybills}>
-                    <img className={styles.gasimage} src={recharge} alt="" />
+                    <img className={styles.gasimage} src='/assets/recharge.png' alt="" />
                 </div>
                 <p className={styles.paytext}>Mobile Recharge</p>
                 </div>

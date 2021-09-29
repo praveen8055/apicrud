@@ -1,8 +1,4 @@
 import { React, useState, useRef } from "react";
-import signupImage from "../public/assets/signupImage.png";
-import ellipse4 from "../public/assets/Ellipse4.png";
-import logoApperaz from "../public/assets/logoApperaz.png";
-import rectangle17 from "../public/assets/Rectangle17.png";
 import { callApi } from "../Utilities/LoginUtils";
 import styles from '../styles/Home.module.css'
 import { CircularProgress } from "@material-ui/core";
@@ -12,7 +8,6 @@ import { CircularProgress } from "@material-ui/core";
 // } from "./Contexts/CurrentUser";
 import axios from "axios";
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 
 function Signup() {
   var email;
@@ -79,7 +74,7 @@ function Signup() {
       <div className="flex flex-col">
         <div className="mb-10 ml-4 flex">
           <div className={` ${styles.logoName}`}>
-            <img src={logoApperaz} className={styles.logoImage} />
+            <img src='/assets/logoApperaz.png' className={styles.logoImage} />
             <p className={styles.logoName1}>APPREAZ</p>
           </div>
         </div>
@@ -95,10 +90,10 @@ function Signup() {
                 <span className="text-xs text-blue-700 font-medium">of 4</span>
               </div>
               <div className="flex justify-between">
-                <img className="mr-1" src={ellipse4} />
-                <img className="mr-1" src={ellipse4} />
-                <img className="mr-1" src={ellipse4} />
-                <img src={rectangle17} />
+                <img className="mr-1" src='/assets/Ellipse4.png' />
+                <img className="mr-1" src='/assets/Ellipse4.png' />
+                <img className="mr-1" src='/assets/Ellipse4.png' />
+                <img src='/assets/Rectangle17.png' />
               </div>
             </div>
             <div className="flex flex-col justify-center items-center">
@@ -210,7 +205,7 @@ function Signup() {
           </div>
         </form>
         <div className="fixed bottom-0 right-0 w-80">
-          <img src={signupImage} />
+          <img src='/assets/signupImage.png' />
         </div>
       </div>
     </>

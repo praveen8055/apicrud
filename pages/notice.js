@@ -1,9 +1,6 @@
 import React from 'react'
-// import filter from '../public/'
-// import calender from '../public'
-// import notice from '../public'
 import styles from '../styles/Home.module.css'
-import Image from 'next/image'
+
 
 function Notice() {
     return (

@@ -1,16 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import paybills from '../public'
-// import Security from '../public'
-// import Maintain from '../public'
-// import Entry from '../public'
-// import Complaint from '../public'
-// import Book from '../public'
 import Navbar from './navbar'
-// import clock from '../public/assets/Clock.png'
-// import Kebab from '../public'
-// import group18 from '../public'
-// import Guests200 from '../public'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Notice from './notice'
 import axios from 'axios'
@@ -19,7 +8,7 @@ import cookie from 'react'
 import { NextPageContext } from 'next'
 import Popup from './popup'
 import Modal from 'react-modal'
-// import amazonlogo from '../public/assets/amazonlogo.png'
+
 
 
 function Dashboard() {

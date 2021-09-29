@@ -1,29 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
-import callApi from "../Utilities/LoginUtils";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import PhoneInput from "react-phone-input-2";
 import styles from '../styles/Home.module.css'
 import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import Cookies from 'js-cookie'
-import fbimage from '../public/assets/fbimage.png'
 
 // import {
 //   useDispatchCurrentUser,
 //   useCurrentUser,
 // } from "./Contexts/CurrentUser";
-import cloudImage from "../public/assets/cloudImage.png";
-import logoAppreaz from "../public/assets/logoApperaz.png";
-import ellipse4 from "../public/assets/Ellipse4.png";
-import rectangle17 from "../public/assets/Rectangle17.png";
-import googleImage from "../public/assets/googleImage.png";
-import facebookImage from "../public/assets/facebookImage.png";
+// import facebookImage from "../public/assets/facebookImage.png";
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import axios from "axios";
 
 function Login() {
@@ -33,10 +24,10 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState(null);
   // const dispatch = useDispatchCurrentUser();
   // const currentUser = useCurrentUser();
-  const [image1, setImage1] = useState(rectangle17);
-  const [image2, setImage2] = useState(ellipse4);
-  const [image3, setImage3] = useState(ellipse4);
-  const [image4, setImage4] = useState(ellipse4);
+  const [image1, setImage1] = useState('/assets/Rectangle17.png');
+  const [image2, setImage2] = useState('/assets/Ellipse4.png');
+  const [image3, setImage3] = useState('/assets/Ellipse4.png');
+  const [image4, setImage4] = useState('/assets/Ellipse4.png');
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
@@ -154,12 +145,12 @@ function Login() {
     <>
 
       <div className={` ${styles.logoName}`}>
-        <img src={logoAppreaz} className={styles.logoImage} />
+        <img src='/assets/logoApperaz.png' className={styles.logoImage} />
         <p className={styles.logoName1}>APPREAZ</p>
       </div>
       <div className={`w-screen h-screen flex items-center ${styles.cloudbackground}`}>
         <div className={`w-1/2 flex flex-col items-center justify-center `}>
-          <img className="mb-6" src={cloudImage} />
+          <img className="mb-6" src='/assets/cloudImage.png' />
           <p>One-stop-shop for all your</p>
           <p className="mb-6 ">society-related administrative work</p>
           <div className="flex justify-between mb-6">
@@ -283,7 +274,7 @@ function Login() {
                 <button onClick={renderProps.onClick} disabled={renderProps.disabled}
                   className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-8"
                 >
-                  <img className="mr-2 w-4 h-4" src={googleImage} />
+                  <img className="mr-2 w-4 h-4" src='/assets/googleImage.png' />
                   <p className="text-xs font-medium pl-2">CONTINUE WITH GOOGLE</p>
                 </button>
               )}
@@ -300,7 +291,7 @@ function Login() {
               callback={responseFacebook}
               render={renderProps => (
                 <button onClick={renderProps.onClick} className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700">
-                  <img src={fbimage} className={styles.fbicon} />
+                  <img src='/assets/fbimage.png' className={styles.fbicon} />
                   <p className="text-xs font-medium pl-2 ">CONTINUE WITH FACEBOOK</p>
                 </button>
               )} />
