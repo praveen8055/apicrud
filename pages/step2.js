@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { React, useState } from "react";
+import { React, useRef, useState } from "react";
 import appearzLogo from "../public/assets/apperazLogo.jpg";
 import logoApperaz from "../public/assets/apperazLogo.jpg";
 import mobileImage from "../public/assets/otpImage.png";
@@ -12,13 +12,13 @@ import styles from '../styles/Home.module.css'
 
 
 function Step2() {
-  var number;
+  var number = useRef('');
   const router = useRouter();
   if (typeof window != "undefined") {
-    number = localStorage.getItem("phoneNumber");
+    number.current = localStorage.getItem("phoneNumber");
   }
 
-  console.log(number);
+  console.log(number.current);
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const [time, setTime] = useState(10);
   const [error, setError] = useState(false);
@@ -50,7 +50,7 @@ function Step2() {
       const response = await axios.post(
         `${process.env.SERVER_URL}/approvals`,
         {
-          phoneNumber: number,
+          phoneNumber: number.current,
           code: totalOtp,
         }
       );
@@ -77,7 +77,7 @@ function Step2() {
       <div className="flex flex-col">
         <div className="mb-20 ml-4 flex">
           <div className={` ${styles.logoName}`}>
-            <Image src={logoApperaz} className={styles.logoImage} />
+            <img src={logoApperaz} className={styles.logoImage} />
             <p className={styles.logoName1}>APPREAZ</p>
           </div>
         </div>
@@ -93,10 +93,10 @@ function Step2() {
                 <span className="opacity-50 text-xs"> of 4</span>
               </div>
               <div className="flex justify-between">
-                <Image className="mr-1" src={ellipse4} />
-                <Image className="mr-1" src={rectangle17} />
-                <Image className="mr-1" src={ellipse4} />
-                <Image src={ellipse4} />
+                <img className="mr-1" src={ellipse4} />
+                <img className="mr-1" src={rectangle17} />
+                <img className="mr-1" src={ellipse4} />
+                <img src={ellipse4} />
               </div>
             </div>
             <form
@@ -111,7 +111,7 @@ function Step2() {
               </h1>
               <p className="mb-4 text-xs" style={{ color: "#515151" }}>
                 Enter the one time password sent to ******
-                {number[9] + number[10] + number[11] + number[12]}
+                {number.current.slice(6)}
               </p>
               <p
                 className={`text-xs font-bold mb-5 cursor-pointer ${styles.changeNumberSpan}`}
@@ -171,7 +171,7 @@ function Step2() {
           </div>
         </div>
         <div className="fixed bottom-0 right-0 w-80">
-          <Image src={mobileImage} />
+          <img src={mobileImage} />
         </div>
       </div>
     </>

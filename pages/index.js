@@ -13,7 +13,7 @@ export default function Home() {
   return (
     
     <div className={styles.App} onLoad={onSplashScreenLoad}>
-      <Image src={splashImage} className="w-full h-screen object-cover"/>
+      <img src={splashImage} className="w-full h-screen object-cover" />
     </div>
   )
 }

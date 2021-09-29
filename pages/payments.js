@@ -36,13 +36,13 @@ function Payments() {
         <div>
             <Navbar/>
             <div style={{display:"flex"}} className={styles.payment}>
-            <Image className="w-12 h-12 bg-white  cursor-pointer" src={backbtn}/>
+                <img className="w-12 h-12 bg-white  cursor-pointer" src={backbtn} />
                <p className="pl-5"> Payments </p>
             </div>
            
             <div  onClick={handleClick}  className={styles.billElements}>
                 <div  className={styles.paybills}>
-                <Image className={styles.gasimage} src={cylinder} alt="" />
+                    <img className={styles.gasimage} src={cylinder} alt="" />
                 </div>
                 <p className={`${styles.paytext}`}>Gas</p>
             </div>
@@ -50,7 +50,7 @@ function Payments() {
 
             <div onClick={handleClick1}  className={styles.billElements1}>          
             <div className={styles.paybills}>
-                <Image className={styles.gasimage} src={bulb} alt="" />
+                    <img className={styles.gasimage} src={bulb} alt="" />
                 </div>
                 <p className={styles.paytext}>Electricity</p>
                 </div>
@@ -58,7 +58,7 @@ function Payments() {
 
                 <div onClick={handleClick2}  className={styles.billElements2}>
                 <div className={styles.paybills}>
-                <Image className={styles.gasimage} src={reciept1} alt="" />
+                    <img className={styles.gasimage} src={reciept1} alt="" />
                 </div>
                 <p className={styles.paytext}>Maintenance</p>
                 </div>
@@ -66,7 +66,7 @@ function Payments() {
 
                 <div onClick={handleClick3}  className={styles.billElements3}>
                 <div className={styles.paybills}>
-                <Image className={styles.gasimage} src={dth} alt="" />
+                    <img className={styles.gasimage} src={dth} alt="" />
                 </div>
                 <p className={styles.paytext}>DTH</p>
                 </div>
@@ -74,7 +74,7 @@ function Payments() {
 
                 <div  onClick={handleClick4} className={styles.billElements4}>
                 <div className={styles.paybills}>
-                <Image className={styles.gasimage} src={recharge} alt="" />
+                    <img className={styles.gasimage} src={recharge} alt="" />
                 </div>
                 <p className={styles.paytext}>Mobile Recharge</p>
                 </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import callApi from "../Utilities/LoginUtils";
-import { Visibility } from "@material-ui/icons/Visibility";
+import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
@@ -154,31 +154,31 @@ function Login() {
     <>
 
       <div className={` ${styles.logoName}`}>
-        <Image src={logoAppreaz} className={styles.logoImage} />
+        <img src={logoAppreaz} className={styles.logoImage} />
         <p className={styles.logoName1}>APPREAZ</p>
       </div>
       <div className={`w-screen h-screen flex items-center ${styles.cloudbackground}`}>
         <div className={`w-1/2 flex flex-col items-center justify-center `}>
-          <Image className="mb-6" src={cloudImage} />
+          <img className="mb-6" src={cloudImage} />
           <p>One-stop-shop for all your</p>
           <p className="mb-6 ">society-related administrative work</p>
           <div className="flex justify-between mb-6">
-            <Image
+            <img
               className={`mr-1 ${styles.imageMove}`}
               src={image1}
               onClick={image1Handler}
             />
-            <Image
+            <img
               className={`mr-1 ${styles.imageMove}`}
               src={image2}
               onClick={image2Handler}
             />
-            <Image
+            <img
               className={`mr-1 ${styles.imageMove}`}
               src={image3}
               onClick={image3Handler}
             />
-            <Image
+            <img
               className={styles.imageMove}
               src={image4}
               onClick={image4Handler}
@@ -283,7 +283,7 @@ function Login() {
                 <button onClick={renderProps.onClick} disabled={renderProps.disabled}
                   className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-8"
                 >
-                  <Image className="mr-2 w-4 h-4" src={googleImage} />
+                  <img className="mr-2 w-4 h-4" src={googleImage} />
                   <p className="text-xs font-medium pl-2">CONTINUE WITH GOOGLE</p>
                 </button>
               )}
@@ -300,7 +300,7 @@ function Login() {
               callback={responseFacebook}
               render={renderProps => (
                 <button onClick={renderProps.onClick} className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700">
-                  <Image src={fbimage} className={styles.fbicon} />
+                  <img src={fbimage} className={styles.fbicon} />
                   <p className="text-xs font-medium pl-2 ">CONTINUE WITH FACEBOOK</p>
                 </button>
               )} />

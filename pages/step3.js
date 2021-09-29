@@ -96,7 +96,7 @@ function Step3() {
     <div className="flex flex-col">
       <div className="mb-10 ml-4 flex">
       <div className={` ${styles.logoName}`}>
-      <Image src={logoApperaz} className={styles.logoImage} />
+          <img src={logoApperaz} className={styles.logoImage} />
         <p className={styles.logoName1}>APPREAZ</p>
       </div>
       </div>
@@ -110,10 +110,10 @@ function Step3() {
               <span className="opacity-50 text-xs">of 4</span>
             </div>
             <div className="flex justify-between">
-              <Image className="mr-1" src={ellipse4}/>
-              <Image className="mr-1" src={ellipse4}/>
-              <Image className="mr-1" src={rectangle17}/>
-              <Image src={ellipse4}/>
+              <img className="mr-1" src={ellipse4} />
+              <img className="mr-1" src={ellipse4} />
+              <img className="mr-1" src={rectangle17} />
+              <img src={ellipse4} />
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
@@ -187,18 +187,18 @@ function Step3() {
               <div className="flex flex-col items-start text-xs">
                 <div className="flex items-center mb-4">
                   {!check1 && (
-                    <Image src={incorrect} className="mr-1 w-4 h-4"/>
+                    <img src={incorrect} className="mr-1 w-4 h-4" />
                   )}
-                  {check1 && <Image src={correct} className="mr-1 w-4 h-4"/>}
+                  {check1 && <img src={correct} className="mr-1 w-4 h-4" />}
                   <p style={{ color: "#515151" }}>
                     should contain at least 8 characters
                   </p>
                 </div>
                 <div className="flex items-center justify-center mb-6">
                   {!check2 && (
-                    <Image src={incorrect} className="mr-1 w-4 h-4"/>
+                    <img src={incorrect} className="mr-1 w-4 h-4" />
                   )}
-                  {check2 && <Image src={correct} className="mr-1 w-4 h-4"/>}
+                  {check2 && <img src={correct} className="mr-1 w-4 h-4" />}
                   <p style={{ color: "#515151" }}>should contain a number</p>
                 </div>
               </div>
@@ -248,7 +248,7 @@ function Step3() {
         </div>
       </div>
       <div className="fixed bottom-0 right-0 w-80">
-        <Image src={mobileImage}/>
+        <img src={mobileImage} />
       </div>
     </div>
   );

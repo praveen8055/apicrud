@@ -15,7 +15,7 @@ function Electricity() {
              <Navbar/>
             
             <div style={{display:"flex"}} className={styles.payment}>
-            <Image className="w-12 h-12 bg-white  cursor-pointer" src={backbtn}/>
+                <img className="w-12 h-12 bg-white  cursor-pointer" src={backbtn} />
                <p className="pl-5"> Electricity </p>
             </div>
 

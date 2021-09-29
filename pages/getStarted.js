@@ -53,11 +53,11 @@ function About() {
     </form>
   </div>
   <div className="flex justify-center">
-    <Image className="w-2/3 h-2/5" src={getStartedImage}/>
+        <img className="w-2/3 h-2/5" src={getStartedImage} />
   </div>
 </div>
 );
 };
 
 
-export default aAbout
+export default About

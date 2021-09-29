@@ -18,7 +18,7 @@ function issuemodal(props) {
           <div className="flex flex-col items-center">
             <div className="flex items-center justify-between w-full mb-8">
               <h1 className="text-xl font-bold">Help</h1>
-              <Image
+              <img
                 className="h-4 cursor-pointer"
                 src={closeImage}
                 onClick={props.closeIssueModal}

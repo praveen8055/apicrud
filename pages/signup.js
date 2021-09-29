@@ -79,7 +79,7 @@ function Signup() {
       <div className="flex flex-col">
         <div className="mb-10 ml-4 flex">
           <div className={` ${styles.logoName}`}>
-            <Image src={logoApperaz} className={styles.logoImage} />
+            <img src={logoApperaz} className={styles.logoImage} />
             <p className={styles.logoName1}>APPREAZ</p>
           </div>
         </div>
@@ -95,10 +95,10 @@ function Signup() {
                 <span className="text-xs text-blue-700 font-medium">of 4</span>
               </div>
               <div className="flex justify-between">
-                <Image className="mr-1" src={ellipse4} />
-                <Image className="mr-1" src={ellipse4} />
-                <Image className="mr-1" src={ellipse4} />
-                <Image src={rectangle17} />
+                <img className="mr-1" src={ellipse4} />
+                <img className="mr-1" src={ellipse4} />
+                <img className="mr-1" src={ellipse4} />
+                <img src={rectangle17} />
               </div>
             </div>
             <div className="flex flex-col justify-center items-center">
@@ -210,7 +210,7 @@ function Signup() {
           </div>
         </form>
         <div className="fixed bottom-0 right-0 w-80">
-          <Image src={signupImage} />
+          <img src={signupImage} />
         </div>
       </div>
     </>

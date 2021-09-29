@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import backbtn from '../public/assets/backbutton.png'
+// import backbtn from '../public'
 import Navbar from './navbar'
 import axios from 'axios'
 
@@ -125,8 +125,8 @@ function Maintenance() {
             <div>
                 <Navbar />
             </div>
-            <div style={{ display: "flex" }} className={styles.payment}>
-                <Image className="w-12 h-12 bg-white  cursor-pointer" src={backbtn} />
+            <div style={{ display: "flex", alignItems: 'center' }} className={styles.payment}>
+                <img className="w-8 h-8 bg-white cursor-pointer" src="/assets/backbutton.png" />
                 <p className="pl-5"> Maintenance </p>
             </div>
             <div className="overflow-auto">

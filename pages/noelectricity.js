@@ -11,7 +11,7 @@ function Noelectricity() {
         <div>
             <Navbar/>
             <div style={{display:"flex"}} className={styles.payment}>
-                <Image className="w-12 h-12 bg-white  cursor-pointer" src={backbtn} alt="" />
+                <img className="w-12 h-12 bg-white  cursor-pointer" src={backbtn} alt="" />
                <p className="pl-5"> Electricity </p>
             </div>
             <div className={styles.ebill}>

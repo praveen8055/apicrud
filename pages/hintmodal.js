@@ -1,7 +1,7 @@
 
 import ReactDom from "react-dom";
 import { React, useState } from "react";
-import { Link } from "next/link"
+import Link from "next/link"
 
 function hintmodal(props) {
     if (!props.isOpen) return null;

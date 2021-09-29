@@ -1,12 +1,12 @@
 import React from 'react'
-import filter from '../public/Assets/Filter (1).png'
-import calender from '../public/Assets/Group 86.png'
-import notice from '../public/Assets/Notice Board.png'
+// import filter from '../public'
+// import calender from '../public/Assets/Group 86.png'
+// import notice from '../public/Assets/Notice Board.png'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
-import cylinder from '../public/assets/cylinder.png'
+// import cylinder from '../public/assets/cylinder.png'
 
-import paymenthistory1 from '../public/assets/paymenthistory.png'
+// import paymenthistory1 from '../public'
 
 function paymenthistory() {
     return (
@@ -15,10 +15,10 @@ function paymenthistory() {
                 <div className={styles.note1}>
                     <h1 className={styles.note}>
                         <div className="h-12 w-48 font-semibold">
-                        <Image src={paymenthistory1} alt="" />
+                            <img src='/assets/paymenthistory.png' layout="fill" alt="" />
                         </div></h1>
                     <div className={styles.filter}>
-                        <Image src={filter} alt="" />
+                        <img src='/Assets/Filter (1).png' layout="fill" alt="" />
                     </div>
                 </div>
                 <div className={styles.history}>

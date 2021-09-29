@@ -53,7 +53,7 @@ function Step1() {
       <div className={`flex flex-col justify-center ${styles.background}`}>
         <div className={`mb-24 ml-4 flex${styles.background}`}>
         <div className={` ${styles.logoName}`}>
-      <Image src={logoAppearz} className={styles.logoImage} />
+            <img src={logoAppearz} className={styles.logoImage} />
         <p className={styles.logoName1}>APPREAZ</p>
       </div>
         </div>
@@ -69,10 +69,10 @@ function Step1() {
                 <span className="opacity-50 text-xs">of 4</span>
               </div>
               <div className="flex justify-between">
-                <Image className="mr-1" src={rectangle17}/>
-                <Image className="mr-1" src={ellipse4}/>
-                <Image className="mr-1" src={ellipse4}/>
-                <Image src={ellipse4}/>
+                <img className="mr-1" src={rectangle17} />
+                <img className="mr-1" src={ellipse4} />
+                <img className="mr-1" src={ellipse4} />
+                <img src={ellipse4} />
               </div>
             </div>
             <div className="flex flex-col items-center">
@@ -127,7 +127,7 @@ function Step1() {
         </div>
         <div className={styles.background}>
         <div className={`absolute bottom-0 right-0 w-80 ${styles.background}`}>
-          <Image src={mobileImage}/>
+            <img src={mobileImage} />
         </div>
       </div>
       </div>

@@ -1,191 +1,191 @@
-import React, {useState, useEffect} from 'react'
-import paybills from '../public/assets/PayBills.png'
-import Security from '../public/assets/Security.png'
-import Maintain from '../public/assets/Maintain.png'
-import Entry from '../public/assets/Entry.png'
-import Complaint from '../public/assets/Complaint.png'
-import Book from '../public/assets/Book.png'
+import React, { useState, useEffect } from 'react'
+// import paybills from '../public'
+// import Security from '../public'
+// import Maintain from '../public'
+// import Entry from '../public'
+// import Complaint from '../public'
+// import Book from '../public'
 import Navbar from './navbar'
-import clock from '../public/assets/Clock.png'
-import Kebab from '../public/assets/Kebab menu.png'
-import group18 from '../public/assets/Group 108.png'
-import Guests200 from '../public/assets/Guests200.png'
+// import clock from '../public/assets/Clock.png'
+// import Kebab from '../public'
+// import group18 from '../public'
+// import Guests200 from '../public'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Notice from './notice'
 import axios from 'axios'
-import router, {useRouter} from 'next/router'
+import router, { useRouter } from 'next/router'
 import cookie from 'react'
-import {NextPageContext} from 'next'
+import { NextPageContext } from 'next'
 import Popup from './popup'
 import Modal from 'react-modal'
-import amazonlogo from '../public/assets/amazonlogo.png'
+// import amazonlogo from '../public/assets/amazonlogo.png'
 
 
 function Dashboard() {
-    let router =useRouter()
+    let router = useRouter()
     const [user, setuser] = useState({
-        username:"",
-        email:'',
-        _id:""
+        username: "",
+        email: '',
+        _id: ""
     })
     const [modalopen, setmodalopen] = useState(false)
-    const register=()=>{
+    const register = () => {
 
         axios.post(`${process.env.SERVER_URL}/auth/local`)
-        .then(res=>{
-            console.log(res)
-            setuser()
-        }).catch(err=>{
-            console.log(err)
-        })
+            .then(res => {
+                console.log(res)
+                setuser()
+            }).catch(err => {
+                console.log(err)
+            })
     }
-    const handleClick=()=>{
+    const handleClick = () => {
         window.location.reload()
     }
-  
+
     return (
         <div>
-             <Navbar/>
-             <Notice/>
-        <div className={styles.intro}>
-            <p id={styles.welcome}>Welcome Back,  </p>
-            <p id={styles.username}>{user.username}</p>
-           
-        </div>
-        <p className={styles.update}>Here are your updates for the day</p>
-        <div>
-            <p className={styles.viewAll}>View all</p>
-            
-        </div>
-            
-        <div className={styles.allcards}>
-            
-        <div onClick={()=>setmodalopen(true)} className={styles.cards}>
-        <Modal isOpen={modalopen}
-         onRequestClose={()=>setmodalopen(false)}
-         className={styles.modal}
-         style={
-             {
-                 content:{
-                     backgroundColor:"white",
-                     outline:"none"
-                 },
-                
-             }
-         }>
-                <Image src={amazonlogo}/>
-                <h1>Akhil amazon</h1>
-                <p className={styles.delivery}>Delivery</p>
-                <div className={styles.clock}>
-                    <Image src={clock} alt="" />
+            <Navbar />
+            <Notice />
+            <div className={styles.intro}>
+                <p id={styles.welcome}>Welcome Back,  </p>
+                <p id={styles.username}>{user.username}</p>
+
+            </div>
+            <p className={styles.update}>Here are your updates for the day</p>
+            <div>
+                <p className={styles.viewAll}>View all</p>
+
+            </div>
+
+            <div className={styles.allcards}>
+
+                <div onClick={() => setmodalopen(true)} className={styles.cards}>
+                    <Modal isOpen={modalopen}
+                        onRequestClose={() => setmodalopen(false)}
+                        className={styles.modal}
+                        style={
+                            {
+                                content: {
+                                    backgroundColor: "white",
+                                    outline: "none"
+                                },
+
+                            }
+                        }>
+                        <img src="/assets/amazonlogo.png" style={{ height: '30px', width: '30px' }} />
+                        <h1>Akhil amazon</h1>
+                        <p className={styles.delivery}>Delivery</p>
+                        <div className={styles.clock}>
+                            <img src="/assets/Clock.png" alt="" />
+                        </div>
+                        <p className={styles.time4}>8:00 am</p>
+                        <div>
+                            <button onClick={handleClick}>close</button>
+                        </div>
+                    </Modal>
+                    <p className={styles.person}>Nikhil Amazon</p>
+                    <p className={styles.role1}>Delivery Agent</p>
+
+                    <button className={styles.approve}>
+                        <p className={styles.btntext}>Approve</p>
+                    </button>
+                    <button className={styles.reject}>
+                        <p className={styles.btntext1}> Reject</p>
+                    </button>
+                </div>
+
+
+                <div className={styles.cards1}>
+                    <p className={styles.person}>Electricity Bill</p>
+                    <div className={styles.due}>
+                        <p className={styles.role1}>Amount Due</p>
+                        <p className={styles.price}>Rs.820.22</p>
                     </div>
-                    <p className={styles.time4}>8:00 am</p>
-                <div>
-                <button onClick={handleClick}>close</button>
+                    <div className={styles.due}>
+                        <p className={styles.today}>Due Today:</p>
+                        <p className={styles.date}>21 April 2021</p>
+                    </div>
+                    <button className={styles.reject}>
+                        <p className={styles.btntext1}> Pay now</p>
+                    </button>
                 </div>
-            </Modal>
-            <p className={styles.person}>Nikhil Amazon</p>
-            <p className={styles.role1}>Delivery Agent</p>
-           
-            <button  className={styles.approve}>
-                <p className={styles.btntext}>Approve</p>
-            </button>
-            <button className={styles.reject}>
-               <p className={styles.btntext1}> Reject</p>
-            </button>
-        </div>
-       
 
-        <div  className={styles.cards1}>
-            <p className={styles.person}>Electricity Bill</p>
-            <div className={styles.due}>
-            <p className={styles.role1}>Amount Due</p>
-            <p className={styles.price}>Rs.820.22</p>
-            </div>
-            <div className={styles.due}>
-            <p className={styles.today}>Due Today:</p>
-            <p className={styles.date}>21 April 2021</p>
-            </div>
-            <button className={styles.reject}>
-               <p className={styles.btntext1}> Pay now</p>
-            </button>
-        </div>
+                <div className={styles.cards2}>
+                    <p className={styles.person}>Maintenance Request</p>
+                    <p className={styles.role1}>Details: Water leaking from the bathroom ceiling</p>
+                    <p className={styles.today1}>Under Review </p>
 
-        <div className={styles.cards2}>
-            <p className={styles.person}>Maintenance Request</p>
-            <p className={styles.role1}>Details: Water leaking from the bathroom ceiling</p>
-            <p className={styles.today1}>Under Review </p>
-            
-            <button className={styles.reject}>
-               <p className={styles.btntext1}> Reject</p>
-            </button>
-        </div>
-        </div>
-
-        <div className={styles.quickActions}>
-            <p className={styles.quick}>Quick Actions</p>
-
-            <div className={styles.PayBills}>
-                <div className={styles.paybills}>
-                <Image  src={paybills} alt="" />
+                    <button className={styles.reject}>
+                        <p className={styles.btntext1}> Reject</p>
+                    </button>
                 </div>
-                <p className={styles.paytext}>Pay Bills</p>
             </div>
 
-            <div className={styles.PayBills1}>
-                <div className={styles.paybills}>
-                <Image  src={Security} alt="" />
-                </div>
-                <p className={styles.paytext}>Security</p>
-            </div>
+            <div className={styles.quickActions}>
+                <p className={styles.quick}>Quick Actions</p>
 
-            <div className={styles.PayBills2}>
-                <div className={styles.paybills}>
-                <Image   src={Maintain} alt="" />
+                <div className={styles.PayBills}>
+                    <div className={styles.paybills}>
+                        <img src="/assets/PayBills.png" alt="" />
+                    </div>
+                    <p className={styles.paytext}>Pay Bills</p>
                 </div>
-                <p className={styles.paytext}>Maintenance requests</p>
-            </div>
 
-            <div className={styles.PayBills3}>
-                <div>
-                <Image   src={Entry} alt="" />
+                <div className={styles.PayBills1}>
+                    <div className={styles.paybills}>
+                        <img src="/assets/Security.png" alt="" />
+                    </div>
+                    <p className={styles.paytext}>Security</p>
                 </div>
-                <p className={styles.paytext}>Pre-approve Entry</p>
-            </div>
 
-            <div className={styles.PayBills4}>
-                <div className={styles.paybills}>
-                <Image   src={Complaint} alt="" />
+                <div className={styles.PayBills2}>
+                    <div className={styles.paybills}>
+                        <img src="/assets/Maintain.png" alt="" />
+                    </div>
+                    <p className={styles.paytext}>Maintenance requests</p>
                 </div>
-                <p className={styles.paytext}>Make a complaint</p>
-            </div>
 
-            <div className={styles.PayBills5}>
-                <div className={styles.paybills}>
-                <Image  src={Book} alt="" />
+                <div className={styles.PayBills3}>
+                    <div>
+                        <img src="/assets/Entry.png" alt="" />
+                    </div>
+                    <p className={styles.paytext}>Pre-approve Entry</p>
                 </div>
-                <p className={styles.paytext}>Book Guest Parking</p>
+
+                <div className={styles.PayBills4}>
+                    <div className={styles.paybills}>
+                        <img src="/assets/Complaint.png" alt="" />
+                    </div>
+                    <p className={styles.paytext}>Make a complaint</p>
+                </div>
+
+                <div className={styles.PayBills5}>
+                    <div className={styles.paybills}>
+                        <img src="/assets/Book.png" alt="" />
+                    </div>
+                    <p className={styles.paytext}>Book Guest Parking</p>
+                </div>
             </div>
-        </div>
 
 
             <p className={styles.visitor}>Visitor Entries</p>
-        <div className={styles.VisitorEntries}>
+            <div className={styles.VisitorEntries}>
                 <div className={styles.parcels}>
                     <div className={styles.division}>
-                        <div  id={styles.parcel10}>
-                    <Image  src={group18} alt="" />
+                        <div id={styles.parcel10}>
+                            <img src="/assets/Group 108.png" alt="" />
                         </div>
-                    <p id={styles.parcel1}>Parcels</p>
+                        <p id={styles.parcel1}>Parcels</p>
                     </div>
                     <div className={styles.info}>
-                    <p className={styles.name11}>Akhil Amazon</p>
-                    <p className={styles.delivery}>Delivery</p>
-                    <div className={styles.clock}>
-                    <Image src={clock} alt="" />
-                    </div>
-                    <p className={styles.time4}>8:00 am</p>
+                        <p className={styles.name11}>Akhil Amazon</p>
+                        <p className={styles.delivery}>Delivery</p>
+                        <div className={styles.clock}>
+                            <img src="/assets/Clock.png" alt="" />
+                        </div>
+                        <p className={styles.time4}>8:00 am</p>
                     </div>
                     <div className={styles.perInfo}>
                         <p className={styles.delivery1}>Temp:</p>
@@ -195,23 +195,23 @@ function Dashboard() {
                     </div>
                     <p className={styles.delivery3}>Waiting at gate</p>
                     <div className={styles.buttons}>
-                    <button className={styles.yes}><p className={styles.btntext}>Approve</p></button>
-                    <button className={styles.nope}><p className={styles.btntext1}>Reject</p></button>
+                        <button className={styles.yes}><p className={styles.btntext}>Approve</p></button>
+                        <button className={styles.nope}><p className={styles.btntext1}>Reject</p></button>
                     </div>
                 </div>
-        </div>
-        <div className={styles.VisitorEntries1}>
+            </div>
+            <div className={styles.VisitorEntries1}>
                 <div className={styles.parcels}>
                     <div className={styles.division}>
                         {/* check this shit right here */}
                         <div id={styles.parcel10}>
-                    <Image src={Guests200} alt="" />
+                            <img src="/assets/Guests200.png" alt="" />
                         </div>
-                    <p id={styles.parcel1}>Guests</p>
+                        <p id={styles.parcel1}>Guests</p>
                     </div>
                     <div className={styles.info}>
-                    <p className={styles.name11}>Sharon</p>
-                    <p className={styles.delivery}>All day</p>
+                        <p className={styles.name11}>Sharon</p>
+                        <p className={styles.delivery}>All day</p>
                     </div>
                     <div className={styles.perInfo}>
                         <p className={styles.delivery1}>Temp:</p>
@@ -221,15 +221,15 @@ function Dashboard() {
                     </div>
                     <p className={styles.delivery3}>Pre-approved by you</p>
                     <div >
-                   <button className={styles.pre}><p className={styles.pretext}>Pre-approved</p></button>
-                   <div className={styles.kebab}>
-                   <Image src={Kebab} alt="" />
-                   </div>
+                        <button className={styles.pre}><p className={styles.pretext}>Pre-approved</p></button>
+                        <div className={styles.kebab}>
+                            <img src="/assets/Kebab menu.png" alt="" />
+                        </div>
                     </div>
                 </div>
-        </div>
+            </div>
 
-       
+
         </div>
     )
 }
