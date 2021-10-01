@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import {useRouter} from 'next/router'
+import Paymenthistory from './paymenthistory'
 
 function Payments() {
     let router= useRouter()
@@ -25,11 +26,15 @@ function Payments() {
     const handleClick4=()=>{
         router.push("/rent")
     }
+    const clickpush=()=>{
+        router.push("/dashboard")
+    }
     return (
         <div>
             <Navbar/>
+            <Paymenthistory/>
             <div style={{ display: "flex", alignItems: 'center' }} className={styles.payment}>
-                <img className="w-8 h-8 bg-white  cursor-pointer" src='/assets/backbutton.png' />
+                <img onClick={clickpush} className="w-8 h-8 bg-white  cursor-pointer" src='/assets/backbutton.png' />
                <p className="pl-5"> Payments </p>
             </div>
            

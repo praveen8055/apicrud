@@ -18,6 +18,8 @@ function Dashboard() {
         email: '',
         _id: ""
     })
+
+    
     const [modalopen, setmodalopen] = useState(false)
     const register = () => {
 
@@ -35,9 +37,9 @@ function Dashboard() {
 
     return (
         <div>
-            <Navbar />
+            <Navbar styles={{marginLeft:"20px"}} />
             <Notice />
-            <div className={styles.intro}>
+            <div>
                 <p id={styles.welcome}>Welcome Back,  </p>
                 <p id={styles.username}>{user.username}</p>
 
@@ -50,30 +52,9 @@ function Dashboard() {
 
             <div className={styles.allcards}>
 
-                <div onClick={() => setmodalopen(true)} className={styles.cards}>
-                    <Modal isOpen={modalopen}
-                        onRequestClose={() => setmodalopen(false)}
-                        className={styles.modal}
-                        style={
-                            {
-                                content: {
-                                    backgroundColor: "white",
-                                    outline: "none"
-                                },
-
-                            }
-                        }>
-                        <img src="/assets/amazonlogo.png" style={{ height: '30px', width: '30px' }} />
-                        <h1>Akhil amazon</h1>
-                        <p className={styles.delivery}>Delivery</p>
-                        <div className={styles.clock}>
-                            <img src="/assets/Clock.png" alt="" />
-                        </div>
-                        <p className={styles.time4}>8:00 am</p>
-                        <div>
-                            <button onClick={handleClick}>close</button>
-                        </div>
-                    </Modal>
+                <div  className={styles.cards}>
+                   
+                       
                     <p className={styles.person}>Nikhil Amazon</p>
                     <p className={styles.role1}>Delivery Agent</p>
 

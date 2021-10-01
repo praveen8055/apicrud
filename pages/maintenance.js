@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import Navbar from './navbar'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 function Maintenance() {
+    const router =useRouter()
+    const clickpush=()=>{
+        router.push("/payments")
+      }
     const [bills, SetBills] = useState([]);
     const getBills = async () => { // function to gather the bills
 
@@ -123,7 +128,7 @@ function Maintenance() {
                 <Navbar />
             </div>
             <div style={{ display: "flex", alignItems: 'center' }} className={styles.payment}>
-                <img className="w-8 h-8 bg-white cursor-pointer" src="/assets/backbutton.png" />
+                <img onClick={clickpush} className="w-8 h-8 bg-white cursor-pointer" src="/assets/backbutton.png" />
                 <p className="pl-5"> Maintenance </p>
             </div>
             <div className="overflow-auto">

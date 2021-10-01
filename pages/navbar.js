@@ -20,13 +20,25 @@ function Navbar() {
     const handleClick = () => {
         router.push("/payments")
     }
+    const handleClick1 = () => {
+        router.push("/dashboard")
+    }
+    const handleClick3 = () => {
+        router.push("/amenities")
+    }
+    const handleClick4 = () => {
+        router.push("/community")
+    }
+    const handleClick5 = () => {
+        router.push("/contact")
+    }
     return (
         <div>
 
 
             <div className={styles.navbar}>
 
-                <div className={styles.anchor}>
+                <div>
                     <div className={styles.anchorNavLogo} >
 
                         <img src='/assets/Logo.png' alt="not found" />
@@ -36,7 +48,7 @@ function Navbar() {
 
                 <div className={styles.anchor}>
                     <IoHomeSharp className={styles.amenities} />
-                    <div>Home</div>
+                    <div onClick={handleClick1}>Home</div>
                 </div>
 
 
@@ -52,17 +64,17 @@ function Navbar() {
 
                 <div className={styles.anchor}>
                     <FaTableTennis className={styles.amenities} />
-                    <div>Amenities</div>
+                    <div onClick={handleClick3}>Amenities</div>
                 </div>
 
                 <div className={styles.anchor}>
                     <IoIosPeople className={styles.communities} />
-                    <div>Community</div>
+                    <div onClick={handleClick4}>Community</div>
                 </div>
 
                 <div className={styles.anchor}>
                     <IoChatbubbles className={styles.amenities} />
-                    <div>Contact</div>
+                    <div onClick={handleClick5}>Contact</div>
                 </div>
 
             </div>
@@ -92,9 +104,10 @@ function Navbar() {
                         <p className={styles.emer}>Emergency</p>
                     </button>
                 </div>
-
+                
 
             </div>
+           
             <div>
                 <BsFillBellFill id={styles.bell} />
             </div>

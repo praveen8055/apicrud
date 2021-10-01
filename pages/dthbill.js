@@ -1,13 +1,21 @@
 import React from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
+import { useRouter } from 'next/router'
+import Paymenthistory from './paymenthistory'
 
 function dthbill() {
+    const router= useRouter()
+    const clickpush=()=>{
+        router.push("/dth")
+    }
+
     return (
         <div>
              <Navbar/>
+             <Paymenthistory/>
             <div style={{ display: "flex", alignItems: 'center' }} className={styles.payment}>
-                <img className="w-8 h-8 bg-white  cursor-pointer" src='/assets/backbutton.png' />
+                <img onClick={clickpush} className="w-8 h-8 bg-white  cursor-pointer" src='/assets/backbutton.png' />
                <p className="pl-5"> DTH</p>
             </div>
 

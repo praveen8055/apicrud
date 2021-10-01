@@ -2,16 +2,22 @@ import React from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
+import Paymenthistory from './paymenthistory'
 
 
 
 function gasbill() {
+  const router= useRouter()
+  const clickpush=()=>{
+    router.push("/gas")
+  }
     return (
         <div>
              <div>
             <Navbar/>
+            <Paymenthistory/>
           <div style={{ display: "flex", alignItems: 'center' }} className={styles.payment}>
-            <img className="w-8 h-8 bg-white  cursor-pointer" src='/assets/backbutton.png' />
+            <img onClick={clickpush} className="w-8 h-8 bg-white  cursor-pointer" src='/assets/backbutton.png' />
                <p className="pl-5"> Gas </p>
             </div>
             <div className={styles.ebill10}>
@@ -24,6 +30,7 @@ function gasbill() {
                       className="mr-1 cursor-pointer"
                       type="radio"
                       name="selectCategory"
+                      checked="true"
                       value="rented"
                     />
                     <p className="pr-10">Pay Gas Bill</p>

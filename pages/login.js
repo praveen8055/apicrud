@@ -285,7 +285,7 @@ function Login() {
             />
             <FacebookLogin
               appId="434384707135599"
-              autoLoad={true}
+              autoLoad={false}
               fields="name,email,picture"
               onClick={componentClicked}
               callback={responseFacebook}

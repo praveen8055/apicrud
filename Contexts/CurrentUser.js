@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useReducer, useContext, createContext, useState, useEffect } from "react";
 import { callApi } from "../Utilities/LoginUtils";
 // const CurrentUserStateContext = createContext();
@@ -44,8 +45,10 @@ const PageContextProvider = (props) => {
   });
 
   useEffect(() => {
+   
     const fetchUser = async () => {
-      const user = await callApi("/users/me", "GET");
+      const user = await callApi("/users/me", "GET")
+       
       if (user.id) {
         dispatch({ isAuthenticated: true });
 

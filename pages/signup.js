@@ -54,7 +54,7 @@ function Signup() {
         });
         dispatch({ type: "LOGIN", user: response.user });
         setIsFetching(false);
-        router.replace("/dummyconfirmation");
+        router.replace("/login");
       } catch (err) {
         setError(err);
         setIsFetching(false);
