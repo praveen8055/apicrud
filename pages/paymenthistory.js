@@ -7,8 +7,12 @@ import Image from 'next/image'
 import cylinder from '../public/assets/cylinder.png'
 import success from "../public/assets/Sucess.png"
 import paymenthistory1 from '../public/assets/paymenthistory.png'
+import * as Utilities from '../Utilities/utilities'
 
 function paymenthistory() {
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     return (
         <div className={styles.bigNotice}>
             <div className={styles.notice}>

@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = process.env.SERVER_URL;
 export const callApi = async (path, method, body) => {
  
-  const response = await callApi(`${API_URL}${path}`, {
+  const response = await fetch(`${API_URL}${path}`, {
     method,
     headers: {
       "content-type": "application/json",
@@ -14,6 +14,7 @@ export const callApi = async (path, method, body) => {
   const data = await response.json();
   return data;
 };
+
 
 
 

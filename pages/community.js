@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from './navbar'
 import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
@@ -11,11 +11,17 @@ import {AiFillLike} from "react-icons/ai"
 import {BiMessage} from "react-icons/bi"
 import {FaShare} from "react-icons/fa"
 import Notice from "./notice"
+import * as Utilities from '../Utilities/utilities'
+
+
 function community() {
     const router= useRouter()
     const handleClick=()=>{
         router.push("/yourposts")
     }
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     return (
         <div>
              <Navbar/>

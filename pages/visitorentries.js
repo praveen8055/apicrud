@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from './navbar'
 import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
@@ -9,8 +9,12 @@ import group18 from '../public/assets/Group 108.png'
 import Guests200 from '../public/assets/Guests200.png'
 import { IoPersonSharp } from 'react-icons/io5'
 import { useRouter } from 'next/router'
+import * as Utilities from '../Utilities/utilities'
 
 function visitorentries() {
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     const router= useRouter()
     const handleClick=()=>{
         router.push("/profile")

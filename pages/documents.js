@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Navbar from './navbar'
 import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
@@ -8,6 +8,7 @@ import  objection from "../public/assets/objection.png"
 import { useRouter } from 'next/router'
 import Modal from 'react-modal'
 import {GrClose} from 'react-icons/gr'
+import * as Utilities from '../Utilities/utilities'
 
 function documents() {
     const router=useRouter()
@@ -27,6 +28,9 @@ function documents() {
         window.location.reload()
     }
     const [modalopen, setmodalopen] = useState(false)
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     return (
         <div>
              <Navbar/>

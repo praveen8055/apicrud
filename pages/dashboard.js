@@ -3,6 +3,7 @@ import Navbar from './navbar'
 // import styles from '../styles/Home.module.css'
 import Notice from './notice'
 import axios from 'axios'
+import * as Utilities from '../Utilities/utilities'
 import router, { useRouter } from 'next/router'
 import cookie from 'react'
 import { NextPageContext } from 'next'
@@ -34,6 +35,9 @@ function Dashboard() {
     const handleClick = () => {
         window.location.reload()
     }
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
 
     return (
         <div>
@@ -43,7 +47,7 @@ function Dashboard() {
                 <div className="flex flex-col mb-8">
                     <div className="flex flex-row items-center">
                         <p className="text-2xl text-indigo-900 font-light">Welcome Back,</p>
-                        <p className="ml-2 text-2xl text-indigo-900 font-semibold">{`${'Chandan Bauri'}`}</p>
+                        <p className="ml-2 text-2xl text-indigo-900 font-semibold">{`${'Jack'}`}</p>
                     </div>
                     <div className="flex flex-row items-center justify-between mt-2 w-full">
                         <p className="text-gray-500 font-light">Here are your updates for the day</p>

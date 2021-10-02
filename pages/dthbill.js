@@ -1,15 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
 import Paymenthistory from './paymenthistory'
+import * as Utilities from '../Utilities/utilities'
 
 function dthbill() {
     const router= useRouter()
     const clickpush=()=>{
         router.push("/dth")
     }
-
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     return (
         <div>
              <Navbar/>

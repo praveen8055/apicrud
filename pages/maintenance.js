@@ -3,8 +3,13 @@ import styles from '../styles/Home.module.css'
 import Navbar from './navbar'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import * as Utilities from '../Utilities/utilities'
+
 
 function Maintenance() {
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     const router =useRouter()
     const clickpush=()=>{
         router.push("/payments")

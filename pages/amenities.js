@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
@@ -11,6 +11,7 @@ import basketball from "../public/assets/basketball.png"
 import swimming from "../public/assets/swimming.png"
 import tenniscourt from '../public/assets/tenniscourt.png'
 import { useRouter } from 'next/router'
+import * as Utilities from '../Utilities/utilities'
 
 function amenities() {
     const router=useRouter()
@@ -21,6 +22,9 @@ function amenities() {
     const clickpush=()=>{
         router.push("/dashboard")
     }
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     return (
         <div>
              <Navbar/>

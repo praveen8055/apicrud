@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import backbtn from '../public/assets/backbutton.png'
@@ -11,10 +11,14 @@ import Search from '../public/assets/Search.png'
 import phoneNumber from '../public/assets/phoneNumber.png'
 import star from '../public/assets/star.png'
 import Modal from 'react-modal'
+import * as Utilities from '../Utilities/utilities'
 
 
 function contact() {
     const [modalopen, setmodalopen] = useState(false)
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     return (
         <div>
             <Navbar/>

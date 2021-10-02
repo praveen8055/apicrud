@@ -4,8 +4,12 @@ import styles from '../styles/Home.module.css'
 import {useRouter} from 'next/router'
 import Paymenthistory from './paymenthistory'
 import axios from 'axios'
+import * as Utilities from '../Utilities/utilities'
 
-function Payments() {
+function Payments() {  useEffect(() => {
+    Utilities.isLoggedIn().catch(error => console.error(error))
+}, [])
+
     let router= useRouter()
 
     const handleClick=()=>{

@@ -1,7 +1,11 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect} from 'react'
 import Modal from 'react-modal'
+import * as Utilities from '../Utilities/utilities'
 
 function Popup() {
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     const [modalopen, setmodalopen] = useState(false)
     return (
         <div>

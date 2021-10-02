@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import backbtn from '../public/assets/backbutton.png'
@@ -8,6 +8,7 @@ import Modal from 'react-modal'
 import msedcl from "../public/assets/msedcl.png"
 import success from "../public/assets/Sucess.png"
 import  { useRouter } from 'next/router'
+import * as Utilities from '../Utilities/utilities'
 
 
 
@@ -20,12 +21,15 @@ function electricitybill() {
         router.push("/electricity")
     }
     const [modalopen, setmodalopen] = useState(false)
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     return (
         <div>
         <Navbar/>
         <Paymenthistory/>
         <div style={{display:"flex"}} className={styles.payment}>
-        <Image className="w-12 h-12 bg-white  cursor-pointer" src={backbtn}/>
+        <Image onClick={clickpush} className="w-12 h-12 bg-white  cursor-pointer" src={backbtn}/>
            <p className="pl-5"> Electricity </p>
         </div>
 

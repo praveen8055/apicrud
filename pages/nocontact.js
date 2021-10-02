@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from './navbar'
 import styles from '../styles/Home.module.css'
 import backbtn from '../public/assets/backbutton.png'
@@ -9,8 +9,13 @@ import police from '../public/assets/police.png'
 import firebrigade from '../public/assets/ambulance.png'
 import Search from '../public/assets/Search.png'
 import oopsImage from '../public/assets/oops.png'
+import * as Utilities from '../Utilities/utilities'
+
 
 function nocontact() {
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     return (
         <div>
         <Navbar/>

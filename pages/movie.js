@@ -6,6 +6,7 @@ import backbtn from '../public/assets/backbutton.png'
 import check from '../public/assets/Select Check.png'
 import {FiCheck} from 'react-icons/fi'
 function movie() {
+    
     return (
         <div>
             <Navbar/>

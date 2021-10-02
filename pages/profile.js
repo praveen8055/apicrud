@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from './navbar'
 import backbtn from '../public/assets/backbutton.png'
 import Image from 'next/image'
@@ -8,8 +8,13 @@ import phoneNumber from "../public/assets/phoneNumber.png"
 import { IoHomeSharp } from 'react-icons/io5'
 import { useRouter } from 'next/router'
 import Modal from 'react-modal'
+import * as Utilities from '../Utilities/utilities'
+
 
 function profile() {
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     const router= useRouter()
     const handleClick=()=>{
         router.push("/profile")

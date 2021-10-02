@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import { FaTableTennis } from 'react-icons/fa'
 import { IoHomeSharp } from 'react-icons/io5'
@@ -13,9 +13,13 @@ import { BsFillBellFill } from 'react-icons/bs'
 import styles from '../styles/Home.module.css'
 
 import { useRouter } from 'next/router'
+import * as Utilities from '../Utilities/utilities'
 
 
 function Navbar() {
+    useEffect(() => {
+        Utilities.isLoggedIn().catch(error => console.error(error))
+    }, [])
     let router = useRouter()
     const handleClick = () => {
         router.push("/payments")
