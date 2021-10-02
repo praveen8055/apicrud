@@ -200,7 +200,7 @@ function Dashboard() {
                         </div>
                         
                     </div>
-                    <div>
+                   
 
                     <div className="p-3 bg-white rounded-2xl w-full flex flex-col max-w-xl flex-grow">
                         <div className="">
@@ -248,7 +248,7 @@ function Dashboard() {
 
             </div>
 
-        </div>
+       
     )
 }
 

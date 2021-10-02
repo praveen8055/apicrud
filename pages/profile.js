@@ -26,16 +26,21 @@ function profile() {
     return (
         <div>
             <Navbar/>
-            <div style={{display:"flex"}} className={styles.payment}>
-            <IoPersonSharp style={{borderRadius:"10px"}} className="w-10 h-10 p-1 bg-white text-indigo-600 cursor-pointer" />
-               <p className="pl-5"> Jonathan Philip </p>
+            <div className="mt-10 md:ml-40 max-w-5xl w-full md:px-0 px-10">
+                <div className="flex flex-col mb-8">
+                    <div className="flex flex-row items-center">
+                    <img  className="w-12 h-12 bg-white rounded-md  cursor-pointer" src='/assets/profile.png' />
+                        <p className="text-2xl text-indigo-900 font-bold ml-4">Jonathan Philip</p>
+                    </div>
+                    
             </div>
-            <div  style={{display:"flex", position:"absolute", top:"250px", left:"160px", borderBottom:"1px solid #E1E1E1"}}>
+                <div className="border-b-gray">
+
                 <button onClick={handleClick} className={styles.personal}>Personal Details</button>
                 <button onClick={handleClick1} className={styles.document}>Documents</button>
                 <button onClick={handleClick2} className={styles.document}>Your Posts</button>
                 <button onClick={handleClick3} className={styles.document}>Visitor Entries</button>
-            </div>
+                </div>
             <div className={styles.contactno}>
                 <div className="pb-5" style={{display:"flex",width:"670px", borderBottom:"1px dashed #E0E0E0;"}}>
                     <Image src={phoneNumber}/>
@@ -92,7 +97,7 @@ function profile() {
                 </div>
             </div>
             </div>
-        </div>
+        </div></div>
     )
 }
 

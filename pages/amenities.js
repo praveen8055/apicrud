@@ -18,80 +18,132 @@ function amenities() {
     const handleClick=()=>{
         router.push("/movie")
     }
+    const clickpush=()=>{
+        router.push("/dashboard")
+    }
     return (
         <div>
              <Navbar/>
-            <div style={{display:"flex"}} className={styles.payment}>
-            <Image className="w-12 h-12 bg-white  cursor-pointer" src={backbtn}/>
-               <p className="pl-5"> Amenities </p>
+             <div className="mt-10 md:ml-40 max-w-5xl w-full md:px-0 px-10">
+                <div className="flex flex-col mb-8">
+                    <div className="flex flex-row items-center">
+                    <img onClick={clickpush} className="w-8 h-8 bg-white  cursor-pointer" src='/assets/backbutton.png' />
+                        <p className="text-2xl text-indigo-900 font-bold ml-4">Amenities</p>
+                    </div>
             </div>
+            <div className="flex flex-row items-center flex-wrap w-full">
+                    <div className="p-3 bg-white rounded-2xl w-full flex flex-col justify-between mr-5 lg:mb-0 mb-5" style={{ maxWidth: '18rem', minHeight: '15rem', maxHeight: "20rem" }}>
+                        <div className="flex flex-col w-full mb-10">
+                            <div className="flex flex-row">
+                            <img className="m-3" src="/assets/tennis.png" />
+                            <div>
+                            <p className=" text-gray-800 font-extrabold mt-3">Tennis Court</p>
+                            <p className="text-gray-500 text-sm font-normal mt-1">12 Jun</p>
+                            </div>
+                            </div>
+                            <p className=" text-green-500 mt-3 ml-16 font-extrabold mt-3">Confirmed</p>
+                        </div>
+                        <div className="flex flex-col items-center justify-center">
+                            <button className="border-indigo-500 border bg-white w-full flex items-center justify-center rounded-full py-3 mt-3">
+                                <p className="text-indigo-500 uppercase"> View Booking</p>
+                            </button>
+                        </div>
+                    </div>
+
+
+                   <div className="p-3 bg-white rounded-2xl w-full flex flex-col justify-between mr-5 lg:mb-0 mb-5" style={{ maxWidth: '18rem', minHeight: '15rem', maxHeight: "20rem" }}>
+                        <div className="flex flex-col w-full mb-10">
+                            <div className="flex flex-row">
+                            <img className="m-3" src="/assets/basket.png" />
+                            <div>
+                            <p className=" text-gray-800 font-extrabold mt-3">Basketball Court</p>
+                            <p className="text-gray-500 text-sm font-normal mt-1">12 Jun</p>
+                            </div>
+                            </div>
+                            <p className=" text-green-500 mt-3 ml-16 font-extrabold mt-3">Confirmed</p>
+                        </div>
+                        <div className="flex flex-col items-center justify-center">
+                            <button className="border-indigo-500 border bg-white w-full flex items-center justify-center rounded-full py-3 mt-3">
+                                <p className="text-indigo-500 uppercase"> View Booking</p>
+                            </button>
+
+                        </div>
+                    </div>
+                
+                    </div>
 
             
-            <div style={{display:"flex", position:"absolute", top:"220px", left:"170px"}}>
-            <div className={styles.sports}>
-                <div  className="m-5">
-                <Image src={tennis}/>
-                </div>
-                <p className={styles.tennis} >Tennis Court</p>
-                <p className={styles.time23}>12 Jun</p>
-                <p style={{color: "#23B10C", paddingLeft:"80px", fontSize:"15px"}}>Confirmed</p>
-                <button  className={styles.booking}>
-                <p className={styles.btntext1}>View Booking</p>
-            </button></div>
-
-            <div className={styles.sports}>
-                <div  className="m-5">
-                <Image src={basket}/>
-                </div>
-                <p className={styles.basketball} >Basketball Court</p>
-                <button className={styles.viewbooking}>
-                <p className={styles.btntext1}>View Booking</p>
-            </button></div>
-            </div>
-
+           
           
+                    
 
-            <p className={styles.categories}>Categories</p>
-            <div onClick={handleClick} className={styles.ammenities}>
-                <p className={styles.movie}>Movie Theatre</p>
-                <p className={styles.free}>Free</p>
-                <div  className={styles.theatre}>
-                <Image src={theatre}/>
-                </div>
-            
-            </div>
-            <div className={styles.ammenities1}>
-                <p className={styles.movie}>Clubhouse</p>
-                <p className={styles.free}>Free</p>
-                <div  className={styles.theatre}>
-                <Image src={TableTennis}/>
-                </div>
-            
-            </div>
-            <div className={styles.ammenities2}>
-                <p className={styles.movie}>Swimming Pool</p>
-                <p className={styles.free}>Free</p>
-                <div  className={styles.theatre}>
-                <Image src={swimming}/>
-                </div>
-            
-            </div>
-            <div className={styles.ammenities3}>
-                <p className={styles.movie}>Basketball Court</p>
-                <p className={styles.free}>Free</p>
-                <div  className={styles.theatre}>
-                <Image src={basketball}/>
-                </div>
-            
-            </div>
-            <div className={styles.ammenities4}>
-                <p className={styles.movie}>Tennis Court</p>
-                <p className={styles.free}>Free</p>
-                <div  className={styles.theatre}>
-                <Image src={tenniscourt}/>
-                </div>
-            
-            </div>
+                   
+                    <div className="flex">
+                        <p className="text-2xl text-indigo-900 mt-10 ml-3 mb-3">Categories</p>
+                    </div>
+
+
+                    <div className="flex flex-row items-center flex-wrap w-full">
+                    <div className="p-3 bg-white rounded-2xl w-full flex flex-col justify-between mr-5 lg:mb-0 mb-5" style={{ maxWidth: '18rem', minHeight: '15rem', maxHeight: "20rem" }}>
+                        <div className="flex flex-col w-full mb-5">
+                            
+                            <p className=" text-gray-800 font-extrabold mt-3">Movie Theatre</p>
+                            <p className="text-gray-500 text-sm font-normal mt-1">Free</p>
+                        </div>
+                        <div className="h-30 w-30">
+                       <img src="/assets/theatre.png"/>
+                        </div>
+                   
+                
+                    </div>
+                    <div className="p-3 bg-white rounded-2xl w-full flex flex-col justify-between mr-5 lg:mb-0 mb-5" style={{ maxWidth: '18rem', minHeight: '15rem', maxHeight: "20rem" }}>
+                        <div className="flex flex-col w-full mb-5">
+                            
+                            <p className=" text-gray-800 font-extrabold mt-3">Clubhouse</p>
+                            <p className="text-gray-500 text-sm font-normal mt-1">Free</p>
+                        </div>
+                        <div className="h-30 w-30">
+                       <img src="/assets/Tabletennis.png"/>
+                        </div>
+                    </div>
+
+                    <div className="p-3 bg-white rounded-2xl w-full flex flex-col justify-between mr-5 lg:mb-0 mb-5" style={{ maxWidth: '18rem', minHeight: '15rem', maxHeight: "20rem" }}>
+                        <div className="flex flex-col w-full mb-5">
+                            
+                            <p className=" text-gray-800 font-extrabold mt-3">Swimming Pool</p>
+                            <p className="text-gray-500 text-sm font-normal mt-1">Free</p>
+                        </div>
+                        <div className="h-30 w-30">
+                       <img src="/assets/swimming.png"/>
+                        </div>
+                    </div>
+                    
+
+                    <div className="p-3 bg-white rounded-2xl w-full flex flex-col justify-between mr-5 lg:mb-0 mb-5" style={{ maxWidth: '18rem', minHeight: '15rem', maxHeight: "20rem" }}>
+                        <div className="flex flex-col w-full mb-5">
+                            
+                            <p className=" text-gray-800 font-extrabold mt-3">Basketball Court</p>
+                            <p className="text-gray-500 text-sm font-normal mt-1">Free</p>
+                        </div>
+                        <div className="h-30 w-30">
+                       <img src="/assets/basketball.png"/>
+                        </div>
+                    </div>
+
+                    <div className="p-3 bg-white rounded-2xl w-full flex flex-col justify-between mr-5 lg:mb-0 mb-5" style={{ maxWidth: '18rem', minHeight: '15rem', maxHeight: "20rem" }}>
+                        <div className="flex flex-col w-full mb-5">
+                            
+                            <p className=" text-gray-800 font-extrabold mt-3">Tennis Court</p>
+                            <p className="text-gray-500 text-sm font-normal mt-1">Free</p>
+                        </div>
+                        <div className="h-30 w-30">
+                       <img src="/assets/tenniscourt.png"/>
+                        </div>
+                    </div>
+                    </div>
+                
+                    
+                    </div>
             
             
         </div>
