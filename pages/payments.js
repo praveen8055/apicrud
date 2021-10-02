@@ -6,7 +6,8 @@ import Paymenthistory from './paymenthistory'
 import axios from 'axios'
 import * as Utilities from '../Utilities/utilities'
 
-function Payments() {  useEffect(() => {
+function Payments() {
+      useEffect(() => {
     Utilities.isLoggedIn().catch(error => console.error(error))
 }, [])
 
