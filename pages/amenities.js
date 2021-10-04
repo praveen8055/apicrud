@@ -1,15 +1,5 @@
 import React, {useEffect} from 'react'
 import Navbar from './navbar'
-import styles from '../styles/Home.module.css'
-import Image from 'next/image'
-import theatre from "../public/assets/theatre.png"
-import tennis from '../public/assets/tennis.png'
-import backbtn from '../public/assets/backbutton.png'
-import basket from '../public/assets/basket.png'
-import TableTennis from '../public/assets/Tabletennis.png'
-import basketball from "../public/assets/basketball.png"
-import swimming from "../public/assets/swimming.png"
-import tenniscourt from '../public/assets/tenniscourt.png'
 import { useRouter } from 'next/router'
 import * as Utilities from '../Utilities/utilities'
 
@@ -64,7 +54,7 @@ function Amenities() {
                             <p className="text-gray-500 text-sm font-normal mt-1">12 Jun</p>
                             </div>
                             </div>
-                            <p className=" text-green-500 mt-3 ml-16 font-extrabold mt-3">Confirmed</p>
+                            <p className=" text-green-500 mt-3 ml-16 font-extrabold">Confirmed</p>
                         </div>
                         <div className="flex flex-col items-center justify-center">
                             <button className="border-indigo-500 border bg-white w-full flex items-center justify-center rounded-full py-3 mt-3">
@@ -107,7 +97,7 @@ function Amenities() {
                             <p className="text-gray-500 text-sm font-normal mt-1">Free</p>
                         </div>
                         <div className="h-30 w-30">
-                       <img src="/assets/Tabletennis.png"/>
+                            <img src="/assets/TableTennis.png" />
                         </div>
                     </div>
 
