@@ -9,7 +9,7 @@ import police from '../public/assets/police.png'
 import firebrigade from '../public/assets/ambulance.png'
 import Search from '../public/assets/Search.png'
 import phoneNumber from '../public/assets/phoneNumber.png'
-import star from '../public/assets/star.png'
+import star from '../public/assets/Star.png'
 import Modal from 'react-modal'
 import * as Utilities from '../Utilities/utilities'
 

@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react'
 import filter from '../public/assets/Filter (1).png'
-import calender from '../public/Assets/Group 86.png'
-import notice from '../public/Assets/Notice Board.png'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
 import cylinder from '../public/assets/cylinder.png'
