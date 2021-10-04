@@ -158,7 +158,7 @@ function Dashboard() {
                 <p className="text-xl text-indigo-900 my-10">Visitor Entries</p>
                 
                 <div>
-                    <div className="flex flex row">
+                    <div className="flex lg:flex-row flex-col">
 
                    
                     <div className="p-3 bg-white rounded-2xl w-full flex flex-col max-w-xl mb-5 mr-5 ">

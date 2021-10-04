@@ -11,7 +11,7 @@ import { IoPersonSharp } from 'react-icons/io5'
 import { BsFillBellFill } from 'react-icons/bs'
 
 import styles from '../styles/Home.module.css'
-
+import Link from "next/link"
 import { useRouter } from 'next/router'
 import * as Utilities from '../Utilities/utilities'
 
@@ -20,22 +20,7 @@ function Navbar() {
     useEffect(() => {
         Utilities.isLoggedIn().catch(error => console.error(error))
     }, [])
-    let router = useRouter()
-    const handleClick = () => {
-        router.push("/payments")
-    }
-    const handleClick1 = () => {
-        router.push("/dashboard")
-    }
-    const handleClick3 = () => {
-        router.push("/amenities")
-    }
-    const handleClick4 = () => {
-        router.push("/community")
-    }
-    const handleClick5 = () => {
-        router.push("/contact")
-    }
+   
     return (
         <div>
 
@@ -49,37 +34,41 @@ function Navbar() {
                     </div>
                 </div>
 
-
+                <Link href="/dashboard">
                 <div className={styles.anchor}>
                     <IoHomeSharp className={styles.amenities} />
-                    <div onClick={handleClick1}>Home</div>
-                </div>
+                    <div>Home</div>
+                </div></Link>
 
-
+                <Link href="/payments">
                 <div className={styles.anchor}>
                     <FaWallet className={styles.amenities} />
-                    <div onClick={handleClick}>Payments</div>
-                </div>
+                    <div >Payments</div>
+                </div></Link>
 
+            
                 <div className={styles.anchor}>
                     <FaEnvelope className={styles.amenities} />
                     <div>Requests</div>
                 </div>
 
+                <Link href="/amenities">
                 <div className={styles.anchor}>
                     <FaTableTennis className={styles.amenities} />
-                    <div onClick={handleClick3}>Amenities</div>
-                </div>
+                    <div>Amenities</div>
+                </div></Link>
 
+                <Link href="/community">
                 <div className={styles.anchor}>
                     <IoIosPeople className={styles.communities} />
-                    <div onClick={handleClick4}>Community</div>
-                </div>
+                    <div >Community</div>
+                </div></Link>
 
+                <Link href="/contact">
                 <div className={styles.anchor}>
                     <IoChatbubbles className={styles.amenities} />
-                    <div onClick={handleClick5}>Contact</div>
-                </div>
+                    <div >Contact</div>
+                </div></Link>
 
             </div>
 

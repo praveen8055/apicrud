@@ -11,7 +11,7 @@ import Modal from 'react-modal'
 import * as Utilities from '../Utilities/utilities'
 
 
-function profile() {
+function Profile() {
     useEffect(() => {
         Utilities.isLoggedIn().catch(error => console.error(error))
     }, [])
@@ -106,4 +106,4 @@ function profile() {
     )
 }
 
-export default profile
+export default Profile

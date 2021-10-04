@@ -3,9 +3,13 @@ import { React, useRef, useState } from "react";
 import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import styles from '../styles/Home.module.css'
-
+import {useEffect} from  "react"
+import * as Utilities from "../Utilities/utilities"
 
 function Step2() {
+  useEffect(() => {
+    Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
+}, [])
   var number = useRef('');
   const router = useRouter();
   if (typeof window != "undefined") {

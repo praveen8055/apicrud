@@ -14,7 +14,7 @@ import Notice from "./notice"
 import * as Utilities from '../Utilities/utilities'
 
 
-function community() {
+function Community() {
     const router= useRouter()
     const handleClick=()=>{
         router.push("/yourposts")
@@ -63,4 +63,4 @@ function community() {
         </div></div>)
 }
 
-export default community
+export default Community

@@ -14,7 +14,7 @@ import Modal from 'react-modal'
 import * as Utilities from '../Utilities/utilities'
 
 
-function contact() {
+function Contact() {
     const [modalopen, setmodalopen] = useState(false)
     useEffect(() => {
         Utilities.isLoggedIn().catch(error => console.error(error))
@@ -131,4 +131,4 @@ function contact() {
     )
 }
 
-export default contact
+export default Contact

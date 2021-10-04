@@ -12,7 +12,7 @@ import oopsImage from '../public/assets/oops.png'
 import * as Utilities from '../Utilities/utilities'
 
 
-function nocontact() {
+function Nocontact() {
     useEffect(() => {
         Utilities.isLoggedIn().catch(error => console.error(error))
     }, [])
@@ -74,7 +74,7 @@ function nocontact() {
                 <div>
                 <p className={styles.oops}>OOPS!</p>
                 <div className={styles.ad}>
-                <p>We couldnt find any society members with <p>"ad"</p></p>
+                <p>We couldnt find any society members with <p>&quot; ad &quot;</p></p>
                 <Image className={styles.oopsImage} src={oopsImage}/>
                 </div>
                 </div>
@@ -83,4 +83,4 @@ function nocontact() {
     )
 }
 
-export default nocontact
+export default Nocontact

@@ -6,7 +6,7 @@ import Paymenthistory from './paymenthistory'
 import * as Utilities from '../Utilities/utilities'
 
 
-function gasbill() {
+function Gasbill() {
   const router= useRouter()
   const clickpush=()=>{
     router.push("/gas")
@@ -102,4 +102,4 @@ function gasbill() {
     )
 }
 
-export default gasbill
+export default Gasbill

@@ -13,7 +13,7 @@ import {FaShare} from "react-icons/fa"
 import * as Utilities from '../Utilities/utilities'
 
 
-function yourposts() {
+function Yourposts() {
     useEffect(() => {
         Utilities.isLoggedIn().catch(error => console.error(error))
     }, [])
@@ -73,4 +73,4 @@ function yourposts() {
     )
 }
 
-export default yourposts
+export default Yourposts

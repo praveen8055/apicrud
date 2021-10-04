@@ -11,7 +11,7 @@ import { IoPersonSharp } from 'react-icons/io5'
 import { useRouter } from 'next/router'
 import * as Utilities from '../Utilities/utilities'
 
-function visitorentries() {
+function Visitorentries() {
     useEffect(() => {
         Utilities.isLoggedIn().catch(error => console.error(error))
     }, [])
@@ -47,7 +47,7 @@ function visitorentries() {
                 <button onClick={handleClick3} className={styles.personal}>Visitor Entries</button>
                 </div>
                 <div>
-                    <div className="flex flex row mt-5 ">
+                    <div className="flex lg:flex-row mt-5 flex-col ">
 
                    
                     <div className="p-3 bg-white rounded-2xl w-full flex flex-col max-w-xl mb-5 mr-5 ">
@@ -140,4 +140,4 @@ function visitorentries() {
     )
 }
 
-export default visitorentries
+export default Visitorentries

@@ -13,7 +13,7 @@ import tenniscourt from '../public/assets/tenniscourt.png'
 import { useRouter } from 'next/router'
 import * as Utilities from '../Utilities/utilities'
 
-function amenities() {
+function Amenities() {
     const router=useRouter()
 
     const handleClick=()=>{
@@ -154,4 +154,4 @@ function amenities() {
     )
 }
 
-export default amenities
+export default Amenities

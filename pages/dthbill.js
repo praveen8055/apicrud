@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import Paymenthistory from './paymenthistory'
 import * as Utilities from '../Utilities/utilities'
 
-function dthbill() {
+function Dthbill() {
     const router= useRouter()
     const clickpush=()=>{
         router.push("/dth")
@@ -52,4 +52,4 @@ function dthbill() {
     )
 }
 
-export default dthbill
+export default Dthbill

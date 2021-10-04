@@ -12,7 +12,7 @@ import * as Utilities from '../Utilities/utilities'
 
 
 
-function electricitybill() {
+function Electricitybill() {
     const router= useRouter()
     const handleClick4=()=>{
         window.location.reload()
@@ -156,4 +156,4 @@ function electricitybill() {
     )
 }
 
-export default electricitybill
+export default Electricitybill

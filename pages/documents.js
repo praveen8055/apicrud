@@ -10,7 +10,7 @@ import Modal from 'react-modal'
 import {GrClose} from 'react-icons/gr'
 import * as Utilities from '../Utilities/utilities'
 
-function documents() {
+function Documents() {
     const router=useRouter()
     const handleClick=()=>{
         router.push("/profile")
@@ -98,4 +98,4 @@ function documents() {
     )
 }
 
-export default documents
+export default Documents

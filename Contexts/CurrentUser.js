@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useReducer, useContext, createContext, useState, useEffect } from "react";
-import { callApi } from "../Utilities/LoginUtils";
+// import { callApi } from "../Utilities/LoginUtils";
 // const CurrentUserStateContext = createContext();
 // const CurrentUserDispatchContext = createContext();
 
@@ -38,33 +38,33 @@ import { callApi } from "../Utilities/LoginUtils";
 // export const useCurrentUser = () => useContext(CurrentUserStateContext);
 // export const useDispatchCurrentUser = () =>
 //   useContext(CurrentUserDispatchContext);
-const PageContext = createContext();
-const PageContextProvider = (props) => {
-  const [state, dispatch] = useState({
-    isAuthenticated: false
-  });
+// const PageContext = createContext();
+// const PageContextProvider = (props) => {
+//   const [state, dispatch] = useState({
+//     isAuthenticated: false
+//   });
 
-  useEffect(() => {
+//   useEffect(() => {
    
-    const fetchUser = async () => {
-      const user = await callApi("/users/me", "GET")
+//     const fetchUser = async () => {
+//       const user = await callApi("/users/me", "GET")
        
-      if (user.id) {
-        dispatch({ isAuthenticated: true });
+//       if (user.id) {
+//         dispatch({ isAuthenticated: true });
 
-      }
-    };
-    fetchUser();
-  }, []);
+//       }
+//     };
+//     fetchUser();
+//   }, []);
 
-  return (
-    <PageContext.Provider value={{
-      state: state,
-      dispatch
-    }}>
-      {props.children}
-    </PageContext.Provider>
-  );
-}
-const UserContext = () => useContext(PageContext)
-module.exports = { PageContext, PageContextProvider, UserContext }
+//   return (
+//     <PageContext.Provider value={{
+//       state: state,
+//       dispatch
+//     }}>
+//       {props.children}
+//     </PageContext.Provider>
+//   );
+// }
+// const UserContext = () => useContext(PageContext)
+// module.exports = { PageContext, PageContextProvider, UserContext }

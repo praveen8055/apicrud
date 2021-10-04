@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import filter from '../public/assets/Filter (1).png'
 import calender from '../public/Assets/Group 86.png'
 import notice from '../public/Assets/Notice Board.png'
@@ -9,7 +9,7 @@ import success from "../public/assets/Sucess.png"
 import paymenthistory1 from '../public/assets/paymenthistory.png'
 import * as Utilities from '../Utilities/utilities'
 
-function paymenthistory() {
+function Paymenthistory() {
     useEffect(() => {
         Utilities.isLoggedIn().catch(error => console.error(error))
     }, [])
@@ -66,4 +66,4 @@ function paymenthistory() {
     )
 }
 
-export default paymenthistory
+export default Paymenthistory
