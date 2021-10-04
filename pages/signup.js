@@ -1,5 +1,5 @@
 import { React, useState, useRef } from "react";
-import { callApi } from "../Utilities/LoginUtils";
+// import { callApi } from "../Utilities/LoginUtils";
 import styles from '../styles/Home.module.css'
 import { CircularProgress } from "@material-ui/core";
 // import {
@@ -48,13 +48,13 @@ function Signup() {
             residentType: resident === "rented" ? 0 : 1,
           }
         );
-        const response = await callApi("/auth/local", "POST", {
+        const response = await axios.post("/auth/local", {
           identifier: email,
           password: password,
         });
         dispatch({ type: "LOGIN", user: response.user });
         setIsFetching(false);
-        router.replace("/dummyconfirmation");
+        router.replace("/login");
       } catch (err) {
         setError(err);
         setIsFetching(false);

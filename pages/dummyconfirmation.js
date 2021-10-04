@@ -1,10 +1,10 @@
 import React from 'react'
-import { UserContext } from "../Contexts/CurrentUser";
+// import { UserContext } from "../Contexts/CurrentUser";
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
 function Dummyconfirmation() {
-  const { state, dispatch } = UserContext()
+  // const { state, dispatch } = UserContext()
   const router = useRouter();
   // const dispatch = useDispatchCurrentUser();
   // const logoutHandler = async () => {

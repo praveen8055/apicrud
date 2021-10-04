@@ -8,6 +8,7 @@ import styles from '../styles/Home.module.css'
 import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import Cookies from 'js-cookie'
+import * as Utilities from "../Utilities/utilities"
 
 // import {
 //   useDispatchCurrentUser,
@@ -18,6 +19,9 @@ import { useRouter } from 'next/router'
 import axios from "axios";
 
 function Login() {
+  useEffect(() => {
+    Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
+}, [])
   const router = useRouter();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -98,7 +102,7 @@ function Login() {
           if (res) {
             window.localStorage.setItem('token', jwt)
           }
-          router.push("/dashboard")
+          window.location.href="/dashboard"
         }).catch(err => {
           console.log(err)
         })
@@ -285,7 +289,7 @@ function Login() {
             />
             <FacebookLogin
               appId="434384707135599"
-              autoLoad={true}
+              autoLoad={false}
               fields="name,email,picture"
               onClick={componentClicked}
               callback={responseFacebook}

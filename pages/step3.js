@@ -1,4 +1,4 @@
-import { React, useRef, useState } from "react";
+import { React, useRef, useState, useEffect } from "react";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -6,8 +6,12 @@ import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import styles from '../styles/Home.module.css'
 import {useRouter} from 'next/router'
+import * as Utilities from "../Utilities/utilities"
 
 function Step3() {
+  useEffect(() => {
+    Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
+}, [])
   const router = useRouter();
   const [passwordValues, setPasswordValues] = useState({
     password: "",

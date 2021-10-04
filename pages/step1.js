@@ -1,13 +1,19 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import HintModal from "./hintmodal";
 import IssueModal from "./issuemodal";
-import  {callApi}  from "../Utilities/LoginUtils";
+// import  {callApi}  from "../Utilities/LoginUtils";
 import styles from '../styles/Home.module.css';
 import { CircularProgress } from "@material-ui/core";
 import { useRouter } from "next/router";
+import axios from "axios"
+import * as Utilities from "../Utilities/utilities"
+
 function Step1() {
+  useEffect(() => {
+    Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
+}, [])
   const router = useRouter();
   const [value, setValue] = useState();
   const [hintModalIsOpen, setHintModalIsOpen] = useState(false);
@@ -29,7 +35,7 @@ function Step1() {
       return;
     }
     try {
-      const response = await callApi("/verifications", "POST", {
+      const response = await axios.post("/verifications", {
         phoneNumber: newValue,
       });
       localStorage.setItem("phoneNumber", newValue);
