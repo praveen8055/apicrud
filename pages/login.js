@@ -9,6 +9,7 @@ import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import Cookies from 'js-cookie'
 import * as Utilities from "../Utilities/utilities"
+import Link from 'next/link'
 
 // import {
 //   useDispatchCurrentUser,
@@ -21,7 +22,7 @@ import axios from "axios";
 function Login() {
   useEffect(() => {
     Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
-}, [])
+  }, [])
   const router = useRouter();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -102,7 +103,7 @@ function Login() {
           if (res) {
             window.localStorage.setItem('token', jwt)
           }
-          window.location.href="/dashboard"
+          window.location.href = "/dashboard"
         }).catch(err => {
           console.log(err)
         })
@@ -272,34 +273,21 @@ function Login() {
               LOGIN
             </button>
             <p className="mb-6 text-sm">OR</p>
-            <GoogleLogin
-              clientId="607217644055-uoigtq2aubta88elvhu3n2mkae8tboea.apps.googleusercontent.com"
-              render={renderProps => (
-                <button onClick={renderProps.onClick} disabled={renderProps.disabled}
-                  className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-8"
-                >
-                  <img className="mr-2 w-4 h-4" src='/assets/googleImage.png' />
-                  <p className="text-xs font-medium pl-2">CONTINUE WITH GOOGLE</p>
-                </button>
-              )}
-              buttonText="Continue with google"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-            // cookiePolicy={"single-host-origin"}
-            />
-            <FacebookLogin
-              appId="434384707135599"
-              autoLoad={false}
-              fields="name,email,picture"
-              onClick={componentClicked}
-              callback={responseFacebook}
-              render={renderProps => (
-                <button onClick={renderProps.onClick} className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700">
-                  <img src='/assets/fbimage.png' className={styles.fbicon} />
-                  <p className="text-xs font-medium pl-2 ">CONTINUE WITH FACEBOOK</p>
-                </button>
-              )} />
+            <Link href={`${process.env.SERVER_URL}/connect/google`} >
+              <button
+                className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-8"
+              >
+                <img className="mr-2 w-4 h-4" src='/assets/googleImage.png' />
+                <p className="text-xs font-medium pl-2">CONTINUE WITH GOOGLE</p>
+              </button>
+            </Link>
           </div>
+          <Link href={`${process.env.SERVER_URL}/connect/facebook`}>
+            <button className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700">
+              <img src='/assets/fbimage.png' className={styles.fbicon} />
+              <p className="text-xs font-medium pl-2 ">CONTINUE WITH FACEBOOK</p>
+            </button>
+          </Link>
         </div>
       </div>
     </>
