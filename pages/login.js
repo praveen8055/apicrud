@@ -248,7 +248,7 @@ function Login() {
               LOGIN
             </button>
             <p className="mb-6 text-sm">OR</p>
-            <a href={`http://appearz.outshade.com:1337/connect/google`} >
+            <a href="http://appearz.outshade.com:1337/connect/google" >
               <button
                 className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-8"
               >
@@ -257,7 +257,7 @@ function Login() {
               </button>
             </a>
           </div>
-          <a href={`http://appearz.outshade.com:1337/connect/facebook`}>
+          <a href="http://appearz.outshade.com:1337/connect/facebook">
             <button className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700">
               <img src='/assets/fbimage.png' className={styles.fbicon} />
               <p className="text-xs font-medium pl-2 ">CONTINUE WITH FACEBOOK</p>
