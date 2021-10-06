@@ -127,7 +127,7 @@ function Requests() {
                             <p className="ml-3 text-xs text-gray-900 ">Flipkart</p>
                         </div>
                     </div>
-                    <p className="text-gray-900 font-bolder mt-5 mt-8 ml-5">Food (2)</p>
+                    <p className="text-gray-900 font-bolder mt-8 ml-5">Food (2)</p>
                     <div className="flex flex-row ">
                         <div className="flex flex-col h-20 w-16 ml-3 mr-8 mt-3">
                             <img src="/assets/zomato.png" />

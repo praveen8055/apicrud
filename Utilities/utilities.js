@@ -42,9 +42,9 @@ export const isLoggedIn = async () => {
 
 export const isAlreadyLoggedIn = async () => {
     try {
-        // console.log("INITIATING VERIFICATION ..")
+        console.log("INITIATING TEST ..")
         let value = localStorage.getItem('token') // getting Auth Token
-        // console.log("VERIFICATION INITIATED")
+        console.log("TEST INITIATED")
         if (value) {
             // console.log("YOU'RE NOT VERIFIED")
             console.log("REQUESTING THE BACKEND TO VERIFY")
