@@ -11,9 +11,9 @@ import axios from "axios"
 import * as Utilities from "../Utilities/utilities"
 
 function Step1() {
-  useEffect(() => {
-    Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
-}, [])
+//   useEffect(() => {
+//     Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
+// }, [])
   const router = useRouter();
   const [value, setValue] = useState();
   const [hintModalIsOpen, setHintModalIsOpen] = useState(false);
@@ -148,3 +148,4 @@ function Step1() {
 
 
 export default Step1
+

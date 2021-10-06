@@ -53,12 +53,12 @@ function Gas() {
         <div>
 
           <p className={styles.state}>Gas Provider:</p>
-          <input type="text"  className={styles.stateInput} name="state" />
+          <input type="text"  className={`pl-2 ${styles.stateInput}`} name="state" />
         </div>
 
         <div>
           <p className={styles.state1}>Consumer Number:</p>
-          <input type="text" className={styles.stateInput1} name="state" />
+          <input type="text" className={`pl-2 ${styles.stateInput1}`} name="state" />
         </div>
         <button onClick={handleClick} className={styles.next}><p className={styles.btntext}>NEXT</p></button>
       </div>

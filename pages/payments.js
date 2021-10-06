@@ -35,20 +35,7 @@ function Payments() {
     const clickpush=()=>{
         router.push("/dashboard")
     }
-    useEffect(()=>{
-    let token=localStorage.getItem('token');
-    console.log("token")
-    if(token){
-        axios.post(`${process.env.SERVER_URL}/users/me`, {token:token})
-        .then(res=>{
-            console.log(res)
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-    }else{history.push('/login')}
-}, [])
-
+   
 
     return (
         <div>

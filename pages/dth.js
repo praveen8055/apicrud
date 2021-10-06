@@ -29,18 +29,18 @@ function Dth() {
                 <div>
                
                     <p className={styles.state20}>Cable Operator:</p>
-                    <input type="text" className={styles.stateInput10} name="state"/>
+                    <input type="text" className={`pl-2 ${styles.stateInput10}`} name="state"/>
                 </div>
 
                 <div>
                     <p className={styles.state10}>Customer ID:</p>
-                    <input type="text" className={styles.stateInput20} name="state"/>
+                    <input type="text" className={`pl-2 ${styles.stateInput20}`} name="state"/>
                 </div>
 
                 <div>
                
                <p className={styles.state40}>Amount:</p>
-               <input type="text" className={styles.stateInput2} name="state"/>
+               <input type="text" className={`pl-2 ${styles.stateInput2}`} name="state"/>
            </div>
                <p className={styles.samplebill1}>Click to view plans</p>
                <button onClick={handleClick} className={styles.next2}><p className={styles.btntext}>PROCEED</p></button>
