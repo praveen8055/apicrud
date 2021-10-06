@@ -69,14 +69,18 @@ function Documents() {
                         </div>
                     </div></div>
         </div>
-        <Modal isOpen={modalopen}
+        
+        <Modal className="flex justify-center items-center h-full w-full" isOpen={modalopen}
          onRequestClose={()=>setmodalopen(false)}
-         className={styles.modal1}
+        //  className={styles.modal1}
          style={
              { 
                  content:{
-                     backgroundColor:"white",
-                     outline:"none"
+                    //  backgroundColor:"white",
+                     outline:"none",
+                    //  margin:"auto",
+                    // marginTop:"15rem"
+                    backgroundColor: "rgb(0 0 0 / 50%)"
                  },
                  overlay:{
                      backgroundColor: "rgb(0 0 0 / 75%)"
@@ -85,14 +89,21 @@ function Documents() {
                 
                 
              }
-         }>
-                <button className={styles.close} onClick={handleClick4}>< GrClose/></button>
-               <p className="not-italic  mt-8 ml-12 mr-12 pl-10 pr-10 font-normal text-sm leading-4 text-center text-gray-900">Request for NOC has been submitted. You will be updated via sms on this registered mobile number as shown below assigned with us</p>
-               <p className="text-sm mt-5 text-center ">+91 ***** **989</p>
-               <button className={styles.cancel}><p className={styles.btntext1}>Cancel</p></button>
-               <button className={styles.done}><p className={styles.btntext}>Done</p></button>
-                <div>
-                </div>
+         }>     <div  onRequestClose={()=>setmodalopen(false)} className="p-3 bg-white rounded-2xl w-full flex flex-col justify-between mr-5 lg:mb-0 " style={{ maxWidth: '35rem', minHeight: '15rem', maxHeight: "20rem" }}>
+               <div>
+               <p className="not-italic mt-5 ml-12 mr-12 pl-10 pr-10 font-normal text-sm leading-4 text-center text-gray-900">Request for NOC has been submitted. You will be updated via sms on this registered mobile number as shown below assigned with us</p>
+               <p className="text-center mt-5">+91 ***** **989</p>
+               <div className="flex flex-row items-center justify-center mt-8">
+                            <button className="border-indigo-500 border bg-white w-full flex items-center mr-5 justify-center rounded-full py-3 ">
+                                <p className="text-indigo-500 uppercase"> Cancel</p>
+                            </button>
+                            <button className="border-indigo-500 border bg-indigo-500 w-full flex items-center justify-center rounded-full py-3">
+                                <p className="text-white uppercase">Done</p>
+                            </button>
+                        </div></div>
+                 </div>
+                   
+                
             </Modal>
         </div>
     )

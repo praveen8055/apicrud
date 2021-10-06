@@ -9,6 +9,7 @@ import cookie from 'react'
 import { NextPageContext } from 'next'
 import Popup from './popup'
 import Modal from 'react-modal'
+import Link from "next/link"
 
 
 const styles = {}
@@ -32,9 +33,23 @@ function Dashboard() {
                 console.log(err)
             })
     }
-    const handleClick = () => {
-        window.location.reload()
+    const getUserDetails= async()=>{
+    let token=localStorage.getItem("token")
+    console.log(token)
+  await axios.post(`${process.env.SERVER_URL}/users/me`, {headers: {authorization: `bearer ${token}`}})
+            .then(res=>{
+                console.log(res)
+            }).catch(err=>{
+                console.log(err)
+            })
     }
+    useEffect(()=>{
+        getUserDetails()
+        .catch(err=>{
+            console.log(err)
+        })
+    }, [])
+   
     useEffect(() => {
         Utilities.isLoggedIn().catch(error => console.error(error))
     }, [])
@@ -43,7 +58,7 @@ function Dashboard() {
         <div>
             <Navbar styles={{ marginLeft: "20px" }} />
             <Notice />
-            <div className="mt-10 md:ml-40 max-w-5xl w-full md:px-0 px-10">
+            <div className=" md:ml-40 max-w-5xl w-full md:px-0 px-10">
                 <div className="flex flex-col mb-8">
                     <div className="flex flex-row items-center">
                         <p className="text-2xl text-indigo-900 font-light">Welcome Back,</p>
@@ -117,12 +132,13 @@ function Dashboard() {
                         <p className="text-xl text-indigo-900">Quick Actions</p>
                     </div>
                     <div className="flex flex-row flex-wrap">
-                        <div className="flex flex-row items-center w-full max-w-xs mr-5 mt-10">
+                        <Link href="/payments">
+                        <div className="flex flex-row cursor-pointer items-center w-full max-w-xs mr-5 mt-10">
                             <div className="h-10 w-10">
                                 <img src="/assets/PayBills.png" alt="" />
                             </div>
                             <p className="ml-2 text-gray-500 font-light">Pay Bills</p>
-                        </div>
+                        </div></Link>
                         <div className="flex flex-row items-center w-full max-w-xs mr-5 mt-10">
                             <div className="h-10 w-10">
                                 <img src="/assets/Security.png" alt="" />

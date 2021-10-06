@@ -7,7 +7,11 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      divideColor: ['group-hover'],
+    }
   },
   plugins: [],
+  
 }
+
