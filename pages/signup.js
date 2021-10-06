@@ -37,7 +37,7 @@ function Signup() {
       return;
     } else {
       try {
-        await axios.post(
+        let res = await axios.post(
           `${process.env.SERVER_URL}/auth/local/register`,
           {
             username: usernameRef.current.value,
@@ -48,13 +48,14 @@ function Signup() {
             residentType: resident === "rented" ? 0 : 1,
           }
         );
-        const response = await axios.post("/auth/local", {
-          identifier: email,
-          password: password,
-        });
-        dispatch({ type: "LOGIN", user: response.user });
-        setIsFetching(false);
-        router.replace("/login");
+        if (res && res.status == 200) {
+          router.replace("/login");
+          return
+        }
+        // const response = await axios.post(`${process.env.SERVER_URL}/auth/local`, {
+        //   identifier: email,
+        //   password: password,
+        // });
       } catch (err) {
         setError(err);
         setIsFetching(false);

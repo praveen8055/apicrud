@@ -35,7 +35,7 @@ function Step1() {
       return;
     }
     try {
-      const response = await axios.post("/verifications", {
+      const response = await axios.post(`${process.env.SERVER_URL}/verifications`, {
         phoneNumber: newValue,
       });
       localStorage.setItem("phoneNumber", newValue);
