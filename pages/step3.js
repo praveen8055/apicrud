@@ -100,7 +100,7 @@ function Step3() {
         return
       }
       setIsEmailUnique(false)
-      errorMessage.current = res.data && res.data.msg
+      errorMessage.current = res.data.msg
 
     } catch (error) {
       console.error(error)
