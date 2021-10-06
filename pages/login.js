@@ -20,9 +20,9 @@ import { useRouter } from 'next/router'
 import axios from "axios";
 
 function Login() {
-  useEffect(() => {
-    Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
-  }, [])
+  // useEffect(() => {
+  //   Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
+  // }, [])
   const router = useRouter();
   const emailRef = useRef();
   const passwordRef = useRef();

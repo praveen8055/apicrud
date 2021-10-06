@@ -17,6 +17,13 @@ import * as Utilities from '../Utilities/utilities'
 
 
 function Navbar() {
+    const logout=()=>{
+        let token=localStorage.getItem("token")
+        console.log(token)
+        localStorage.removeItem("token")
+        router.push("/login")
+    }
+    
     const handleClick=()=>{
         router.push("/profile")
     }
@@ -190,7 +197,7 @@ function Navbar() {
                     <p className="text-xs text-gray-400 mr-16">Privacy Policy</p>
                     <p className="text-xs text-gray-400">Terms of Service</p>
                 </div> 
-                <button className="border-indigo-500 border bg-white w-full mt-5 flex items-center justify-center rounded-full py-2 ml-1 mb-5 pr-4">
+                <button onClick={logout} className="border-indigo-500 border bg-white w-full mt-5 flex items-center justify-center rounded-full py-2 ml-1 mb-5 pr-4">
                                 <p className="text-indigo-500 uppercase">Log Out</p>
                             </button>
             </div>}

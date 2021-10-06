@@ -54,6 +54,14 @@ function Dashboard() {
         Utilities.isLoggedIn().catch(error => console.error(error))
     }, [])
 
+    const logout=()=>{
+        let token=localStorage.getItem("token")
+        console.log(token)
+        localStorage.removeItem("token")
+        router.push("/login")
+    }
+
+
     return (
         <div>
             <Navbar styles={{ marginLeft: "20px" }} />
