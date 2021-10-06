@@ -71,28 +71,6 @@ function Login() {
 
   const submitLoginFormHandler = async (e) => {
     e.preventDefault();
-    //   const re =
-    //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    //   console.log("email", emailValue);
-    //   console.log("password", values.password);
-
-    //   setErrorMessage(null);
-    //   try {
-    //     if (!re.test(emailValue)) throw "Email not valid";
-    //     const response = await callApi("/auth/local", "POST", {
-    //       identifier: emailValue,
-    //       password: values.password,
-    //     });
-    //     if (!response.user) {
-    //       throw "We could not find an account linked with this account";
-    //     }
-    //     console.log(response);
-    //     dispatch({ type: "LOGIN", user: response.user });
-    //     router.replace("/dummyconfirmation");
-    //   } catch (error) {
-    //     console.log(error);
-    //     setErrorMessage(JSON.stringify(error));
-    //   }
     await
       axios.post(`${process.env.SERVER_URL}/auth/local`, { identifier: emailValue, password: values.password })
         .then(res => {
@@ -134,10 +112,7 @@ function Login() {
     setImage3(ellipse4);
     setImage4(rectangle17);
   };
-  // const logoutHandler = async () => {
-  //   await callApi("/logout", "POST");
-  //   dispatch({ type: "LOGOUT" });
-  // };
+
 
   const loginWithGoogleHandler = () => {
     window.location = "http://localhost:1337/connect/google";
@@ -273,21 +248,21 @@ function Login() {
               LOGIN
             </button>
             <p className="mb-6 text-sm">OR</p>
-            <Link href={`${process.env.SERVER_URL}/connect/google`} >
+            <a href="http://appearz.outshade.com:1337/connect/google" >
               <button
                 className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700 mb-8"
               >
                 <img className="mr-2 w-4 h-4" src='/assets/googleImage.png' />
                 <p className="text-xs font-medium pl-2">CONTINUE WITH GOOGLE</p>
               </button>
-            </Link>
+            </a>
           </div>
-          <Link href={`${process.env.SERVER_URL}/connect/facebook`}>
+          <a href="http://appearz.outshade.com:1337/connect/facebook">
             <button className="flex items-center justify-center w-64 h-8 rounded-3xl border border-blue-700 text-blue-700">
               <img src='/assets/fbimage.png' className={styles.fbicon} />
               <p className="text-xs font-medium pl-2 ">CONTINUE WITH FACEBOOK</p>
             </button>
-          </Link>
+          </a>
         </div>
       </div>
     </>
@@ -297,3 +272,4 @@ function Login() {
 
 
 export default Login
+

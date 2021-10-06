@@ -141,19 +141,8 @@ border-radius: 16px;
 }
 
 .navbar {
-  position: fixed;
   display: block;
-  height: 100%;
-  width: 120px;
-  left: 0px;
-  top: 0px;
-  margin-right: 50px;
-  border-radius: 0px;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-  background: #1d1e5e;
+ 
 }
 .nav {
   justify-content: center;
@@ -3218,7 +3207,7 @@ background: #FFFFFF;
 border-radius: 8px;
 }
 .modal1{
-  position: absolute;
+  /* position: absolute; */
 width: 600px;
 height: 272px;
 left: 520px;
@@ -3394,6 +3383,7 @@ top: 598px;
 background: #FFFFFF;
 border-radius: 16px;
 }
+
 .movie{
   position: absolute;
 width: 200px;
@@ -4007,6 +3997,36 @@ margin: 30px 20px;
 left: 20px;
 top: 115px;
 }
+.radiobtns{
+  justify-content: space-between;
+  display: inline-flex;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  background-color:  #F8F8FF;
+}
+.radio_input{
+  display: none;
+}
+.radio_label{
+  width: 177px;
+  height: 40px;
+  /* margin: 10px; */
+  font-size: 14px;
+  padding-top:15px;
+ display: flex;
+ justify-content: center;
+  cursor: pointer;
+  color: gray;
+  background-color:  #F8F8FF;
+  border-radius: 10px;
+}
+.radio_input:checked{
+  background: #5D5FEF;
+  color: #1D1E5E;
+}
+
 
 
 
@@ -4143,18 +4163,9 @@ top: 115px;
   }
   
   .navbar {
-    position: fixed;
+   
     display: block;
-    height: 100%;
-    width: 120px;
-    left: 0px;
-    top: 0px;
-    border-radius: 0px;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    background: #1d1e5e;
+   
   }
   .nav {
     justify-content: center;
@@ -4208,8 +4219,42 @@ top: 115px;
     height: 64px;
     width: 120px;
   }
+  .anchor12{
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    padding: 8px;
+    text-align: center;
+    letter-spacing: 0.0016px;
   
+    /* BG purple */
+    cursor: pointer;
+    color: #f6f6f8;
+    margin-top: 20px;
+    background-color: #1d1e5e;
+    height: 64px;
+    width: 120px;
+      
+  }
   .anchor:hover {
+    background-color: white;
+    height: 64px;
+    width: 120px;
+    color: #1d1e5e;
+    font-family: Lexend;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.002px;
+  cursor: pointer;
+    /* Main dark blue */
+  }
+  .anchor12:hover {
     background-color: white;
     height: 64px;
     width: 120px;
@@ -4243,6 +4288,7 @@ top: 115px;
     margin-top: 5px;
     border-radius: 0px;
   }
+  
   
   .searchbar {
     display: flex;
@@ -7184,7 +7230,7 @@ background: #FFFFFF;
 border-radius: 8px;
 }
 .modal1{
-  position: absolute;
+  /* position: absolute; */
 width: 600px;
 height: 272px;
 left: 520px;
