@@ -5,13 +5,14 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import styles from '../styles/Home.module.css'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import * as Utilities from "../Utilities/utilities"
+import axios from 'axios'
 
 function Step3() {
   useEffect(() => {
     Utilities.isAlreadyLoggedIn().catch(error => console.error(error))
-}, [])
+  }, [])
   const router = useRouter();
   const [passwordValues, setPasswordValues] = useState({
     password: "",
@@ -20,6 +21,7 @@ function Step3() {
   const [check1, setCheck1] = useState(false);
   const [check2, setCheck2] = useState(false);
   const [error, setError] = useState(null);
+  const [isEmailUnique, setIsEmailUnique] = useState(true)
 
   const [confirmPasswordValues, setConfirmPasswordValues] = useState({
     confirmPassword: "",
@@ -28,6 +30,7 @@ function Step3() {
   const confirmPasswordRef = useRef();
   const passwordRef = useRef();
   const emailRef = useRef();
+  const errorMessage = useRef()
 
   const handleClickShowPassword = () => {
     setPasswordValues({
@@ -77,24 +80,40 @@ function Step3() {
     });
   };
 
-  const handleFormInput = (e) => {
+  const handleFormInput = async (e) => {
     e.preventDefault();
+
     if (passwordValues.password !== confirmPasswordValues.confirmPassword) {
       setError("Passwords do not match!");
       return;
     }
-    localStorage.setItem("email", emailRef.current.value);
-    localStorage.setItem("password", passwordValues.password);
-    router.replace("/signup");
+    try {
+      let res = await axios.post(`${process.env.SERVER_URL}/check-email`, {
+        email: emailRef.current.value
+      });
+      console.log("IAM WORKING")
+      if (res && res.status == 200 && res.data && res.data.unique_email) {
+        setIsEmailUnique(res.data.unique_email)
+        localStorage.setItem("email", emailRef.current.value);
+        localStorage.setItem("password", passwordValues.password);
+        router.replace("/signup");
+        return
+      }
+      setIsEmailUnique(false)
+      errorMessage.current = res.data.msg
+
+    } catch (error) {
+      console.error(error)
+    }
   };
 
   return (
     <div className="flex flex-col">
       <div className="mb-10 ml-4 flex">
-      <div className={` ${styles.logoName}`}>
+        <div className={` ${styles.logoName}`}>
           <img src='/assets/logoApperaz.png' className={styles.logoImage} />
-        <p className={styles.logoName1}>APPREAZ</p>
-      </div>
+          <p className={styles.logoName1}>APPREAZ</p>
+        </div>
       </div>
       <div className="flex justify-center">
         <div
@@ -123,21 +142,25 @@ function Step3() {
               className="flex flex-col items-start"
               onSubmit={handleFormInput}
             >
-              <label
-                className="text-xs mb-2"
-                htmlFor="email"
-                style={{ color: "#515151" }}
-              >
-                Email ID:
-              </label>
-              <input
-                type="email"
-                ref={emailRef}
-                className="w-80 h-8 rounded-md pl-2 text-xs mb-10 outline-none"
-                name="email"
-                id="email"
-                required
-              ></input>
+              <div className="mb-10 flex flex-col">
+                <label
+                  className="text-xs mb-2"
+                  htmlFor="email"
+                  style={{ color: "#515151" }}
+                >
+                  Email ID:
+                </label>
+                <input
+                  type="email"
+                  ref={emailRef}
+                  className="w-80 h-8 rounded-md pl-2 text-xs outline-none"
+                  name="email"
+                  id="email"
+                  required
+                ></input>
+                {!isEmailUnique && <p className="text-xs text-red-500 font-sans mt-2">{`* ${errorMessage.current}`}</p>}
+
+              </div>
               <label
                 className="text-xs mb-2"
                 htmlFor="new-password"
