@@ -27,7 +27,7 @@ function Requests() {
     return (
         <div>
             <Navbar />
-            <div className="mt-10 md:ml-40 max-w-5xl w-full md:px-0 px-10">
+            <div className="md:ml-40 max-w-5xl w-full md:px-0 px-10">
                 <div className="flex flex-col mb-8">
                     <div className="flex flex-row items-center">
                         <p className="text-2xl text-indigo-900 font-bold ml-4">Requests</p>
@@ -202,8 +202,10 @@ function Requests() {
 
                     }
                 }>     <div onRequestClose={() => setmodalopen2(false)} className="p-3 bg-white rounded-2xl w-full flex flex-col justify-between mr-5 lg:mb-0 " style={{ maxWidth: '35rem', maxHeight: "35rem" }}>
-                    <div style={{ borderBottom: "1px solid gray" }} className="flex mt-3 ml-3 mb-5 ">
-                        <p className="font-bolder mb-3">Pre-approve Guests</p>
+                    <div style={{ borderBottom: "1px solid gray" }} className="flex  ml-3 mb-5 justify-between">
+                        <p className="font-bolder mb-3 mt-2">Pre-approve Guests</p>
+                        <div className="h-6 w-6 mt-2 cursor-pointer">
+                        <img onClick={()=>setmodalopen2(false)} src="/assets/close.png"/></div>
                     </div>
                     <div className="mr-5">
                     <input className="w-full h-12 bg-gray-100 ml-2 outline-none pl-3 rounded-md" type="text" placeholder="Guest Name" /></div>

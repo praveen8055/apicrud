@@ -236,7 +236,7 @@ function Login() {
             />
           </div>
           <div className="flex items-center justify-between w-5/12">
-            <p className="text-xs mb-8">Forgot Password</p>
+            <p className="text-xs mb-8 ml-4">Forgot Password</p>
             {/* <p>error Message</p> */}
           </div>
 
