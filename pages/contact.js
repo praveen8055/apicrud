@@ -92,7 +92,7 @@ function Contact() {
     const getContacts = async () => {
         try {
             const token = localStorage.getItem('token');
-            let res = await axios.get(`http://localhost:1337/contacts`, {
+            let res = await axios.get(`${process.env.SERVER_URL}/contacts`, {
                 headers: {
                     authorization: `bearer ${token}`
                 }
@@ -116,7 +116,7 @@ function Contact() {
         } else {
             try {
                 const token = localStorage.getItem('token');
-                let res = await axios.get(`http://localhost:1337/contacts/type/${filter}`, {
+                let res = await axios.get(`${process.env.SERVER_URL}/contacts/type/${filter}`, {
                     headers: {
                         authorization: `bearer ${token}`
                     }
